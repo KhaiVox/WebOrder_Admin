@@ -1,0 +1,62 @@
+<sidebar class='sidebar'>
+    <ul class='nav-list'>
+        <li class='nav-heading'>
+            <a href='/'><img class='logo-img' src='./img/logo.png' alt='' /></a>
+            <span class='nav-icon-heading' onclick='handleToggleSidebar()'>
+                <ion-icon class='nav-icon-left' name='chevron-back-circle-outline'></ion-icon>
+                <ion-icon class='nav-icon-right hidden' name='chevron-forward-circle-outline'></ion-icon>
+            </span>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/'>
+                <span class='nav-icon'><ion-icon name='receipt-outline'></ion-icon></span>
+                <span class='nav-title'>Bán tại quầy</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/foods'>
+                <span class='nav-icon'><ion-icon name='fast-food-outline'></ion-icon></span>
+                <span class='nav-title'>Sản phẩm</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/orders'>
+                <span class='nav-icon'><ion-icon name='albums-outline'></ion-icon></span>
+                <span class='nav-title'>Đơn hàng</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/user/login'>
+                <span class='nav-icon'><ion-icon name='book-outline'></ion-icon></span>
+                <span class='nav-title'>Lịch sử đơn đặt</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/'>
+                <span class='nav-icon'><ion-icon name='bar-chart-outline'></ion-icon></span>
+                <span class='nav-title'>Doanh thu</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/customer'>
+                <span class='nav-icon'><ion-icon name='settings-outline'></ion-icon></span>
+                <span class='nav-title'>Khách hàng</span>
+            </a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-item-link' href='/signout'>
+                <span class='nav-icon'><ion-icon name='log-out-outline'></ion-icon></span>
+                <span class='nav-title'>Đăng xuất</span>
+            </a>
+        </li>
+    </ul>
+    <div class='copyright'>
+        <h2>Designed by KhaiVox</h2>
+    </div>
+</sidebar>
+
+{{! lưu lại index của item được active để khi nhấn sang trang khác vẫn được giữ màu }}
+<script>
+    let prev = document.querySelectorAll('.nav-item'); if (localStorage.getItem('handleMode') === 'true') { prev[{{index}}].classList.add("active-mode-color");
+    }else { prev[{{index}}].classList.add("active"); }
+</script>

@@ -1,0 +1,164 @@
+@import 'variables';
+// Sidebar
+.container-left {
+    position: relative;
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+    transition: 0.8s;
+    background-color: $primary;
+}
+
+.sidebar.active {
+    width: 73px;
+}
+
+.nav-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.nav-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo-img {
+    width: 200px;
+    height: 80px;
+    margin-left: -2px;
+    object-fit: cover;
+}
+
+.nav-item {
+    position: relative;
+    width: 100%;
+    font-size: 1.8rem;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item:hover.active-mode-color,
+.nav-item.active,
+.nav-item.active-mode-color {
+    background-color: $white;
+}
+
+// màu các nav-item khi ở chế độ mặc định
+.nav-item:hover .nav-item-link,
+.nav-item.active .nav-item-link {
+    color: $primary;
+}
+
+// sau khi active chế độ tối sẽ hover thành màu khác
+.active-item.nav-item:hover .nav-item-link,
+.active-mode-color.nav-item .nav-item-link {
+    color: $dark;
+}
+
+.nav-item-link {
+    color: $white;
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 26px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    ion-icon {
+        font-size: 2.4rem;
+    }
+}
+
+.nav-icon-heading {
+    cursor: pointer;
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 2px;
+    ion-icon {
+        font-size: 2.8rem;
+        color: $white;
+    }
+}
+
+.nav-title {
+    position: relative;
+    display: block;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+}
+
+// Border nav-item khi active
+.nav-item:hover .nav-item-link::before,
+.active-item.nav-item:hover .nav-item-link::before,
+.nav-item.active .nav-item-link::before,
+.nav-item.active-mode-color .nav-item-link::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 35px 35px 0 10px $white;
+    pointer-events: none;
+}
+
+.nav-item:hover .nav-item-link::after,
+.active-item.nav-item:hover .nav-item-link::after,
+.nav-item.active .nav-item-link::after,
+.nav-item.active-mode-color .nav-item-link::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 35px -35px 0 10px $white;
+    pointer-events: none;
+}
+
+// Copyright
+.copyright {
+    position: absolute;
+    bottom: 22px;
+    left: 32px;
+    pointer-events: none;
+    width: 265px;
+    display: none;
+    h2 {
+        color: rgba(0, 0, 0, 0.799);
+        font-size: 1.6rem;
+    }
+}

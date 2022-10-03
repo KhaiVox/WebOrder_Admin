@@ -1,0 +1,71 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    {{! <div data-aos='zoom-in-left'>   }}
+    <div class='form-wrap'>
+        {{! Header }}
+        <div class='form-header'>
+            <h1>Danh Sách Khách Hàng</h1>
+        </div>
+
+        {{! Form Option }}
+        <div class='form-action'>
+            <div class='form-selected'>
+                <h4 class='notify-checked'></h4>
+                <select hidden class='form-select-option'>
+                    <option value=''>Chọn thao tác</option>
+                    <option value=''>Xóa khách hàng</option>
+                    <option value=''>Cập nhật thông tin</option>
+                </select>
+            </div>
+            <div class='search'>
+                <label for=''>
+                    <input class='search-input' type='text' placeholder='Tìm kiếm theo tên, sđt khách hàng' />
+                    <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
+                    <div class='line'></div>
+                    <span class='search-btn'>
+                        <ion-icon class='search-icon' name='search-outline'></ion-icon>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        {{! List Order }}
+        <div class='form-detail'>
+            <div class='form-heading'>
+                <ul class='row list-heading'>
+                    <li class='col-lg-1 list-item-heading'></li>
+                    <li class='col-lg-1 list-item-heading'>Mã KH</li>
+                    <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
+                    <li class='col-lg-2 list-item-heading'>SĐT</li>
+                    <li class='col-lg-2 list-item-heading'>Địa chỉ</li>
+                    <li class='col-lg-2 list-item-heading'>Tổng đơn hàng</li>
+                    <li class='col-lg-2 list-item-heading btn-sort'>Tổng chi tiêu
+                        <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
+                    </li>
+                </ul>
+            </div>
+            <div class='form-des'>
+                <ul class='row list-des'>
+                    <li class='col-lg-1 list-item-des'><input
+                            class='order-check'
+                            type='checkbox'
+                            name='courseIds[]'
+                        /></li>
+                    <li class='col-lg-1 list-item-des'>435</li>
+                    <li class='col-lg-2 list-item-des'>Võ Khải</li>
+                    <li class='col-lg-2 list-item-des'>0975142687</li>
+                    <li class='col-lg-2 list-item-des'>Quảng Ngãi</li>
+                    <li class='col-lg-2 list-item-des'>15</li>
+                    <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{! </div>  }}
+</div>
+<script>
+    let prev = document.querySelectorAll('.nav-item'); if (localStorage.getItem('handleMode') === 'true') { prev[{{index}}].classList.add("active-mode-color");
+    }else { prev[{{index}}].classList.add("active"); }
+</script>

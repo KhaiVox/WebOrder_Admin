@@ -1,0 +1,152 @@
+@import 'variables';
+//Order Overview
+.order-overview {
+    padding: 10px 0 0 0;
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+}
+
+.overview-header {
+    padding: 0 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $border;
+}
+
+.overview-header-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.btn-hide-detail {
+    font-size: 1.7rem;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px 5px;
+    color: $primary;
+    background-color: $white;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+.overview-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.overview-item {
+    padding: 10px 12px 8px;
+    border-right: 1px solid $border;
+    text-align: center;
+    width: calc(100% / 5);
+    // ẩn border-right của cột cuối cùng
+    &:last-child {
+        border: none;
+    }
+}
+
+.overview-title {
+    color: rgb(132, 132, 132);
+}
+
+.overview-des {
+    color: $primary;
+    font-weight: 700;
+}
+
+// Form Option
+.form-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.form-selected {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.notify-checked {
+    margin-right: 12px;
+    pointer-events: none;
+    font-size: 1.6rem;
+    span {
+        color: $primary;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}
+
+.form-select-option {
+    padding: 7px;
+    outline: none;
+    cursor: pointer;
+    border-radius: $br5;
+    border-color: $border;
+}
+
+.form-btn {
+    display: flex;
+}
+
+.btn-icon-add {
+    font-size: 2.2rem;
+    margin: -2px 6px 0 -3px;
+}
+
+.btn-add-order:hover {
+    color: $white;
+    background-color: $dark-primary;
+}
+
+.btn-show-detail,
+.btn-add-order {
+    color: $white;
+    background-color: $primary;
+}
+
+.btn-show-detail {
+    margin-right: 8px;
+    color: $primary;
+    background-color: $white;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+// List Order
+.btn-status {
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 120px;
+    height: 31px;
+    border-radius: $br5;
+    pointer-events: none;
+}
+
+.btn-status--green {
+    color: #0a5b35;
+    border: 1px solid #0a5b35;
+    background-color: #0df08e1a;
+}
+
+.btn-status--red {
+    color: #0aa4a1;
+    border: 1px solid #0aa4a1;
+    background-color: #1ec1e21a;
+}
+
+.btn-status--yellow {
+    color: #ffd93d;
+    border: 1px solid #ffd93d;
+    background-color: #ffd83d2e;
+}

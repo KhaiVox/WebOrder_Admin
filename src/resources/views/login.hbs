@@ -1,0 +1,71 @@
+<div class='container-wrap__login'>
+    <div class='form-container__login'>
+        <div class='content-left'>
+            <div class='panel-content'>
+                <h1>Welcome to Login</h1>
+                <span class='loader'></span>
+                <div class='btn-pass'><a href='/user/register'></a></div>
+                <img style='width: 100%;' src='https://mycolor.space/img/color-scheme-left.svg' alt='' />
+            </div>
+        </div>
+        <div class='content-right'>
+            <form action='#' class='form-action-login'>
+                <h2 class='title'>Đăng Nhập</h2>
+                <div class='input-field' id='username'>
+                    <input type='text' placeholder='Username' />
+                    <ion-icon name='person'></ion-icon>
+                </div>
+                <div class='input-field' id='password'>
+                    <ion-icon name='lock-closed'></ion-icon>
+                    <input class='input-password' type='password' placeholder='Password' />
+                </div>
+                <div class='form-more'>
+                    <label for='checkbox'>
+                        <input class='checkToggle' type='checkbox' onclick='showHidePassword()' />
+                        Hiện mật khẩu
+                    </label>
+                    <p class='text-forget'>Quên mật khẩu ?</p>
+                </div>
+                <button type='submit' onclick='login()' class='btn btn-login'>Đăng Nhập</button>
+                <div class='social'>
+                    <a class='social-link' href='#my-modal--login'>Hoặc đăng nhập với Google</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Layout -->
+<div class='modal' id='my-modal--login'>
+    <div class='modal__overlay'></div>
+    <a href='#' class='overlay-close'></a>
+
+    <div class='modal__body'>
+        <!-- Login Form -->
+        <div class='auth-form form-login'>
+            <div class='form-content'>
+                <form action='#' class='google-login'>
+                    <div class='wrap-logo'>
+                        <img
+                            class='logo-google'
+                            src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png'
+                            alt=''
+                        />
+                    </div>
+                    <div class='input-field'>
+                        <input type='text' placeholder='Name' />
+                        <ion-icon name='man'></ion-icon>
+                    </div>
+                    <div class='input-field'>
+                        <input type='text' placeholder='Phone' />
+                        <ion-icon name='call'></ion-icon>
+                    </div>
+
+                    <button type='submit' class='btn btn-login btn-login--google'>
+                        <span class='nav-icon'><ion-icon name='logo-google'></ion-icon></span>Đăng nhập với google
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+@import 'variables';
+// Header
+.food-icon-trash {
+    position: fixed;
+    right: 55px;
+    bottom: 32px;
+    display: flex;
+    align-items: center;
+    // margin-right: 32px;
+    font-size: 3.6rem;
+    color: $primary;
+    border-radius: $br5;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+        color: $dark-primary;
+    }
+}
+
+.product-img {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    top: -5px;
+    left: -5px;
+    object-fit: cover;
+}
+
+.list-food {
+    width: 100%;
+    padding: 20px 7px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+}
+
+.item-total {
+    padding-left: 36px;
+}
+
+.btn-wrap {
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-delete {
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 110px;
+    height: 32px;
+    border-radius: $br5;
+    color: #878787;
+    background-color: white;
+    border: 1px solid $border;
+    transition: 0.2s;
+    &:hover {
+        color: white;
+        background-color: #a10e1c;
+    }
+}
+
+.btn-action-food:last-child {
+    margin-left: 6px;
+}
+
+.filter-category {
+    margin-left: 12px;
+}
