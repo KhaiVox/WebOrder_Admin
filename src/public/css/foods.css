@@ -38,10 +38,9 @@
 .btn-delete {
   font-size: 1.6rem;
   font-weight: 600;
-  width: 110px;
+  width: 62px;
   height: 32px;
   border-radius: 5px;
-  color: #878787;
   background-color: white;
   border: 1px solid #bcbcbc;
   transition: 0.2s; }

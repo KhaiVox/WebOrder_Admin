@@ -9,15 +9,16 @@
             </div>
         </div>
         <div class='content-right'>
-            <form action='#' class='form-action-login'>
+            {{!-- <form action='/user/login' class='form-action-login' method="POST"> --}}
+            <form class='form-action-login'>
                 <h2 class='title'>Đăng Nhập</h2>
-                <div class='input-field' id='username'>
-                    <input type='text' placeholder='Username' />
+                <div class='input-field'>
+                    <input type='text' placeholder='Username' id='username' />
                     <ion-icon name='person'></ion-icon>
                 </div>
-                <div class='input-field' id='password'>
+                <div class='input-field'>
                     <ion-icon name='lock-closed'></ion-icon>
-                    <input class='input-password' type='password' placeholder='Password' />
+                    <input class='input-password' type='password' placeholder='Password' id='password' />
                 </div>
                 <div class='form-more'>
                     <label for='checkbox'>
@@ -26,7 +27,7 @@
                     </label>
                     <p class='text-forget'>Quên mật khẩu ?</p>
                 </div>
-                <button type='submit' onclick='login()' class='btn btn-login'>Đăng Nhập</button>
+                <button type='submit' onclick="handleLogin()" class='btn btn-login'>Đăng Nhập</button>
                 <div class='social'>
                     <a class='social-link' href='#my-modal--login'>Hoặc đăng nhập với Google</a>
                 </div>

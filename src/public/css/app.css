@@ -53,7 +53,7 @@
 
 .active-item.nav-item:hover .nav-item-link,
 .active-mode-color.nav-item .nav-item-link {
-  color: #0f3d3e; }
+  color: #0d2738; }
 
 .nav-item-link {
   color: white;
@@ -289,7 +289,7 @@
 
 .btn-icon-add {
   font-size: 2.2rem;
-  margin: -2px 6px 0 -3px; }
+  margin: -2px 6px 0 -10px; }
 
 .btn-add-order:hover {
   color: white;
@@ -321,14 +321,14 @@
   background-color: #0df08e1a; }
 
 .btn-status--red {
-  color: #0aa4a1;
-  border: 1px solid #0aa4a1;
-  background-color: #1ec1e21a; }
+  color: #a40a0a;
+  border: 1px solid #a40a0a;
+  background-color: #e21e1e1a; }
 
 .btn-status--yellow {
   color: #ffd93d;
   border: 1px solid #ffd93d;
-  background-color: #ffd83d2e; }
+  background-color: #f9d02b39; }
 
 .food-icon-trash {
   position: fixed;
@@ -370,10 +370,9 @@
 .btn-delete {
   font-size: 1.6rem;
   font-weight: 600;
-  width: 110px;
+  width: 62px;
   height: 32px;
   border-radius: 5px;
-  color: #878787;
   background-color: white;
   border: 1px solid #bcbcbc;
   transition: 0.2s; }
@@ -525,18 +524,17 @@
   text-align: center; }
 
 .social-link {
-  color: #1c6758;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   /* chữ gradient */
   font-weight: bold;
-  background-image: linear-gradient(to right bottom, #f41616, #4c4c41);
+  background-image: linear-gradient(to right bottom, #06958d, #ff9303);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  transition: 0.2s; }
+  transition: 0.4s; }
   .social-link:hover {
     color: transparent;
-    background-image: linear-gradient(to right bottom, #4c4c41, #f41616); }
+    background-image: linear-gradient(to right bottom, #ff9303, #06958d); }
 
 .loader {
   position: relative;
@@ -791,17 +789,17 @@ a[href] {
   display: none !important; }
 
 .active-mode {
-  background-color: #0f3d3e; }
+  background-color: #0d2738; }
 
 .btn {
   transition: 0.2s;
   cursor: pointer;
-  padding: 6px 22px 5px 12px;
+  padding: 6px 20px 5px;
   font-size: 1.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 37px;
+  min-height: 30px;
   border-radius: 5px;
   border: none;
   outline: none; }
@@ -905,7 +903,7 @@ input[type='checkbox']:checked {
 .search-input {
   width: 100%;
   height: 40px;
-  padding: 5px 90px 2px 15px;
+  padding: 5px 90px 5px 15px;
   outline: none;
   border-radius: 5px;
   border: 1px solid #bcbcbc;

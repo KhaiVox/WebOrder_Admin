@@ -137,18 +137,17 @@
   text-align: center; }
 
 .social-link {
-  color: #1c6758;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   /* chữ gradient */
   font-weight: bold;
-  background-image: linear-gradient(to right bottom, #f41616, #4c4c41);
+  background-image: linear-gradient(to right bottom, #06958d, #ff9303);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  transition: 0.2s; }
+  transition: 0.4s; }
   .social-link:hover {
     color: transparent;
-    background-image: linear-gradient(to right bottom, #4c4c41, #f41616); }
+    background-image: linear-gradient(to right bottom, #ff9303, #06958d); }
 
 .loader {
   position: relative;

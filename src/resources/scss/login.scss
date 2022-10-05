@@ -159,18 +159,17 @@
 }
 
 .social-link {
-    color: $primary;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     /* chữ gradient */
     font-weight: bold;
-    background-image: linear-gradient(to right bottom, rgb(244, 22, 22), #4c4c41);
+    background-image: linear-gradient(to right bottom, #06958d, #ff9303);
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    transition: 0.2s;
+    transition: 0.4s;
     &:hover {
         color: transparent;
-        background-image: linear-gradient(to right bottom, #4c4c41, rgb(244, 22, 22));
+        background-image: linear-gradient(to right bottom, #ff9303, #06958d);
     }
 }
 

@@ -10,7 +10,7 @@ courseItemCheckbox.forEach(
 
         if (isChecked > 0) {
             selectAllOption.removeAttribute('hidden')
-            notifyChecked.innerHTML = `Bạn đã chọn <span>${isChecked}</span> sản phẩm`
+            notifyChecked.innerHTML = `Bạn đã chọn <span>${isChecked}</span> mục`
         } else {
             selectAllOption.setAttribute('hidden', 'hidden')
             notifyChecked.innerHTML = ''
