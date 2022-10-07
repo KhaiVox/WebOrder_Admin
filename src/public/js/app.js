@@ -82,29 +82,3 @@ setInterval(function() {
     }
     clock.textContent = hr + ':' + min + ':' + sec + ' ' + day
 })
-
-// Login
-
-// document.addEventListener('DOMContentLoaded', function login() {
-//     console.log($('#username').value)
-//     $.ajax({
-//         url: '/user/login',
-//         method: 'POST',
-//         data: {
-//             username: $('#username').value,
-//             password: $('#password').value,
-//         },
-//         // success: function(data) {
-//         //     console.log(data)
-//         // },
-//     }).then((data) => {
-//         // setCookie('token', data.token, 1)
-//         // window.location.href = '/'
-//         // console.log(data)
-//         if (data) {
-//             console.log(232)
-//         } else {
-//             console.log('k co')
-//         }
-//     })
-// })

@@ -92,7 +92,7 @@
   background-color: #1c6758; }
 
 .btn-show-detail {
-  margin-right: 8px;
+  margin-right: 21px;
   color: #1c6758;
   background-color: white; }
   .btn-show-detail:hover {
@@ -107,16 +107,16 @@
   pointer-events: none; }
 
 .btn-status--green {
-  color: #0a5b35;
-  border: 1px solid #0a5b35;
-  background-color: #0df08e1a; }
+  color: #045406;
+  border: 1px solid #045406;
+  background-color: #72ff0730; }
 
 .btn-status--red {
   color: #a40a0a;
   border: 1px solid #a40a0a;
   background-color: #e21e1e1a; }
 
-.btn-status--yellow {
-  color: #ffd93d;
-  border: 1px solid #ffd93d;
-  background-color: #f9d02b39; }
+.btn-status--blue {
+  color: #0a5b35;
+  border: 1px solid #0a5b35;
+  background-color: #0df08e1a; }

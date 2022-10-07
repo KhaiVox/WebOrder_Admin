@@ -3,26 +3,24 @@
         <div class='content-left'>
             <form action='#' class='form-action-login'>
                 <h2 class='title'>Đăng Ký</h2>
+                <div class='form-more'>
+                    <p class="text" style="margin: -26px auto 32px;">(Cần xác thực admin trước khi đăng ký)
+                </div> 
                 <div class='input-field'>
-                    <input type='text' placeholder='Username' />
+                    <input type='text' placeholder='Tên đăng nhập' id="username-register" />
                     <ion-icon name='person'></ion-icon>
                 </div>
                 <div class='input-field'>
                     <ion-icon name='lock-closed'></ion-icon>
-                    <input class='input-password' type='password' placeholder='Password' />
+                    <input class='input-password' type='password' placeholder='Mật khẩu' id="pass-register" />
                 </div>
                 <div class='input-field'>
-                    <input type='text' placeholder='Name' />
-                    <ion-icon name='accessibility'></ion-icon>
+                    <ion-icon name='lock-closed'></ion-icon>
+                    <input class='input-password' type='password' placeholder='Nhập lại mật khẩu' id="repeat-pass-register" />
                 </div>
-                <div class='input-field'>
-                    <input type='text' placeholder='Phone' />
-                    <ion-icon name='call'></ion-icon>
-                </div>
-                <button type='submit' class='btn btn-login'>Đăng Ký</button>
-                <div class='social'>
-                    <a class='social-link' href='#my-modal--register'>Hoặc đăng ký với Google</a>
-                </div>
+                
+                {{!-- <button type='submit' class='btn btn-login btn-register'>Đăng Ký</button> --}}
+                <a href="#my-modal--confirm" class='btn btn-login btn-register'>Đăng Ký</a>
             </form>
         </div>
         <div class='content-right'>
@@ -37,7 +35,7 @@
 </div>
 
 <!-- Modal Layout -->
-<div class='modal' id='my-modal--register'>
+<div class='modal' id='my-modal--confirm'>
     <div class='modal__overlay'></div>
     <a href='#' class='overlay-close'></a>
 
@@ -45,32 +43,22 @@
         <!-- Register Form -->
         <div class='auth-form form-login'>
             <div class='form-content'>
-                <form action='#' class='google-login'>
-                    <div class='wrap-logo'>
-                        <img
-                            class='logo-google'
-                            src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png'
-                            alt=''
-                        />
+                <form action='#' class='form-confirm'>
+                    <div class='input-field'>
+                        <input type='text' placeholder='Tên đăng nhập' />
+                        <ion-icon name='person'></ion-icon>
                     </div>
                     <div class='input-field'>
-                        <input type='text' placeholder='Name' />
-                        <ion-icon name='man'></ion-icon>
-                    </div>
-                    <div class='input-field'>
-                        <input type='text' placeholder='Address' />
-                        <ion-icon name='location'></ion-icon>
-                    </div>
-                    <div class='input-field'>
-                        <input type='text' placeholder='Phone' />
-                        <ion-icon name='call'></ion-icon>
+                        <ion-icon name='lock-closed'></ion-icon>
+                        <input class='input-password' type='password' placeholder='Mật khẩu' />
                     </div>
 
-                    <button type='submit' class='btn btn-login btn-login--google'>
-                        Đăng ký với google
+                    <button type='submit' class='btn  btn-login btn-confirm-admin'>
+                        Xác thực Admin
                     </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+

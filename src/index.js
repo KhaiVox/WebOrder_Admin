@@ -4,6 +4,9 @@ const handlebars = require('express-handlebars')
 const app = express()
 const port = 3001
 
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
+
 // Body parse
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -37,7 +40,7 @@ app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 })
 
-// Register
+// POST Register
 app.post('/user/register', (req, res, next) => {
     var username = req.body.username
     var password = req.body.password
@@ -63,7 +66,7 @@ app.post('/user/register', (req, res, next) => {
         })
 })
 
-// Login
+// POST Login
 app.post('/user/login', (req, res, next) => {
     var username = req.body.username
     var password = req.body.password
@@ -76,6 +79,7 @@ app.post('/user/login', (req, res, next) => {
             if (data) {
                 var token = jwt.sign({
                         _id: data._id,
+                        admin: true
                     },
                     'mk',
                 )
@@ -92,24 +96,36 @@ app.post('/user/login', (req, res, next) => {
         })
 })
 
-// Get login
-// app.get(
-//     '/user/login',
-//     (req, res, next) => {
-//         var token = req.cookies.token
-//         var decodeToken = jwt.verify(token, 'mk')
-//         AccountModel.find({ _id: decodeToken._id }).then((data) => {
-//             if (data.length == 0) {
-//                 res.sendFile(path.join(__dirname, 'login.html'))
-//             } else {
-//                 res.sendFile(path.join(__dirname, 'login.html'))
-//             }
-//         })
-//     },
-//     (req, res, next) => {
-//         res.sendFile(path.join(__dirname, 'home.html'))
-//     },
-// )
+// Get home
+app.get(
+    '/',
+    (req, res, next) => {
+        try {
+            var token = req.cookies.token
+            var ketqua = jwt.verify(token, 'mk')
+            if (ketqua) {
+                next()
+            }
+        } catch (error) {
+            res.render('login')
+        }
+    },
+    (req, res, next) => {
+        res.render('home', { index: 0 })
+    },
+)
+
+// Log out
+app.get('/deleteCookie', function(req, res, next) {
+    let cookie = req.cookies;
+    for (var prop in cookie) {
+        if (!cookie.hasOwnProperty(prop)) {
+            continue;
+        }
+        res.cookie(prop, '', { expires: new Date(0) });
+    }
+    res.redirect('/user/login');
+});
 
 // Nhận các route sau đó sử dụng (luôn để dưới cùng)
 const route = require('./routes')

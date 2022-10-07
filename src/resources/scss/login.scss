@@ -10,7 +10,7 @@
 
 .form-container__login {
     width: 1000px;
-    height: 80vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,8 +62,9 @@
 .panel-content img {
     width: 100%;
     position: relative;
-    right: 98px;
-    top: 68px;
+    right: 96px;
+    top: 56px;
+    // transform: rotateY(180deg);
 }
 
 .form-action-login .title {
@@ -71,7 +72,7 @@
     width: 360px;
     font-size: 3.8rem;
     font-weight: 600;
-    margin-bottom: 32px;
+    margin-bottom: 42px;
     text-align: center;
     letter-spacing: 1.6px;
     text-transform: uppercase;
@@ -103,6 +104,8 @@
     border: 1px solid $border;
     border-radius: $br5;
     outline: none;
+    // nháy chuột trong input
+    caret-color: $primary;
 }
 
 .icon-eye {
@@ -129,6 +132,12 @@
     }
 }
 
+.text {
+    color: #eb1d1d;
+    font-size: 1.4rem;
+    text-shadow: 0px 0px 1px #dd090991;
+}
+
 .text-forget {
     font-size: 1.5rem;
     margin-left: 12px;
@@ -141,35 +150,15 @@
 }
 
 .btn-login {
-    background-color: $primary;
-    color: $white;
     width: 100%;
     height: 42px;
     font-weight: 700;
     margin-top: 15px;
+    color: $white;
+    background-color: $primary;
     &:hover {
         color: $white;
         background-color: $dark-primary;
-    }
-}
-
-.social {
-    margin-top: 32px;
-    text-align: center;
-}
-
-.social-link {
-    font-size: 1.7rem;
-    /* chữ gradient */
-    font-weight: bold;
-    background-image: linear-gradient(to right bottom, #06958d, #ff9303);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: 0.4s;
-    &:hover {
-        color: transparent;
-        background-image: linear-gradient(to right bottom, #ff9303, #06958d);
     }
 }
 
@@ -230,7 +219,7 @@
     display: inline-flex;
     width: 180px;
     height: 55px;
-    margin: 0 15px;
+    margin: -8px 15px;
     perspective: 1000px;
 }
 
@@ -248,7 +237,7 @@
     position: absolute;
     content: 'Chưa có tài khoản ?';
     height: 40px;
-    width: 220px;
+    width: 208px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,7 +248,7 @@
     position: absolute;
     content: 'Đăng Ký';
     height: 40px;
-    width: 220px;
+    width: 208px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,39 +270,4 @@
 
 .btn-pass a:hover {
     transform: translateZ(-20px) rotateX(-90deg);
-}
-
-// Form Google
-.form-content {
-    width: 500px;
-    height: 450px;
-    background-color: #fff;
-    padding: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: $br5;
-}
-
-.wrap-logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 18px;
-}
-
-.logo-google {
-    width: 165px;
-    height: auto;
-    object-fit: cover;
-}
-
-.btn-login--google {
-    margin-top: 32px;
-    color: white;
-    background-color: #4285f4 !important;
-}
-
-.google-login {
-    width: 100%;
-    height: 100%;
 }

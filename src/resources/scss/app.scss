@@ -46,14 +46,14 @@ a[href] {
 .btn {
     transition: 0.2s;
     cursor: pointer;
-    padding: 6px 20px 5px;
+    padding: 6px 12px 5px;
     font-size: 1.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 30px;
     border-radius: $br5;
-    border: none;
+    // border: none;
     outline: none;
 }
 
