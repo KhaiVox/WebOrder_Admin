@@ -1,12 +1,12 @@
 // Check All
-var courseItemCheckbox = $$('input[name="courseIds[]"]')
-var selectAllOption = $('.form-select-option')
-var notifyChecked = $('.notify-checked')
+var courseItemCheckbox = document.querySelectorAll('input[name="courseIds[]"]')
+var selectAllOption = document.querySelector('.form-select-option')
+var notifyChecked = document.querySelector('.notify-checked')
 
 courseItemCheckbox.forEach(
     (item) =>
     (item.onchange = function() {
-        var isChecked = $$('input[name="courseIds[]"]:checked').length
+        var isChecked = document.querySelectorAll('input[name="courseIds[]"]:checked').length
 
         if (isChecked > 0) {
             selectAllOption.removeAttribute('hidden')
@@ -20,9 +20,9 @@ courseItemCheckbox.forEach(
 )
 
 // Button show/hide detail
-var boardDetail = $('.order-overview')
-var btnShowDetail = $('.btn-show-detail')
-var btnHideDetail = $('.btn-hide-detail')
+var boardDetail = document.querySelector('.order-overview')
+var btnShowDetail = document.querySelector('.btn-show-detail')
+var btnHideDetail = document.querySelector('.btn-hide-detail')
 
 function showDetail() {
     boardDetail.classList.remove('hidden')

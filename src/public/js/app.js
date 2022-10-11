@@ -1,12 +1,12 @@
-const $ = document.querySelector.bind(document)
-const $$ = document.querySelectorAll.bind(document)
+// const $ = document.querySelector.bind(document)
+// const $$ = document.querySelectorAll.bind(document)
 
 // Fade
 AOS.init()
 
 // Click xóa nội dung trong ô search
-var btnDelete = $$('.search-delete')
-var inputSearch = $('.search-input')
+var btnDelete = document.querySelectorAll('.search-delete')
+var inputSearch = document.querySelector('.search-input')
 
 btnDelete.forEach(
     (item) =>

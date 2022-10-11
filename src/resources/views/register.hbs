@@ -1,26 +1,30 @@
 <div class='container-wrap__login register-mode'>
     <div class='form-container__login'>
         <div class='content-left'>
-            <form action='#' class='form-action-login'>
+            <form action='#' class='form-action-login form-action-register'>
                 <h2 class='title'>Đăng Ký</h2>
-                <div class='form-more'>
-                    <p class="text" style="margin: -26px auto 32px;">(Cần xác thực admin trước khi đăng ký)
-                </div> 
+               
                 <div class='input-field'>
-                    <input type='text' placeholder='Tên đăng nhập' id="username-register" />
+                    <input required type='text' placeholder='Tên đăng nhập' id="username-register" />
                     <ion-icon name='person'></ion-icon>
                 </div>
                 <div class='input-field'>
                     <ion-icon name='lock-closed'></ion-icon>
-                    <input class='input-password' type='password' placeholder='Mật khẩu' id="pass-register" />
+                    <input required type='password' placeholder='Mật khẩu' id="pass-register" />
                 </div>
                 <div class='input-field'>
                     <ion-icon name='lock-closed'></ion-icon>
-                    <input class='input-password' type='password' placeholder='Nhập lại mật khẩu' id="repeat-pass-register" />
+                    <input required type='password' placeholder='Nhập lại mật khẩu' id="repeat-pass-register" />
                 </div>
+                <div class='form-more'>
+                    <p class="text text-notify hidden"> Mật khẩu chưa trùng khớp !
+                </div> 
+                <div class='form-more'>
+                    <p class="text text-notify-user hidden"> User này đã tồn tại !
+                </div> 
                 
-                {{!-- <button type='submit' class='btn btn-login btn-register'>Đăng Ký</button> --}}
-                <a href="#my-modal--confirm" class='btn btn-login btn-register'>Đăng Ký</a>
+                <button onclick="handleRegister()" type='submit' class='btn btn-login btn-register'>Đăng Ký</button>
+                {{!-- <a href="#my-modal--confirm" class='btn btn-login btn-register'>Đăng Ký</a> --}}
             </form>
         </div>
         <div class='content-right'>
@@ -41,20 +45,22 @@
 
     <div class='modal__body'>
         <!-- Register Form -->
-        <div class='auth-form form-login'>
+        <div class='auth-form'>
             <div class='form-content'>
+                <h2>Cần xác thực admin trước khi đăng ký</h2>
+
                 <form action='#' class='form-confirm'>
                     <div class='input-field'>
-                        <input type='text' placeholder='Tên đăng nhập' />
+                        <input type='text' id="user-admin" placeholder='Tên đăng nhập' />
                         <ion-icon name='person'></ion-icon>
                     </div>
                     <div class='input-field'>
                         <ion-icon name='lock-closed'></ion-icon>
-                        <input class='input-password' type='password' placeholder='Mật khẩu' />
+                        <input type='password' id="pass-admin" placeholder='Mật khẩu admin' />
                     </div>
 
-                    <button type='submit' class='btn  btn-login btn-confirm-admin'>
-                        Xác thực Admin
+                    <button onclick="handleConfirm()" type='submit' class='btn btn-login btn-confirm-admin'>
+                        Xác Thực
                     </button>
                 </form>
             </div>

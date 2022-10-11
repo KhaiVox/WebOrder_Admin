@@ -24,7 +24,8 @@ app.use(express.json())
 
 // Static file
 app.use(express.static(path.join(__dirname, 'public')))
-const AccountModel = require('./models/account')
+    // const AccountModel = require('./models/account')
+const AccountModel = require('./app/models/account')
 
 // Template engine
 app.engine(
@@ -40,12 +41,11 @@ app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 })
 
-// POST Register
+// POST register
 app.post('/user/register', (req, res, next) => {
     var username = req.body.username
     var password = req.body.password
 
-    // console.log(username, password)
     AccountModel.findOne({
             username: username,
         })
@@ -66,7 +66,7 @@ app.post('/user/register', (req, res, next) => {
         })
 })
 
-// POST Login
+// POST login
 app.post('/user/login', (req, res, next) => {
     var username = req.body.username
     var password = req.body.password
@@ -79,7 +79,7 @@ app.post('/user/login', (req, res, next) => {
             if (data) {
                 var token = jwt.sign({
                         _id: data._id,
-                        admin: true
+                        admin: true,
                     },
                     'mk',
                 )
@@ -117,15 +117,25 @@ app.get(
 
 // Log out
 app.get('/deleteCookie', function(req, res, next) {
-    let cookie = req.cookies;
+    let cookie = req.cookies
     for (var prop in cookie) {
         if (!cookie.hasOwnProperty(prop)) {
-            continue;
+            continue
         }
-        res.cookie(prop, '', { expires: new Date(0) });
+        res.cookie(prop, '', { expires: new Date(0) })
     }
-    res.redirect('/user/login');
-});
+    res.redirect('/user/login')
+})
+
+//
+var checkManager = (req, res, next) => {
+    var role = req.data.role
+    if (role >= 2) {
+        next()
+    } else {
+        res.json('NOT PERMISSON')
+    }
+}
 
 // Nhận các route sau đó sử dụng (luôn để dưới cùng)
 const route = require('./routes')

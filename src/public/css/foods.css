@@ -25,6 +25,7 @@
   width: 100%;
   padding: 20px 7px;
   height: 450px;
+  height: 408px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
 
@@ -33,23 +34,35 @@
 
 .btn-wrap {
   display: flex;
-  align-items: flex-start; }
+  align-items: center;
+  justify-content: flex-start; }
 
 .btn-delete {
-  font-size: 1.6rem;
-  font-weight: 600;
-  width: 62px;
-  height: 32px;
-  border-radius: 5px;
-  background-color: white;
-  border: 1px solid #bcbcbc;
-  transition: 0.2s; }
+  font-size: 2.6rem; }
+  .btn-delete:last-child {
+    margin-left: 18px;
+    margin-top: -3px;
+    font-size: 2.4rem; }
   .btn-delete:hover {
-    color: white;
-    background-color: #a10e1c; }
+    color: #c50f0f;
+    transform: scale(1.1); }
 
 .btn-action-food:last-child {
   margin-left: 6px; }
 
 .filter-category {
   margin-left: 12px; }
+
+#paging {
+  text-align: center;
+  font-size: 2rem; }
+
+.paginationjs {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.paginationjs-pages ul {
+  display: flex;
+  align-items: center;
+  justify-content: center; }

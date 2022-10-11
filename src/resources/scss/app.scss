@@ -33,6 +33,10 @@ a[href] {
     text-decoration: none;
 }
 
+input:focus {
+    border-radius: 1px solid red;
+}
+
 // Public
 .hidden {
     display: none !important;

@@ -1,5 +1,5 @@
 // Show Hide Password
-var passInput = $('.input-password')
+var passInput = document.querySelector('.input-password')
 
 function showHidePassword() {
     passInput.type = passInput.type === 'password' ? 'text' : 'password'
@@ -32,31 +32,46 @@ function getCookie(cname) {
 
 // Login
 function handleLogin() {
-    const username = $('#username').value
-    const password = $('#password').value
-    const form = $('.form-action-login')
+    const username = document.querySelector('#username').value
+    const password = document.querySelector('#password').value
+    const form = document.querySelector('.form-action-login')
 
-    form.addEventListener('submit', async(e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault()
-        try {
-            const rest = await fetch('/user/login', {
+        fetch('/user/login', {
                 method: 'POST',
                 body: JSON.stringify({ username: username, password: password }),
                 headers: { 'Content-Type': 'application/json' },
             })
-            const data = await rest.json()
-            if (data.message) {
-                setCookie('token', data.token, 1)
-                window.location.href = '/'
-            } else {
-                const text = $('.text')
-                text.classList.remove('hidden')
-            }
-        } catch (e) {
-            console.log('Something went wrong!')
-        }
+            .then((data) => {
+                return data.json()
+            })
+            .then((data) => {
+                if (data.token) {
+                    setCookie('token', data.token, 1)
+                    window.location.href = '/'
+                } else {
+                    const text = document.querySelector('.text')
+                    text.classList.remove('hidden')
+                }
+            })
+            .catch((e) => console.log(e.message))
     })
 }
+
+// function login() {
+//     $.ajax({
+//         url: '/user/login',
+//         method: 'POST',
+//         data: {
+//             username: $('#username').val(),
+//             password: $('#password').val(),
+//         },
+//     }).then((data) => {
+//         setCookie('token', data.token, 1)
+//         window.location.href = '/'
+//     })
+// }
 
 // Nhận sự kiện từ việc nhấn phím để thực hiện function handleLogin()
 document.onkeypress = function(myEvent) {
@@ -67,9 +82,7 @@ document.onkeypress = function(myEvent) {
 }
 
 // Input focus
-document.addEventListener('DOMContentLoaded', function() {
-    const username = $('#username')
-    username.focus()
-        // const usernameRegsiter = $('#username-register')
-        // usernameRegsiter.focus()
-})
+// document.addEventListener('DOMContentLoaded', function() {
+//     const username = document.querySelector('#username')
+//     username.focus()
+// })

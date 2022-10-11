@@ -7,6 +7,7 @@
         {{! Header }}
         <div class='form-header'>
             <h1>Danh Sách Món Ăn</h1>
+            <h1>{{title}}</h1>
             <div class='form-btn'>
                 <span  class='food-icon-trash'><ion-icon name='trash-outline'></ion-icon></span>
                 <div class='btn btn-add-order'>
@@ -24,7 +25,6 @@
                 <select hidden class='form-select-option'>
                     <option value=''>Chọn thao tác</option>
                     <option value=''>Xóa</option>
-                    <option value=''>Chỉnh sửa</option>
                 </select>
             </div>
             <div class='search'>
@@ -55,10 +55,13 @@
                     <li class='col-lg-2 list-item-heading'>Ảnh</li>
                     <li class='col-lg-2 list-item-heading'>Tên món</li>
                     <li class='col-lg-2 list-item-heading'>Loại</li>
-                    <li class='col-lg-2 list-item-heading btn-sort'>Số lượng tồn</li>
+                    <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá
+                        <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
+                    </li>
                     <li class='col-lg-2 list-item-heading'>Tác vụ</li>
                 </ul>
             </div>
+            {{#each foods}}
             <div class='form-des'>
                 <ul class='row list-des'>
                     <li class='col-lg-1 list-item-des'><input
@@ -66,72 +69,30 @@
                             type='checkbox'
                             name='courseIds[]'
                         /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
+                    <li class='col-lg-1 list-item-des'>{{id}}</li>
                     <li class='col-lg-2 list-item-des'>
                         <img
                             class='product-img'
-                            src='https://3rau.vn/wp-content/uploads/2022/08/BG-THITNUONG-300x300.jpg'
+                            src={{img}}
                             alt=''
                         />
                     </li>
-                    <li class='col-lg-2 list-item-des'>Hamburger</li>
-                    <li class='col-lg-2 list-item-des'>Món mặn</li>
-                    <li class='col-lg-2 list-item-des item-total'>12</li>
+                    <li class='col-lg-2 list-item-des'>{{name}}</li>
+                    <li class='col-lg-2 list-item-des'>{{type}}</li>
+                    <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
                     <li class='col-lg-2 list-item-des'>
                         <div class='btn-wrap'>
-                            <div class='btn btn-delete'>Xóa</div>
+                            {{!-- <div class='btn btn-delete'>Xóa</div>
+                            <div class='btn btn-delete'>Sửa</div> --}}
+                            <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span>
+                            <span class='btn-delete'><ion-icon name="create-outline"></ion-icon></span>
                         </div>
                     </li>
                 </ul>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <img
-                            class='product-img'
-                            src='https://3rau.vn/wp-content/uploads/2022/08/BG-THITNUONG-300x300.jpg'
-                            alt=''
-                        />
-                    </li>
-                    <li class='col-lg-2 list-item-des'>Hamburger</li>
-                    <li class='col-lg-2 list-item-des'>Món mặn</li>
-                    <li class='col-lg-2 list-item-des item-total'>12</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <div class='btn-wrap'>
-                            <div class='btn btn-delete'>Xóa</div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <img
-                            class='product-img'
-                            src='https://3rau.vn/wp-content/uploads/2022/08/BG-THITNUONG-300x300.jpg'
-                            alt=''
-                        />
-                    </li>
-                    <li class='col-lg-2 list-item-des'>Hamburger</li>
-                    <li class='col-lg-2 list-item-des'>Món mặn</li>
-                    <li class='col-lg-2 list-item-des item-total'>12</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <div class='btn-wrap'>
-                            <div class='btn btn-delete'>Xóa</div>
-                        </div>
-                    </li>
-                </ul>
-
             </div>
+            {{/each}}
         </div>
     </div>
+    <div id="paging"></div>
     {{! </div> }}
 </div>

@@ -9,7 +9,6 @@
             </div>
         </div>
         <div class='content-right'>
-            {{!-- <form action='/' class='form-action-login' method="POST"> --}}
             <form class='form-action-login'>
                 <h2 class='title'>Đăng Nhập</h2>
                 <div class='input-field'>
@@ -21,8 +20,11 @@
                     <input class='input-password' required type='password' placeholder='Mật khẩu' id='password' />
                 </div>
                 <div class='form-more'>
-                    <p class="text hidden"> Tài khoản hoặc mật khẩu chưa chính xác !
-                </div> 
+                    <p class='text hidden'>
+                        <span style='position: relative; top: 2px;'><ion-icon name='warning-outline'></ion-icon></span>
+                        Tài khoản hoặc mật khẩu chưa chính xác !
+                    </p>
+                </div>
                 <div class='form-more'>
                     <label for='checkbox'>
                         <input class='checkToggle' type='checkbox' onclick='showHidePassword()' />
@@ -30,8 +32,9 @@
                     </label>
                     <p class='text-forget'>Quên mật khẩu ?</p>
                 </div>
-                
-                <button type='submit' onclick="handleLogin()" class='btn btn-success btn-login'>Đăng Nhập</button>
+
+                <button type='submit' onclick='handleLogin()' class='btn btn-success btn-login'>Đăng Nhập</button>
+                {{! <button type='submit' onclick='login()' class='btn btn-success btn-login'>Đăng Nhập</button> }}
             </form>
         </div>
     </div>
