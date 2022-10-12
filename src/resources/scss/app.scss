@@ -131,11 +131,12 @@ input[type='checkbox']:checked {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    border-bottom: 1px solid $border;
+    border-top: 1px solid $border;
 }
 
 .list-heading {
     padding: 15px 0;
+    border: none;
 }
 
 .list-item-heading {

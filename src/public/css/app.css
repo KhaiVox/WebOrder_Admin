@@ -356,13 +356,9 @@
 .list-food {
   width: 100%;
   padding: 20px 7px;
-  height: 450px;
-  height: 408px;
+  height: 405px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
-
-.item-total {
-  padding-left: 36px; }
 
 .btn-wrap {
   display: flex;
@@ -386,18 +382,67 @@
   margin-left: 12px; }
 
 #paging {
-  text-align: center;
-  font-size: 2rem; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 52px; }
 
 .paginationjs {
+  font-size: 2rem;
+  display: flex;
+  align-items: center; }
+
+.paginationjs-pages {
+  background-color: #1c6758;
+  min-width: 300px;
+  height: 46px;
+  border-radius: 50px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center; }
 
 .paginationjs-pages ul {
-  display: flex;
+  width: 100%;
+  display: inline-flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: space-around;
+  color: #222222; }
+
+.paginationjs-pages a {
+  padding: 10px;
+  color: white; }
+
+.paginationjs-page {
+  cursor: pointer; }
+
+.paginationjs-page.active {
+  color: #1c6758;
+  background-color: white;
+  border-radius: 50px; }
+
+.paginationjs-prev.disabled a,
+.paginationjs-next.disabled a {
+  cursor: not-allowed; }
+
+.paginationjs-go-input input {
+  height: 45px;
+  width: 80px;
+  border-radius: 10px;
+  margin-left: 24px;
+  outline: none;
+  padding-left: 12px;
+  border: 1px solid #bcbcbc; }
+
+.paginationjs-go-button input {
+  height: 45px;
+  width: 60px;
+  border-radius: 10px;
+  margin-left: 12px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #d2490e; }
 
 .container-wrap__login {
   width: 100%;
@@ -858,10 +903,11 @@ input[type='checkbox']:checked {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 1px solid #bcbcbc; }
+  border-top: 1px solid #bcbcbc; }
 
 .list-heading {
-  padding: 15px 0; }
+  padding: 15px 0;
+  border: none; }
 
 .list-item-heading {
   font-size: 1.7rem;

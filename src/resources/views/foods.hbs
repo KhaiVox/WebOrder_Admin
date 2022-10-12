@@ -9,7 +9,6 @@
             <h1>Danh Sách Món Ăn</h1>
             <h1>{{title}}</h1>
             <div class='form-btn'>
-                <span  class='food-icon-trash'><ion-icon name='trash-outline'></ion-icon></span>
                 <div class='btn btn-add-order'>
                     <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
                     Thêm món ăn
@@ -61,7 +60,10 @@
                     <li class='col-lg-2 list-item-heading'>Tác vụ</li>
                 </ul>
             </div>
-            {{#each foods}}
+
+            <div id="form-des"></div>
+
+            {{!-- {{#each foods}}
             <div class='form-des'>
                 <ul class='row list-des'>
                     <li class='col-lg-1 list-item-des'><input
@@ -82,17 +84,17 @@
                     <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
                     <li class='col-lg-2 list-item-des'>
                         <div class='btn-wrap'>
-                            {{!-- <div class='btn btn-delete'>Xóa</div>
-                            <div class='btn btn-delete'>Sửa</div> --}}
                             <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span>
                             <span class='btn-delete'><ion-icon name="create-outline"></ion-icon></span>
                         </div>
                     </li>
                 </ul>
             </div>
-            {{/each}}
+            {{/each}} --}}
         </div>
     </div>
     <div id="paging"></div>
+    <span class='food-icon-trash'><ion-icon name='trash-outline'></ion-icon></span>
+
     {{! </div> }}
 </div>
