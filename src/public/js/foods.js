@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // luôn hiển thị 1 trang trong lần đầu load trang
     loadPage(1)
+
     $('#paging').pagination({
         // call đến api của 1 trang bất kì để lấy giá trị total
         dataSource: '/foods?page=1',
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function loadPage(page) {
-    $.ajax({
+    let a = $.ajax({
         url: '/foods?page=' + page,
         type: 'GET',
     }).then((result) => {
@@ -47,14 +48,14 @@ function loadPage(page) {
                         <li class='col-lg-1 list-item-des'><input
                                 class='order-check'
                                 type='checkbox'
-                                name='courseIds[]'
+                                name='food[]'
                             /></li>
                         <li class='col-lg-1 list-item-des'>${element.id}</li>
                         <li class='col-lg-2 list-item-des'>
                             <img
                                 class='product-img'
                                 src=${element.img}
-                                alt=''
+                                alt=${element.name}
                             />
                         </li>
                         <li class='col-lg-2 list-item-des'>${element.name}</li>
@@ -62,13 +63,38 @@ function loadPage(page) {
                         <li class='col-lg-2 list-item-des item-total'>${element.price}.000 đ</li>
                         <li class='col-lg-2 list-item-des'>
                             <div class='btn-wrap'>
-                                <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span>
-                                <span class='btn-delete'><ion-icon name="create-outline"></ion-icon></span>
+                                <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
+                                <a href="/foods/${element._id}">
+                                    <span class='btn-delete'><ion-icon name="create-outline"></ion-icon></span>
+                                </a>
                             </div>
                         </li>
                     </ul>
                 `
             $('#form-des').append(item)
         }
+    })
+
+    // Is Checked
+    $.when(a).done(function() {
+        var courseItemCheckbox = document.querySelectorAll('.order-check')
+        var selectAllOption = document.querySelector('.form-select-option')
+        var notifyChecked = document.querySelector('.notify-checked')
+
+        courseItemCheckbox.forEach(
+            (item) =>
+            (item.onchange = function() {
+                var isChecked = document.querySelectorAll('input[name="food[]"]:checked').length
+
+                if (isChecked > 0) {
+                    selectAllOption.removeAttribute('hidden')
+                    notifyChecked.innerHTML = `Bạn đã chọn <span>${isChecked}</span> mục`
+                } else {
+                    selectAllOption.setAttribute('hidden', 'hidden')
+                    notifyChecked.innerHTML = ''
+                }
+                console.log(isChecked)
+            }),
+        )
     })
 }

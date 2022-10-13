@@ -1,0 +1,97 @@
+@import 'variables';
+.create {
+    width: 500px;
+    padding: 32px 50px;
+    border-radius: 10px;
+    // background-color: rgba(226, 5, 5, 0.522);
+    margin-left: 350px;
+}
+
+.create-header {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.create-item {
+    color: #000;
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-title {
+    width: 155px;
+    text-align: start;
+}
+
+.create-img {
+    width: 200px;
+    height: auto;
+    margin-right: 52px;
+}
+
+.create-input {
+    width: 300px;
+    padding: 5px 12px;
+    border: 1px solid $border;
+}
+
+.create-upload:hover {
+    border: 1px solid rgb(129, 24, 24);
+}
+
+.create-upload:hover .create-icon {
+    color: rgb(129, 24, 24);
+}
+
+.create-upload {
+    padding: 55px 132px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.create-icon {
+    color: #ccc;
+    font-size: 2.8rem;
+    transition: 0.4s;
+}
+
+
+/* Create Button */
+
+.create-button {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.create-quit:hover {
+    color: rgb(129, 24, 24);
+}
+
+.create-quit {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-right: 24px;
+}
+
+.create-confirm:hover {
+    color: white;
+    background-color: rgb(129, 24, 24);
+}
+
+.create-confirm {
+    height: 38px;
+    width: 200px;
+    float: right;
+    color: white;
+    background-color: rgb(129, 24, 24);
+}

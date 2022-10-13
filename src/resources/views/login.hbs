@@ -9,15 +9,22 @@
             </div>
         </div>
         <div class='content-right'>
-            <form class='form-action-login'>
+            <form class='form-action-login' method='POST' action='/user/singin'>
                 <h2 class='title'>Đăng Nhập</h2>
                 <div class='input-field'>
-                    <input required type='text' placeholder='Tên đăng nhập' id='username' />
+                    <input required type='text' placeholder='Tên đăng nhập' name='username' id='username' />
                     <ion-icon name='person'></ion-icon>
                 </div>
                 <div class='input-field'>
                     <ion-icon name='lock-closed'></ion-icon>
-                    <input class='input-password' required type='password' placeholder='Mật khẩu' id='password' />
+                    <input
+                        class='input-password'
+                        required
+                        type='password'
+                        placeholder='Mật khẩu'
+                        name='password'
+                        id='password'
+                    />
                 </div>
                 <div class='form-more'>
                     <p class='text hidden'>
@@ -34,6 +41,7 @@
                 </div>
 
                 <button type='submit' onclick='handleLogin()' class='btn btn-success btn-login'>Đăng Nhập</button>
+                {{! <button type='submit' class='btn btn-success btn-login'>Đăng Nhập</button> }}
                 {{! <button type='submit' onclick='login()' class='btn btn-success btn-login'>Đăng Nhập</button> }}
             </form>
         </div>

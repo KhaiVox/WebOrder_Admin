@@ -1,0 +1,90 @@
+{{! <div class='container-right'> }}
+<div class='create'>
+    <div class='container'>
+        <div class='create-header'>Detail Product</div>
+        <div class='row'>
+            <div class='create-info'>
+                <div class='create-item'>
+                    <div class='create-title'>Tên sản phẩm :</div>
+                    <input type='text' class='create-input' value='{{food.name}}' />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Loại :</div>
+                    <select class='create-input' name='' id=''>
+                        <option value=''>Món nước</option>
+                        <option value=''>Món mặn</option>
+                    </select>
+                    {{! <input type='text' class='create-input' value='khai' /> }}
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Đơn giá :</div>
+                    <input type='text' class='create-input' value='{{food.price}}' />
+                </div>
+
+                <div class='create-item'>
+                    <div class='create-title'>Hình :</div>
+                    {{! <div class='create-upload'>
+                            <i class='create-icon fa-solid fa-cloud-arrow-up'></i>
+                        </div> }}
+                    <img src={{food.img}} alt='' class='create-img' />
+                </div>
+                <div class='create-button'>
+                    <a href='/foods'>
+                        <button class='btn create-quit'>↩ Quay lại</button>
+                    </a>
+                    <button class='btn create-confirm'>Lưu thông tin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{! </div> }}
+{{!-- 
+<button class='btn btn-success'>
+    <a href='#my-modal--confirm'>Click</a>
+</button>
+
+<!-- Modal Layout -->
+<div class='modal' id='my-modal--confirm'>
+    <div class='modal__overlay'></div>
+    <a href='#' class='overlay-close'></a>
+
+    <div class='modal__body'>
+        <!-- Register Form -->
+        <div class='auth-form'>
+            <div class='create'>
+                <div class='create-header'>Chi tiết sản phẩm</div>
+                <div class='row'>
+                    <div class='create-info'>
+                        <div class='create-item'>
+                            <div class='create-title'>Tên sản phẩm :</div>
+                            <input type='text' class='create-input' value='{{food.name}}' />
+                        </div>
+                        <div class='create-item'>
+                            <div class='create-title'>Loại :</div>
+                            <select class='create-input' name='' id=''>
+                                <option value=''>Món nước</option>
+                                <option value=''>Món mặn</option>
+                            </select>
+                        </div>
+                        <div class='create-item'>
+                            <div class='create-title'>Đơn giá :</div>
+                            <input type='text' class='create-input' value='{{food.price}}' />
+                        </div>
+
+                        <div class='create-item'>
+                            <div class='create-title'>Hình :</div>
+                            <img class='create-img' src={{food.img}} alt='' />
+                        </div>
+                        <div class='create-button'>
+                            <a href='/foods'>
+                                <button class='btn create-quit'>↩ Quay lại</button>
+                            </a>
+                            <button class='btn create-confirm'>Lưu thông tin</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

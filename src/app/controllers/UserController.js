@@ -1,4 +1,5 @@
-// const AccountModel = require('../models/account')
+const AccountModel = require('../models/account')
+var jwt = require('jsonwebtoken')
 
 class UserController {
     // [GET] /login
@@ -11,8 +12,9 @@ class UserController {
         res.render('register')
     }
 
-    // POST login
-    // postLogin(req, res, next) {
+    // [POST] /login
+    // singin(req, res, next) {
+    //     // res.json(req.body)
     //     var username = req.body.username
     //     var password = req.body.password
 
@@ -32,6 +34,7 @@ class UserController {
     //                     message: 'Thành công',
     //                     token: token,
     //                 })
+    //                 res.redirect('/')
     //             } else {
     //                 res.json('Tài khoản hoặc mật khẩu chưa chính xác!')
     //             }

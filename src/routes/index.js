@@ -1,7 +1,7 @@
-const userRouter = require('./username')
+const userRouter = require('./user')
 const ordersRouter = require('./orders')
 const siteRouter = require('./site')
-const sidebarRouter = require('./sidebar')
+const foodController = require('./foods')
 const customerRouter = require('./customer')
 
 function route(app) {
@@ -9,7 +9,7 @@ function route(app) {
     app.use('/user', userRouter)
     app.use('/customer', customerRouter)
     app.use('/orders', ordersRouter)
-    app.use('/sidebar', sidebarRouter)
+    app.use('/foods', foodController)
     app.use('/', siteRouter)
 }
 

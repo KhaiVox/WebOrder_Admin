@@ -12,6 +12,9 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+// app.use(express.urlencoded({ extended: false }))
+// app.use(express.json())
+
 // JWT
 var jwt = require('jsonwebtoken')
 
@@ -24,7 +27,6 @@ app.use(express.json())
 
 // Static file
 app.use(express.static(path.join(__dirname, 'public')))
-    // const AccountModel = require('./models/account')
 const AccountModel = require('./app/models/account')
 
 // Template engine
