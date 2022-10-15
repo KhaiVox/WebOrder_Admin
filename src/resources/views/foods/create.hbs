@@ -3,42 +3,34 @@
 </div>
 <div class='container-right'>
     <div class='create'>
-        <div class='container'>
-            <div class='create-header'>Thêm sản phẩm</div>
-            <div class='row'>
-                <form method='POST' action='/foods/store'>
-                    {{! <div class='create-info'> }}
-                    <div class='create-item'>
-                        <div class='create-title'>Tên sản phẩm :</div>
-                        <input type='text' class='create-input' name='name' id='name' value='' />
-                    </div>
-                    <div class='create-item'>
-                        <div class='create-title'>Loại :</div>
-                        {{! <select class='create-input' name='' id=''>
-                                <option value=''>Món nước</option>
-                                <option value=''>Món mặn</option>
-                            </select> }}
-                        <input type='text' class='create-input' name='type' id='type' value='' />
-
-                    </div>
-                    <div class='create-item'>
-                        <div class='create-title'>Đơn giá :</div>
-                        <input type='text' class='create-input' name='price' id='price' value='' />
-                    </div>
-
-                    <div class='create-item'>
-                        <div class='create-title'>Hình :</div>
-                        <input type='text' class='create-input' name='img' id='img' value='' />
-                    </div>
-                    <div class='create-button'>
-                        <button type='submit' class='btn create-confirm'>Thêm mới</button>
-                    </div>
-                </div> 
-                </form>
-                <a href='/foods'>
-                    <button class='btn create-quit'>↩ Quay lại</button>
-                </a> 
+        <div class='create-header'>Thêm sản phẩm</div>
+        <form method='POST' action='/foods/store'>
+            <div class='create-item'>
+                <div class='create-title'>Tên sản phẩm :</div>
+                <input type='text' class='create-input' name='name' id='name' value='' />
             </div>
-        </div>
+            <div class='create-item'>
+                <div class='create-title'>Loại :</div>
+                    {{!-- <select class='create-input'>
+                        <option name='typeN' id='typeN' value=''>Món nước</option>
+                        <option name='typeM' id='typeM' value=''>Món mặn</option>
+                    </select>  --}}
+                <input type='text' class='create-input' name='type' id='type' value='' />
+            </div>
+            <div class='create-item'>
+                <div class='create-title'>Đơn giá :</div>
+                <input type='text' class='create-input' name='price' id='price' value='' />
+            </div>
+            <div class='create-item'>
+                <div class='create-title'>Hình :</div>
+                <input type='text' class='create-input' name='img' id='img' value='' />
+            </div>
+            <div class='create-button'>
+                <button type='submit' class='btn create-confirm'>Thêm mới</button>
+            </div>
+        </form>
+        <a href='/foods'>
+            <button class='btn create-quit'>↩ Quay lại</button>
+        </a> 
     </div>
 </div>

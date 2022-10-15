@@ -2,6 +2,7 @@ var path = require('path')
 const express = require('express')
 const handlebars = require('express-handlebars')
 const app = express()
+const methodOverride = require('method-override')
 const port = 3001
 
 var cookieParser = require('cookie-parser')
@@ -24,6 +25,9 @@ app.use(
     }),
 )
 app.use(express.json())
+
+// dùng khi muốn sử dụng method="PUT" cho việc edit sản phẩm
+app.use(methodOverride('_method'))
 
 // Static file
 app.use(express.static(path.join(__dirname, 'public')))

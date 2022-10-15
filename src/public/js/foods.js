@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         totalNumberLocator: function(res) {
             return res.total
         },
-        pageSize: 2,
+        pageSize: 5,
         showGoInput: true,
         showGoButton: true,
 
@@ -64,7 +64,7 @@ function loadPage(page) {
                         <li class='col-lg-2 list-item-des'>
                             <div class='btn-wrap'>
                                 <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
-                                <a href="/foods/${element._id}">
+                                <a href="/foods/${element._id}/edit">
                                     <span class='btn-delete'><ion-icon name="create-outline"></ion-icon></span>
                                 </a>
                             </div>

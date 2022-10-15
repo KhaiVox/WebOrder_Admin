@@ -806,14 +806,14 @@
   width: 500px;
   padding: 32px 50px;
   border-radius: 10px;
-  margin-left: 350px; }
+  margin-left: 30%; }
 
 .create-header {
   font-size: 3.2rem;
   font-weight: 600;
   color: #000;
-  text-transform: capitalize;
-  text-align: center; }
+  text-align: center;
+  text-transform: capitalize; }
 
 .create-item {
   color: #000;
@@ -821,6 +821,7 @@
   font-weight: 600;
   font-size: 1.8rem;
   display: flex;
+  align-items: baseline;
   justify-content: space-between; }
 
 .create-title {
@@ -834,21 +835,8 @@
 
 .create-input {
   width: 300px;
-  padding: 5px 12px;
+  padding: 5px 10px;
   border: 1px solid #bcbcbc; }
-
-.create-upload:hover {
-  border: 1px solid #811818; }
-
-.create-upload:hover .create-icon {
-  color: #811818; }
-
-.create-upload {
-  padding: 55px 132px;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: 0.4s; }
 
 .create-icon {
   color: #ccc;
@@ -863,7 +851,7 @@
   justify-content: flex-end; }
 
 .create-quit:hover {
-  color: #811818; }
+  color: #1c6758; }
 
 .create-quit {
   font-size: 1.6rem;
@@ -872,14 +860,14 @@
 
 .create-confirm:hover {
   color: white;
-  background-color: #811818; }
+  background-color: #1c6758; }
 
 .create-confirm {
   height: 38px;
   width: 200px;
   float: right;
   color: white;
-  background-color: #811818; }
+  background-color: #1c6758; }
 
 * {
   margin: 0;

@@ -5,7 +5,7 @@ const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
 // giới hạn số lượng item đc hiển thị trong 1 trang
-const PAGE_SIZE = 2
+const PAGE_SIZE = 5
 
 class FoodController {
     // [GET] /foods
@@ -28,6 +28,7 @@ class FoodController {
             if (page < 1) {
                 page = 1
             }
+            // Food.findOne
             Food.find({})
                 .skip(skip)
                 .limit(PAGE_SIZE)
@@ -46,16 +47,6 @@ class FoodController {
         }
     }
 
-    // [GET] /foods:slug
-    show(req, res, next) {
-        Food.findOne({ _id: req.params.id })
-            .then((food) => {
-                res.render('foods/show', { food: mongooseToObject(food) })
-            })
-
-        .catch(next)
-    }
-
     // [GET] /foods/create
     create(req, res, next) {
         res.render('foods/create')
@@ -72,6 +63,23 @@ class FoodController {
             // sau khi lưu thành công sẽ quay về trang chúng ta thiết lập bên dưới
             .then(() => res.redirect('/foods'))
             .catch((error) => {})
+    }
+
+    // [GET] /foods/:id/edit
+    edit(req, res, next) {
+        Food.findOne({ _id: req.params.id })
+            .then((food) => {
+                res.render('foods/edit', { food: mongooseToObject(food) })
+            })
+
+        .catch(next)
+    }
+
+    // [PUT] /foods/:id
+    update(req, res, next) {
+        Food.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/foods'))
+            .catch(next)
     }
 }
 
