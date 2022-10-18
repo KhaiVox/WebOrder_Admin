@@ -347,7 +347,6 @@
   width: 45px;
   height: 45px;
   position: relative;
-  top: -5px;
   left: -5px;
   object-fit: cover; }
 
@@ -364,14 +363,16 @@
   justify-content: flex-start; }
 
 .btn-delete {
+  font-size: 2.6rem;
+  margin-right: 18px;
+  margin-top: -3px;
   font-size: 2.6rem; }
-  .btn-delete:last-child {
-    margin-left: 18px;
-    margin-top: -3px;
-    font-size: 2.4rem; }
   .btn-delete:hover {
     color: #c50f0f;
     transform: scale(1.1); }
+
+.btn-edit {
+  font-size: 2.4rem; }
 
 .btn-action-food:last-child {
   margin-left: 6px; }
@@ -392,7 +393,7 @@
 
 .paginationjs-pages {
   background-color: #1c6758;
-  min-width: 300px;
+  min-width: 260px;
   height: 46px;
   border-radius: 50px;
   border-radius: 10px;
@@ -441,6 +442,22 @@
   border: none;
   color: white;
   background-color: #d2490e; }
+
+.notify {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 22px; }
+
+.list-food__trash {
+  height: 560px;
+  overflow: scroll;
+  overflow-x: hidden; }
+
+.modal-title {
+  font-size: 1.8rem; }
+
+.modal-body {
+  font-size: 1.6rem; }
 
 .container-wrap__login {
   width: 100%;
@@ -810,10 +827,13 @@
 
 .create-header {
   font-size: 3.2rem;
-  font-weight: 600;
-  color: #000;
+  font-weight: 500;
+  margin-bottom: 42px;
+  color: #1c6758;
   text-align: center;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  font-family: 'Tourney', cursive;
+  text-shadow: 1px 1px 2px #1c675830; }
 
 .create-item {
   color: #000;
@@ -857,6 +877,11 @@
   font-size: 1.6rem;
   font-weight: 400;
   margin-right: 24px; }
+
+.create-quit ion-icon {
+  position: relative;
+  top: -2px;
+  margin-right: 5px; }
 
 .create-confirm:hover {
   color: white;
@@ -944,6 +969,12 @@ input:focus {
   justify-content: space-between;
   margin-bottom: 32px; }
 
+.form-header h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: 'Tourney', cursive;
+  text-shadow: 1px 1px 2px #1c675830; }
+
 .form-detail {
   width: 100%;
   padding: 20px 7px;
@@ -966,22 +997,20 @@ input[type='checkbox']:checked {
 .list-heading,
 .list-des {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  border-top: 1px solid #bcbcbc; }
+  align-items: center;
+  border-bottom: 1px solid #bcbcbc; }
 
 .list-heading {
-  padding: 15px 0;
-  border: none; }
+  padding: 15px; }
+
+.list-des {
+  padding: 10px 15px; }
 
 .list-item-heading {
   font-size: 1.7rem;
   font-weight: 700;
   color: #1c6758;
   display: flex; }
-
-.list-des {
-  padding: 10px 0; }
 
 .order-check {
   cursor: pointer;
@@ -1069,7 +1098,7 @@ input[type='checkbox']:checked {
   font-size: 2.4rem; }
 
 /* Modal */
-.modal {
+.my-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -1079,10 +1108,10 @@ input[type='checkbox']:checked {
   z-index: 1000;
   display: none; }
 
-.modal:target {
+.my-modal:target {
   display: flex; }
 
-.modal .active {
+.my-modal .active {
   display: block; }
 
 .overlay-close {
@@ -1091,7 +1120,7 @@ input[type='checkbox']:checked {
   height: 100%;
   cursor: default; }
 
-.modal__overlay {
+.my-modal__overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1101,7 +1130,7 @@ input[type='checkbox']:checked {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4); }
 
-.modal__body {
+.my-modal__body {
   z-index: 1;
   margin: auto;
   border-radius: 3px;

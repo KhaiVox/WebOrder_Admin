@@ -7,6 +7,8 @@ const { mutipleMongooseToObject } = require('../../util/mongoose')
 // giới hạn số lượng item đc hiển thị trong 1 trang
 const PAGE_SIZE = 5
 
+var index = 1
+
 class FoodController {
     // [GET] /foods
     foods(req, res, next) {
@@ -43,13 +45,13 @@ class FoodController {
                     res.json('Lỗi render')
                 })
         } else {
-            res.render('foods', { index: 1 })
+            res.render('foods', { index: index })
         }
     }
 
     // [GET] /foods/create
     create(req, res, next) {
-        res.render('foods/create')
+        res.render('foods/create', { index: index })
     }
 
     // [POST] /foods/store
@@ -69,7 +71,7 @@ class FoodController {
     edit(req, res, next) {
         Food.findOne({ _id: req.params.id })
             .then((food) => {
-                res.render('foods/edit', { food: mongooseToObject(food) })
+                res.render('foods/edit', { food: mongooseToObject(food), index: index })
             })
 
         .catch(next)
@@ -79,6 +81,41 @@ class FoodController {
     update(req, res, next) {
         Food.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/foods'))
+            .catch(next)
+    }
+
+    // [DELETE] /foods/:id
+    softDelete(req, res, next) {
+        // Food.delete là phương thức xóa mềm của thư viện "Mongoose Delete Plugin"
+        Food.delete({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    // [DELETE] /foods/:id/force
+    delete(req, res, next) {
+        Food.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    // [GET] /foods/trash
+    trash(req, res, next) {
+        // findDeleted: render ra danh sách khóa học đã xóa
+        Food.findDeleted({})
+            .then((foods) =>
+                res.render('foods/trash', {
+                    foods: mutipleMongooseToObject(foods),
+                    index: index,
+                }),
+            )
+            .catch(next)
+    }
+
+    // [PATH] /foods/:id/restore
+    restore(req, res, next) {
+        Food.restore({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next)
     }
 }

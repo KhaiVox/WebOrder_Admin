@@ -80,9 +80,3 @@ document.onkeypress = function(myEvent) {
         handleLogin()
     }
 }
-
-// Input focus
-// document.addEventListener('DOMContentLoaded', function() {
-//     const username = document.querySelector('#username')
-//     username.focus()
-// })

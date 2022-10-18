@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/account', {
+// thư viện xóa mềm
+const mongooseDelete = require('mongoose-delete')
+
+// mongoose.connect('mongodb://localhost:27017/account', {
+mongoose.connect('mongodb+srv://ngocphuc:ngocphuc@cluster0.jm3jwgm.mongodb.net/DevFood', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -14,6 +18,10 @@ const Food = new Schema({
     type: { type: String },
     price: { type: String },
 })
+
+// deleteAt: tự động thêm thời gian xóa
+// overrideMethods: ẩn những item đã được xóa mềm
+Food.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' })
 
 const FoodModel = mongoose.model('Food', Food)
 module.exports = FoodModel

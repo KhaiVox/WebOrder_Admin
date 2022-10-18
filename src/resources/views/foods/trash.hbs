@@ -1,0 +1,125 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='form-wrap'>
+        <div class='form-header'>
+            <h1>Món Ăn Đã Xóa</h1>
+            <a class="btn create-quit" href="/foods">
+                <span><ion-icon name="arrow-undo-outline"></ion-icon></span> 
+                Danh sách sản phẩm
+            </a>
+        </div>
+
+        <div class='list-food list-food__trash'>
+            <div class='form-heading'>
+                <ul class='row list-heading'>
+                    <li class='col-lg-1 list-item-heading'></li>
+                    <li class='col-lg-1 list-item-heading'>STT</li>
+                    <li class='col-lg-2 list-item-heading'>Ảnh</li>
+                    <li class='col-lg-2 list-item-heading'>Tên món</li>
+                    <li class='col-lg-2 list-item-heading'>Loại</li>
+                    <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá</li>
+                    <li class='col-lg-2 list-item-heading'>Tác vụ</li>
+                </ul>
+            </div>
+
+            {{#each foods}}
+            <div class='form-des'>
+                <ul class='row list-des'>
+                    <li class='col-lg-1 list-item-des'><input
+                            class='order-check'
+                            type='checkbox'
+                            name='courseIds[]'
+                        /></li>
+                    <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                    <li class='col-lg-2 list-item-des'>
+                        <img
+                            class='product-img'
+                            src={{img}}
+                            alt=''
+                        />
+                    </li>
+                    <li class='col-lg-2 list-item-des'>{{name}}</li>
+                    <li class='col-lg-2 list-item-des'>{{type}}</li>
+                    <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
+                    <li class='col-lg-2 list-item-des'>
+                        <a href="" data-bs-toggle='modal' data-bs-target='#delete-course-modal' data-id="{{_id}}">
+                            <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
+                        </a>
+                        <a href="" class="btn-restore" data-id="{{_id}}">
+                            <span class='btn-delete btn-edit'><ion-icon name="refresh-outline"></ion-icon></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {{else}}
+            <tr>
+                <div class="notify"> Thùng rác trống. <a href="/foods">Danh sách món ăn</a></div>
+            </tr>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<!-- Modal Confirm Delete -->
+<div class='modal fade' id='delete-course-modal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Xóa</h5>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                Hành động này không thể khôi phục.
+                Bạn vẫn muốn xóa sản phẩm này ?
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-outline' data-bs-dismiss='modal'>Hủy</button>
+                <button id='btn-delete-food' type='button' class='btn btn-danger'>Xóa vĩnh viễn</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name='delete-food-form' method='POST'></form>
+<form name='restore-food-form' method='POST'></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Restore Action
+        var restoreBtn = $('.btn-restore')
+        var restoreForm = document.forms['restore-food-form']
+        
+        // cú pháp thêm sự kiện cho từng nút khi onclick của JQuery
+        restoreBtn.click(function (e) {
+            // bỏ sự kiện mặc định của thẻ a
+            e.preventDefault();
+            
+            var foodId = $(this).data('id');
+            restoreForm.action = '/foods/' + foodId + '/restore?_method=PATCH';
+            restoreForm.submit();
+        })
+
+        // Delete Action
+        var courseId
+        var btnDeleteCourse = document.getElementById('btn-delete-food')
+        var deleteForm = document.forms['delete-food-form']
+
+        // lấy id của item được nhấn
+        $('#delete-course-modal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            courseId = button.data('id')
+        })
+
+        // button delete ở form dialog
+        btnDeleteCourse.onclick = function() {
+            // thêm action đường dẫn vào form delete vừa tạo
+            deleteForm.action = '/foods/' + courseId + '/force?_method=DELETE'
+            deleteForm.submit()
+        }
+    })
+</script>
+
+
+
+

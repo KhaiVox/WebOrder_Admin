@@ -6,10 +6,13 @@
 
 .create-header {
   font-size: 3.2rem;
-  font-weight: 600;
-  color: #000;
+  font-weight: 500;
+  margin-bottom: 42px;
+  color: #1c6758;
   text-align: center;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  font-family: 'Tourney', cursive;
+  text-shadow: 1px 1px 2px #1c675830; }
 
 .create-item {
   color: #000;
@@ -53,6 +56,11 @@
   font-size: 1.6rem;
   font-weight: 400;
   margin-right: 24px; }
+
+.create-quit ion-icon {
+  position: relative;
+  top: -2px;
+  margin-right: 5px; }
 
 .create-confirm:hover {
   color: white;

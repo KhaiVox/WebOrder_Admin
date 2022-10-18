@@ -17,7 +17,6 @@
   width: 45px;
   height: 45px;
   position: relative;
-  top: -5px;
   left: -5px;
   object-fit: cover; }
 
@@ -34,14 +33,16 @@
   justify-content: flex-start; }
 
 .btn-delete {
+  font-size: 2.6rem;
+  margin-right: 18px;
+  margin-top: -3px;
   font-size: 2.6rem; }
-  .btn-delete:last-child {
-    margin-left: 18px;
-    margin-top: -3px;
-    font-size: 2.4rem; }
   .btn-delete:hover {
     color: #c50f0f;
     transform: scale(1.1); }
+
+.btn-edit {
+  font-size: 2.4rem; }
 
 .btn-action-food:last-child {
   margin-left: 6px; }
@@ -62,7 +63,7 @@
 
 .paginationjs-pages {
   background-color: #1c6758;
-  min-width: 300px;
+  min-width: 260px;
   height: 46px;
   border-radius: 50px;
   border-radius: 10px;
@@ -111,3 +112,19 @@
   border: none;
   color: white;
   background-color: #d2490e; }
+
+.notify {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 22px; }
+
+.list-food__trash {
+  height: 560px;
+  overflow: scroll;
+  overflow-x: hidden; }
+
+.modal-title {
+  font-size: 1.8rem; }
+
+.modal-body {
+  font-size: 1.6rem; }
