@@ -328,20 +328,33 @@
   border: 1px solid #0a5b35;
   background-color: #0df08e1a; }
 
-.food-icon-trash {
-  position: fixed;
-  right: 55px;
-  bottom: 32px;
+.food-trash {
+  float: right;
+  cursor: pointer;
+  margin-right: 32px;
+  margin-top: 54px; }
+
+.icon-trash {
+  color: #1c6758;
+  font-size: 4rem;
+  position: relative; }
+  .icon-trash:hover {
+    color: #0e483d; }
+
+.icon-trash__number {
+  position: absolute;
   display: flex;
   align-items: center;
-  font-size: 3.6rem;
+  justify-content: center;
+  bottom: 48px;
+  right: 50px;
+  font-size: 1.8rem;
+  border-radius: 30px;
+  width: 30px;
+  height: 25px;
   color: #1c6758;
-  border-radius: 5px;
-  transition: 0.2s;
-  cursor: pointer; }
-  .food-icon-trash:hover {
-    transform: scale(1.2);
-    color: #0e483d; }
+  background-color: white;
+  border: 2px solid #1c6758; }
 
 .product-img {
   width: 45px;
@@ -353,7 +366,7 @@
 .list-food {
   width: 100%;
   padding: 20px 7px;
-  height: 405px;
+  height: 407px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
 
@@ -1022,7 +1035,7 @@ input[type='checkbox']:checked {
 
 .list-des:hover {
   cursor: pointer;
-  background-color: white; }
+  background-color: transparent; }
 
 .list-item-des {
   font-size: 1.6rem;

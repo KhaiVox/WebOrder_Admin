@@ -1,21 +1,35 @@
 @import 'variables';
 // Header
-.food-icon-trash {
-    position: fixed;
-    right: 55px;
-    bottom: 32px;
-    display: flex;
-    align-items: center;
-    // margin-right: 32px;
-    font-size: 3.6rem;
-    color: $primary;
-    border-radius: $br5;
-    transition: 0.2s;
+.food-trash {
+    float: right;
     cursor: pointer;
+    margin-right: 32px;
+    margin-top: 54px;
+}
+
+.icon-trash {
+    color: $primary;
+    font-size: 4rem;
+    position: relative;
     &:hover {
-        transform: scale(1.2);
         color: $dark-primary;
     }
+}
+
+.icon-trash__number {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 48px;
+    right: 50px;
+    font-size: 1.8rem;
+    border-radius: 30px;
+    width: 30px;
+    height: 25px;
+    color: $primary;
+    background-color: white;
+    border: 2px solid $primary;
 }
 
 .product-img {
@@ -29,7 +43,7 @@
 .list-food {
     width: 100%;
     padding: 20px 7px;
-    height: 405px;
+    height: 407px;
     border-radius: 10px;
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
 }

@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 // thư viện xóa mềm
 const mongooseDelete = require('mongoose-delete')
 
-// mongoose.connect('mongodb://localhost:27017/account', {
 mongoose.connect('mongodb+srv://ngocphuc:ngocphuc@cluster0.jm3jwgm.mongodb.net/DevFood', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
