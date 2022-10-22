@@ -11,7 +11,7 @@
             </a>
         </div>
 
-        <div class='list-food list-food__trash'>
+        <div class='list-info'>
             <div class='form-heading'>
                 <ul class='row list-heading'>
                     <li class='col-lg-1 list-item-heading'></li>
@@ -24,36 +24,39 @@
                 </ul>
             </div>
 
-            {{#each foods}}
-            <div class='form-des'>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
-                    <li class='col-lg-1 list-item-des'>
-                        <img
-                            class='product-img'
-                            src={{img}}
-                            alt=''
-                        />
-                    </li>
-                    <li class='col-lg-4 list-item-des'>{{name}}</li>
-                    <li class='col-lg-1 list-item-des'>{{type}}</li>
-                    <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <a href="" data-bs-toggle='modal' data-bs-target='#delete-course-modal' data-id="{{_id}}">
-                            <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
-                        </a>
-                        <a href="" class="btn-restore" data-id="{{_id}}">
-                            <span class='btn-delete btn-edit'><ion-icon name="refresh-outline"></ion-icon></span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="form-des__wrap list-food__trash">
+                {{#each foods}}
+                <div class='form-des'>
+                    <ul class='row list-des'>
+                        <li class='col-lg-1 list-item-des'><input
+                                class='order-check'
+                                type='checkbox'
+                                name='courseIds[]'
+                            /></li>
+                        <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                        <li class='col-lg-1 list-item-des'>
+                            <img
+                                class='product-img'
+                                src={{img}}
+                                alt=''
+                            />
+                        </li>
+                        <li class='col-lg-4 list-item-des'>{{name}}</li>
+                        <li class='col-lg-1 list-item-des'>{{type}}</li>
+                        <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
+                        <li class='col-lg-2 list-item-des'>
+                            <a href="" data-bs-toggle='modal' data-bs-target='#delete-course-modal' data-id="{{_id}}">
+                                <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
+                            </a>
+                            <a href="" class="btn-restore" data-id="{{_id}}">
+                                <span class='btn-delete btn-edit'><ion-icon name="refresh-outline"></ion-icon></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {{else}}
             </div>
-            {{else}}
+
             <tr>
                 <div class="notify"> Thùng rác trống. <a href="/foods">Danh sách món ăn</a></div>
             </tr>

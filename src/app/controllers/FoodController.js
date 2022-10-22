@@ -12,40 +12,51 @@ var index = 1
 class FoodController {
     // [GET] /foods
     foods(req, res, next) {
-        var page = req.query.page
-        if (page) {
-            page = parseInt(page)
-
-            if (page < 1) {
-                page = 1
-            }
-            // bỏ qua bao nhiêu phần tử để đến trang mong muốn
-            var skip = (page - 1) * PAGE_SIZE
-
-            Promise.all([Food.countDocuments(), Food.find().skip(skip).limit(PAGE_SIZE), Food.countDocumentsDeleted()])
-                .then(([pages, foods, deletedCount]) => {
-                    res.render('foods', {
-                        pages,
-                        index: index,
-                        foods: mutipleMongooseToObject(foods),
-                        deletedCount,
-                    })
+        Promise.all([Food.countDocuments(), Food.find(), Food.countDocumentsDeleted()])
+            .then(([pages, foods, deletedCount]) => {
+                res.render('foods', {
+                    pages,
+                    index: index,
+                    foods: mutipleMongooseToObject(foods),
+                    deletedCount,
                 })
-
-            .catch((err) => {
-                res.json('Lỗi render')
             })
-        } else {
-            Promise.all([Food.countDocuments(), Food.find().limit(PAGE_SIZE), Food.countDocumentsDeleted()])
-                .then(([pages, foods, deletedCount]) => {
-                    res.render('foods', {
-                        pages,
-                        foods: mutipleMongooseToObject(foods),
-                        deletedCount,
-                    })
-                })
-                .catch(next)
-        }
+            .catch(next)
+            // var page = req.query.page
+            // if (page) {
+            //     page = parseInt(page)
+
+        //     if (page < 1) {
+        //         page = 1
+        //     }
+        //     // bỏ qua bao nhiêu phần tử để đến trang mong muốn
+        //     var skip = (page - 1) * PAGE_SIZE
+
+        //     Promise.all([Food.countDocuments(), Food.find().skip(skip).limit(PAGE_SIZE), Food.countDocumentsDeleted()])
+        //         .then(([pages, foods, deletedCount]) => {
+        //             res.render('foods', {
+        //                 pages,
+        //                 index: index,
+        //                 foods: mutipleMongooseToObject(foods),
+        //                 deletedCount,
+        //             })
+        //         })
+
+        //     .catch((err) => {
+        //         res.json('Lỗi render')
+        //     })
+        // } else {
+        //     Promise.all([Food.countDocuments(), Food.find().limit(PAGE_SIZE), Food.countDocumentsDeleted()])
+        //         .then(([pages, foods, deletedCount]) => {
+        //             res.render('foods', {
+        //                 pages,
+        //                 index: index,
+        //                 foods: mutipleMongooseToObject(foods),
+        //                 deletedCount,
+        //             })
+        //         })
+        //         .catch(next)
+        // }
     }
 
     // [GET] /foods/create
@@ -55,24 +66,11 @@ class FoodController {
 
     // [POST] /foods/store
     store(req, res, next) {
-        Food.findOne({
-                id: req.body.id,
-            })
-            .then((data) => {
-                if (data) {
-                    res.json('Id này đã tồn tại!')
-                } else {
-                    // GÁN 1 GIÁ TRỊ BẤT KÌ ĐỂ TẠO ID CHO SẢN PHẨM ///
-                    // req.body.id = 12
-                    const food = new Food(req.body)
+        const food = new Food(req.body)
 
-                    // CÓ THỂ ÁP DỤNG CHO REGISTER VÀ RÀNG BUỘC AMIN Ở ĐÂY ///
-                    food.save()
-                        // sau khi lưu thành công sẽ quay về trang chúng ta thiết lập bên dưới
-                        .then(() => res.redirect('/foods'))
-                        .catch((error) => {})
-                }
-            })
+        food.save()
+            // sau khi lưu thành công sẽ quay về trang chúng ta thiết lập bên dưới
+            .then(() => res.redirect('/foods'))
             .catch(next)
     }
 
@@ -126,6 +124,20 @@ class FoodController {
         Food.restore({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next)
+    }
+
+    // [POST] /courses/handle-form-actions
+    handleFormActions(req, res, next) {
+        // switch (req.body.action) {
+        //     case 'delete':
+        //         // _id: { $in: req.body.courseIds: lấy tất cả các id có trong list đã chọn này
+        //         Course.delete({ _id: { $in: req.body.courseIds } })
+        //             .then(() => res.redirect('back'))
+        //             .catch(next)
+        //         break
+        //     default:
+        //         res.json({ message: 'Action is invalid!' })
+        // }
     }
 }
 

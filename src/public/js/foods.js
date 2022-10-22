@@ -1,6 +1,7 @@
 var courseItemCheckbox = document.querySelectorAll('.order-check')
 var selectAllOption = document.querySelector('.form-select-option')
 var notifyChecked = document.querySelector('.notify-checked')
+var btnAction = document.querySelector('.btn-action-check')
 
 courseItemCheckbox.forEach(
     (item) =>
@@ -9,9 +10,11 @@ courseItemCheckbox.forEach(
 
         if (isChecked > 0) {
             selectAllOption.removeAttribute('hidden')
+            btnAction.removeAttribute('hidden')
             notifyChecked.innerHTML = `Bạn đã chọn <span>${isChecked}</span> mục`
         } else {
             selectAllOption.setAttribute('hidden', 'hidden')
+            btnAction.setAttribute('hidden', 'hidden')
             notifyChecked.innerHTML = ''
         }
         // console.log(isChecked)

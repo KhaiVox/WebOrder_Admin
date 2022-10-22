@@ -11,7 +11,9 @@ const AccountSchema = new Schema({
     username: String,
     password: String,
     role: String,
-})
+}, {
+    collection: 'accounts',
+}, )
 
 const AccountModel = mongoose.model('account', AccountSchema)
 module.exports = AccountModel

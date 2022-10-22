@@ -36,7 +36,6 @@
             <div class='form-heading'>
                 <ul class='row list-heading'>
                     <li class='col-lg-1 list-item-heading'>STT</li>
-                    <li class='col-lg-1 list-item-heading'>Mã KH</li>
                     <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
                     <li class='col-lg-2 list-item-heading'>SĐT</li>
                     <li class='col-lg-2 list-item-heading'>Địa chỉ</li>
@@ -44,18 +43,28 @@
                     <li class='col-lg-2 list-item-heading btn-sort'>Tổng chi tiêu
                         <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
                     </li>
+                    <li class='col-lg-1 list-item-heading'>Sửa</li>
                 </ul>
             </div>
-            <div class='form-des'>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'>1</li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>Võ Khải</li>
-                    <li class='col-lg-2 list-item-des'>0975142687</li>
-                    <li class='col-lg-2 list-item-des'>Quảng Ngãi</li>
-                    <li class='col-lg-2 list-item-des'>15</li>
-                    <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
-                </ul>
+
+            <div class="form-des__wrap">
+                {{#each customer}}
+                <div class='form-des'>
+                    <ul class='row list-des'>
+                        <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                        <li class='col-lg-2 list-item-des' style="text-transform: capitalize;">{{fullname}}</li>
+                        <li class='col-lg-2 list-item-des'>{{phone}}</li>
+                        <li class='col-lg-2 list-item-des'>{{address}}</li>
+                        <li class='col-lg-2 list-item-des'>15</li>
+                        <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
+                        <li class='col-lg-1 list-item-des'>
+                            <a href="/foods/{{_id}}/edit">
+                                <span class='btn-delete btn-edit'><ion-icon name="create-outline"></ion-icon></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {{/each}}
             </div>
         </div>
     </div>

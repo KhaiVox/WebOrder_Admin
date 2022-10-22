@@ -80,7 +80,7 @@ input:focus {
     position: relative;
     left: 300px;
     width: 80%;
-    min-height: 100vh;
+    height: 100vh;
     transition: 0.8s;
 }
 
@@ -112,8 +112,8 @@ input:focus {
 
 .form-detail {
     width: 100%;
-    padding: 20px 7px;
-    height: 450px;
+    padding: 20px 7px 0 7px;
+    min-height: 450px;
     border-radius: 10px;
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
 }
@@ -146,7 +146,7 @@ input[type='checkbox']:checked {
 }
 
 .list-des {
-    padding: 10px 15px;
+    padding: 10px 26px;
 }
 
 .list-item-heading {

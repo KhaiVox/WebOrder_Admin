@@ -2,6 +2,8 @@ var path = require('path')
 const express = require('express')
 const handlebars = require('express-handlebars')
 const app = express()
+
+// Thư viện PUT, PATCH
 const methodOverride = require('method-override')
 const port = 3001
 

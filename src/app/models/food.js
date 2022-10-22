@@ -16,7 +16,9 @@ const Food = new Schema({
     img: { type: String },
     type: { type: String },
     price: { type: String },
-})
+}, {
+    collection: 'foods',
+}, )
 
 // deleteAt: tự động thêm thời gian xóa
 // overrideMethods: ẩn những item đã được xóa mềm

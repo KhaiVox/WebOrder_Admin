@@ -259,7 +259,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0; }
+  padding-bottom: 16px; }
 
 .form-selected {
   display: flex;
@@ -328,30 +328,35 @@
   border: 1px solid #0a5b35;
   background-color: #0df08e1a; }
 
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+
 .food-trash {
-  float: right;
   cursor: pointer;
   margin-right: 32px;
-  margin-top: 54px; }
+  margin-top: 18px; }
 
 .icon-trash {
   color: #1c6758;
-  font-size: 4rem;
-  position: relative; }
+  font-size: 4rem; }
   .icon-trash:hover {
     color: #0e483d; }
 
 .icon-trash__number {
   position: absolute;
+  bottom: 24px;
+  right: 48%;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 48px;
-  right: 50px;
-  font-size: 1.8rem;
-  border-radius: 30px;
   width: 30px;
   height: 25px;
+  margin-right: 8px;
+  font-size: 1.8rem;
+  border-radius: 30px;
   color: #1c6758;
   background-color: white;
   border: 2px solid #1c6758; }
@@ -363,12 +368,18 @@
   left: -5px;
   object-fit: cover; }
 
-.list-food {
+.list-info {
   width: 100%;
   padding: 20px 7px;
-  height: 407px;
+  min-height: 400px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
+
+.form-des__wrap {
+  height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin: 0 -24px 0 -8px; }
 
 .btn-wrap {
   display: flex;
@@ -462,9 +473,7 @@
   margin-top: 22px; }
 
 .list-food__trash {
-  height: 560px;
-  overflow: scroll;
-  overflow-x: hidden; }
+  height: 500px; }
 
 .modal-title {
   font-size: 1.8rem; }
@@ -964,7 +973,7 @@ input:focus {
   position: relative;
   left: 300px;
   width: 80%;
-  min-height: 100vh;
+  height: 100vh;
   transition: 0.8s; }
 
 .container-right.set-width {
@@ -990,8 +999,8 @@ input:focus {
 
 .form-detail {
   width: 100%;
-  padding: 20px 7px;
-  height: 450px;
+  padding: 20px 7px 0 7px;
+  min-height: 450px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
 
@@ -1017,7 +1026,7 @@ input[type='checkbox']:checked {
   padding: 15px; }
 
 .list-des {
-  padding: 10px 15px; }
+  padding: 10px 26px; }
 
 .list-item-heading {
   font-size: 1.7rem;

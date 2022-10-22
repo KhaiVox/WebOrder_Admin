@@ -1,16 +1,21 @@
 @import 'variables';
 // Header
+.trash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .food-trash {
-    float: right;
     cursor: pointer;
     margin-right: 32px;
-    margin-top: 54px;
+    margin-top: 18px;
 }
 
 .icon-trash {
     color: $primary;
     font-size: 4rem;
-    position: relative;
     &:hover {
         color: $dark-primary;
     }
@@ -18,15 +23,16 @@
 
 .icon-trash__number {
     position: absolute;
+    bottom: 24px;
+    right: 48%;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 48px;
-    right: 50px;
-    font-size: 1.8rem;
-    border-radius: 30px;
     width: 30px;
     height: 25px;
+    margin-right: 8px;
+    font-size: 1.8rem;
+    border-radius: 30px;
     color: $primary;
     background-color: white;
     border: 2px solid $primary;
@@ -40,12 +46,19 @@
     object-fit: cover;
 }
 
-.list-food {
+.list-info {
     width: 100%;
     padding: 20px 7px;
-    height: 407px;
+    min-height: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+}
+
+.form-des__wrap {
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 0 -24px 0 -8px;
 }
 
 .btn-wrap {
@@ -159,9 +172,7 @@
 }
 
 .list-food__trash {
-    height: 560px;
-    overflow: scroll;
-    overflow-x: hidden;
+    height: 500px;
 }
 
 // Modal Foods

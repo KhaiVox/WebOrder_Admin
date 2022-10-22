@@ -12,7 +12,7 @@
                 <a href="/foods/create">
                     <div class='btn btn-add-order'>
                         <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
-                        Thêm món ăn
+                        Thêm món
                     </div>
                 </a>
             </div>
@@ -27,6 +27,8 @@
                     <option value=''>Chọn thao tác</option>
                     <option value=''>Xóa</option>
                 </select>
+
+                <div hidden class="btn btn-danger btn-action-check">Thực hiện</div>
             </div>
             <div class='search'>
                 <label for=''>
@@ -40,19 +42,20 @@
                 <div class='filter-category form-selected'>
                     <select class='form-select-option'>
                         <option value=''>Lọc theo loại</option>
-                        <option value=''>Món mặn</option>
+                        <option value=''>Món ăn</option>
                         <option value=''>Món nước</option>
+                        <option value=''>Ăn kèm</option>
                     </select>
                 </div>
             </div>
         </div>
 
         {{! List Foods }}
-        <div class='list-food'>
+        <div class='form-detail'>
             <div class='form-heading'>
                 <ul class='row list-heading'>
                     <li class='col-lg-1 list-item-heading'></li>
-                    <li class='col-lg-1 list-item-heading'>Mã món</li>
+                    <li class='col-lg-1 list-item-heading'>STT</li>
                     <li class='col-lg-1 list-item-heading'>Ảnh</li>
                     <li class='col-lg-4 list-item-heading'>Tên món</li>
                     <li class='col-lg-1 list-item-heading'>Loại</li>
@@ -63,45 +66,49 @@
                 </ul>
             </div>
 
-            {{#each foods}}
-            <div class='form-des'>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='food[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>{{id}}</li>
-                    <li class='col-lg-1 list-item-des'>
-                        <img
-                            class='product-img'
-                            src={{img}}
-                            alt={{name}}
-                        />
-                    </li>
-                    <li class='col-lg-4 list-item-des'>{{name}}</li>
-                    <li class='col-lg-1 list-item-des'>{{type}}</li>
-                    <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
-                    <li class='col-lg-2 list-item-des'>
-                        <div class='btn-wrap'>
-                            <a href="#" data-bs-toggle='modal' data-bs-target='#delete-course-modal' data-id='{{_id}}'>
-                                <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
-                            </a>
-                            <a href="/foods/{{_id}}/edit">
-                                <span class='btn-delete btn-edit'><ion-icon name="create-outline"></ion-icon></span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+            <div class="form-des__wrap">
+                {{#each foods}}
+                    <div class='form-des'>
+                    <ul class='row list-des'>
+                        <li class='col-lg-1 list-item-des'><input
+                                class='order-check'
+                                type='checkbox'
+                                name='food[]'
+                            /></li>
+                        <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                        <li class='col-lg-1 list-item-des'>
+                            <img
+                                class='product-img'
+                                src={{img}}
+                                alt={{name}}
+                            />
+                        </li>
+                        <li class='col-lg-4 list-item-des'>{{name}}</li>
+                        <li class='col-lg-1 list-item-des'>{{type}}</li>
+                        <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
+                        <li class='col-lg-2 list-item-des'>
+                            <div class='btn-wrap'>
+                                <a href="#" data-bs-toggle='modal' data-bs-target='#delete-course-modal' data-id='{{_id}}'>
+                                    <span class='btn-delete'><ion-icon name="close-outline"></ion-icon></span> 
+                                </a>
+                                <a href="/foods/{{_id}}/edit">
+                                    <span class='btn-delete btn-edit'><ion-icon name="create-outline"></ion-icon></span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
     </div>
-    <a class='food-trash' href="/foods/trash">
+    <div class="trash">
+        <a class='food-trash' href="/foods/trash">
         <span class='icon-trash'><ion-icon name="trash"></ion-icon></span>
         <span class='icon-trash__number'>{{deletedCount}}</span>
     </a>
-    <div id="paging" class="none"></div>
+    </div>
+    {{!-- <div id="paging" class="none"></div> --}}
     {{! </div> }}
 </div>
 
@@ -126,7 +133,7 @@
 
 <form name='delete-food-form' method='POST'></form>
 
-<script>
+{{!-- <script>
 var pages = {{pages}}
 document.addEventListener('DOMContentLoaded', function() {
     var arrPage = []
@@ -165,4 +172,4 @@ function loadPage(page) {
     window.location.href='/foods?page=' + page
 }
 
-</script>
+</script> --}}
