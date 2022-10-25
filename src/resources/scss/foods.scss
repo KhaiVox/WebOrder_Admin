@@ -1,43 +1,5 @@
 @import 'variables';
 // Header
-.trash {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.food-trash {
-    cursor: pointer;
-    margin-right: 32px;
-    margin-top: 18px;
-}
-
-.icon-trash {
-    color: $primary;
-    font-size: 4rem;
-    &:hover {
-        color: $dark-primary;
-    }
-}
-
-.icon-trash__number {
-    position: absolute;
-    bottom: 24px;
-    right: 48%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 25px;
-    margin-right: 8px;
-    font-size: 1.8rem;
-    border-radius: 30px;
-    color: $primary;
-    background-color: white;
-    border: 2px solid $primary;
-}
-
 .product-img {
     width: 45px;
     height: 45px;
@@ -61,6 +23,10 @@
     margin: 0 -24px 0 -8px;
 }
 
+.form-des:hover {
+    background-color: $hover;
+}
+
 .btn-wrap {
     display: flex;
     align-items: center;
@@ -73,7 +39,7 @@
     margin-top: -3px;
     font-size: 2.6rem;
     &:hover {
-        color: rgb(197, 15, 15);
+        color: $red;
         transform: scale(1.1);
     }
 }
@@ -86,8 +52,14 @@
     margin-left: 6px;
 }
 
+// Filter Product
 .filter-category {
     margin-left: 12px;
+}
+
+.dropdown-menu {
+    width: 100%;
+    font-size: 1.6rem;
 }
 
 // Pagination
@@ -165,17 +137,49 @@
 }
 
 // Notify
-.notify {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 22px;
+.trash {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.food-trash {
+    cursor: pointer;
+    margin-right: 32px;
+    margin-top: 18px;
+}
+
+.icon-trash {
+    color: $primary;
+    font-size: 4rem;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+.icon-trash__number {
+    position: absolute;
+    bottom: 24px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 25px;
+    margin-right: 8px;
+    font-size: 1.8rem;
+    border-radius: 30px;
+    color: $primary;
+    background-color: white;
+    border: 2px solid $primary;
 }
 
 .list-food__trash {
     height: 500px;
 }
 
-// Modal Foods
+// Modal delete foods
 .modal-title {
     font-size: 1.8rem;
 }

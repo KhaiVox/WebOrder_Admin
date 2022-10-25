@@ -1,8 +1,17 @@
 .create {
   width: 500px;
   padding: 32px 50px;
-  border-radius: 10px;
-  margin-left: 30%; }
+  border-radius: 10px; }
+
+.edit-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.food-img {
+  width: 400px;
+  height: auto;
+  margin-right: 90px; }
 
 .create-header {
   font-size: 3.2rem;
@@ -49,15 +58,14 @@
   align-items: center;
   justify-content: flex-end; }
 
-.create-quit:hover {
+.btn-quit:hover {
   color: #1c6758; }
 
-.create-quit {
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-right: 24px; }
+.btn-quit {
+  font-size: 1rem;
+  font-weight: 400; }
 
-.create-quit ion-icon {
+.btn-quit ion-icon {
   position: relative;
   top: -2px;
   margin-right: 5px; }

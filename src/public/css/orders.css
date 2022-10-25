@@ -69,7 +69,7 @@
     font-weight: 700; }
 
 .form-select-option {
-  padding: 7px;
+  padding: 7px 6px;
   outline: none;
   cursor: pointer;
   border-radius: 5px;
@@ -97,6 +97,11 @@
   background-color: white; }
   .btn-show-detail:hover {
     color: #0e483d; }
+
+.btn-action-check {
+  margin-left: 12px;
+  color: white;
+  background-color: #a90707; }
 
 .btn-status {
   font-size: 1.6rem;

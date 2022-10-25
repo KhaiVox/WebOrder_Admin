@@ -276,7 +276,7 @@
     font-weight: 700; }
 
 .form-select-option {
-  padding: 7px;
+  padding: 7px 6px;
   outline: none;
   cursor: pointer;
   border-radius: 5px;
@@ -305,6 +305,11 @@
   .btn-show-detail:hover {
     color: #0e483d; }
 
+.btn-action-check {
+  margin-left: 12px;
+  color: white;
+  background-color: #a90707; }
+
 .btn-status {
   font-size: 1.6rem;
   font-weight: 600;
@@ -328,39 +333,6 @@
   border: 1px solid #0a5b35;
   background-color: #0df08e1a; }
 
-.trash {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; }
-
-.food-trash {
-  cursor: pointer;
-  margin-right: 32px;
-  margin-top: 18px; }
-
-.icon-trash {
-  color: #1c6758;
-  font-size: 4rem; }
-  .icon-trash:hover {
-    color: #0e483d; }
-
-.icon-trash__number {
-  position: absolute;
-  bottom: 24px;
-  right: 48%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 25px;
-  margin-right: 8px;
-  font-size: 1.8rem;
-  border-radius: 30px;
-  color: #1c6758;
-  background-color: white;
-  border: 2px solid #1c6758; }
-
 .product-img {
   width: 45px;
   height: 45px;
@@ -381,6 +353,9 @@
   overflow-x: hidden;
   margin: 0 -24px 0 -8px; }
 
+.form-des:hover {
+  background-color: rgba(238, 238, 238, 0.4); }
+
 .btn-wrap {
   display: flex;
   align-items: center;
@@ -392,7 +367,7 @@
   margin-top: -3px;
   font-size: 2.6rem; }
   .btn-delete:hover {
-    color: #c50f0f;
+    color: #a90707;
     transform: scale(1.1); }
 
 .btn-edit {
@@ -403,6 +378,10 @@
 
 .filter-category {
   margin-left: 12px; }
+
+.dropdown-menu {
+  width: 100%;
+  font-size: 1.6rem; }
 
 #paging {
   display: flex;
@@ -467,10 +446,38 @@
   color: white;
   background-color: #d2490e; }
 
-.notify {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 22px; }
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative; }
+
+.food-trash {
+  cursor: pointer;
+  margin-right: 32px;
+  margin-top: 18px; }
+
+.icon-trash {
+  color: #1c6758;
+  font-size: 4rem; }
+  .icon-trash:hover {
+    color: #0e483d; }
+
+.icon-trash__number {
+  position: absolute;
+  bottom: 24px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 25px;
+  margin-right: 8px;
+  font-size: 1.8rem;
+  border-radius: 30px;
+  color: #1c6758;
+  background-color: white;
+  border: 2px solid #1c6758; }
 
 .list-food__trash {
   height: 500px; }
@@ -844,8 +851,17 @@
 .create {
   width: 500px;
   padding: 32px 50px;
-  border-radius: 10px;
-  margin-left: 30%; }
+  border-radius: 10px; }
+
+.edit-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.food-img {
+  width: 400px;
+  height: auto;
+  margin-right: 90px; }
 
 .create-header {
   font-size: 3.2rem;
@@ -892,15 +908,14 @@
   align-items: center;
   justify-content: flex-end; }
 
-.create-quit:hover {
+.btn-quit:hover {
   color: #1c6758; }
 
-.create-quit {
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-right: 24px; }
+.btn-quit {
+  font-size: 1rem;
+  font-weight: 400; }
 
-.create-quit ion-icon {
+.btn-quit ion-icon {
   position: relative;
   top: -2px;
   margin-right: 5px; }
@@ -940,6 +955,14 @@ a[href] {
 
 input:focus {
   border-radius: 1px solid red; }
+
+/* Thanh Scroll */
+body::-webkit-scrollbar {
+  width: 4px; }
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #1c6758; }
 
 .hidden {
   display: none !important; }
@@ -991,15 +1014,18 @@ input:focus {
   justify-content: space-between;
   margin-bottom: 32px; }
 
-.form-header h1 {
+.form-header-title {
   font-size: 3rem;
   font-weight: 500;
   font-family: 'Tourney', cursive;
+  color: #1c6758;
   text-shadow: 1px 1px 2px #1c675830; }
+  .form-header-title:hover {
+    color: #0e483d; }
 
 .form-detail {
   width: 100%;
-  padding: 20px 7px 0 7px;
+  padding: 7px;
   min-height: 450px;
   border-radius: 10px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); }
@@ -1026,7 +1052,7 @@ input[type='checkbox']:checked {
   padding: 15px; }
 
 .list-des {
-  padding: 10px 26px; }
+  padding: 10px 22px; }
 
 .list-item-heading {
   font-size: 1.7rem;
@@ -1112,7 +1138,7 @@ input[type='checkbox']:checked {
   color: #7a7a7a; }
   .search-btn:hover {
     cursor: pointer;
-    background-color: white; }
+    background-color: rgba(238, 238, 238, 0.4); }
   .search-btn:active {
     background-color: rgba(22, 24, 35, 0.06); }
 

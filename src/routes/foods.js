@@ -16,8 +16,15 @@ router.patch('/:id/restore', foodController.restore)
 router.delete('/:id', foodController.softDelete)
 router.delete('/:id/force', foodController.delete)
 
+// form select option
+router.post('/handle-form-actions', foodController.handleFormActions)
+router.post('/handle-form-actions-trash', foodController.handleFormActionsTrash)
+
 // render ra danh sách món ăn đã xóa
 router.get('/trash', foodController.trash)
+
+// lọc sản phẩm theo loại
+router.get('/:slug', foodController.filter)
 router.get('/', foodController.foods)
 
 module.exports = router

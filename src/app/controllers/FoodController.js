@@ -13,9 +13,9 @@ class FoodController {
     // [GET] /foods
     foods(req, res, next) {
         Promise.all([Food.countDocuments(), Food.find(), Food.countDocumentsDeleted()])
-            .then(([pages, foods, deletedCount]) => {
+            .then(([quantity, foods, deletedCount]) => {
                 res.render('foods', {
-                    pages,
+                    quantity,
                     index: index,
                     foods: mutipleMongooseToObject(foods),
                     deletedCount,
@@ -57,6 +57,22 @@ class FoodController {
         //         })
         //         .catch(next)
         // }
+    }
+
+    // [GET] /foods/filter
+    filter(req, res, next) {
+        Promise.all([
+            Food.find({ type: req.params.slug }).countDocuments(),
+            Food.find({ type: req.params.slug }),
+            Food.countDocumentsDeleted(),
+        ]).then(([quantity, foods, deletedCount]) => {
+            res.render('foods', {
+                quantity,
+                index: index,
+                foods: mutipleMongooseToObject(foods),
+                deletedCount,
+            })
+        })
     }
 
     // [GET] /foods/create
@@ -128,16 +144,34 @@ class FoodController {
 
     // [POST] /courses/handle-form-actions
     handleFormActions(req, res, next) {
-        // switch (req.body.action) {
-        //     case 'delete':
-        //         // _id: { $in: req.body.courseIds: lấy tất cả các id có trong list đã chọn này
-        //         Course.delete({ _id: { $in: req.body.courseIds } })
-        //             .then(() => res.redirect('back'))
-        //             .catch(next)
-        //         break
-        //     default:
-        //         res.json({ message: 'Action is invalid!' })
-        // }
+        switch (req.body.action) {
+            case 'softDelete':
+                // _id: { $in: req.body.food: lấy tất cả các id có trong list đã chọn này
+                Food.delete({ _id: { $in: req.body.food } })
+                    .then(() => res.redirect('back'))
+                    .catch(next)
+                break
+            default:
+                res.json({ message: 'Action is invalid!' })
+        }
+    }
+
+    // [POST] /courses/handle-form-actions-trash
+    handleFormActionsTrash(req, res, next) {
+        switch (req.body.action) {
+            case 'deleteAll':
+                Food.deleteMany({ _id: { $in: req.body.trashIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next)
+                break
+            case 'restoreAll':
+                Food.restore({ _id: { $in: req.body.trashIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next)
+                break
+            default:
+                res.json({ message: 'Action is invalid!' })
+        }
     }
 }
 

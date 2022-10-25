@@ -3,7 +3,18 @@
     width: 500px;
     padding: 32px 50px;
     border-radius: 10px;
-    margin-left: 30%;
+}
+
+.edit-food {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.food-img {
+    width: 400px;
+    height: auto;
+    margin-right: 90px;
 }
 
 .create-header {
@@ -60,25 +71,22 @@
     justify-content: flex-end;
 }
 
-.create-quit:hover {
+.btn-quit:hover {
     color: $primary;
 }
 
-.create-quit {
-    font-size: 1.6rem;
+.btn-quit {
+    font-size: 1rem;
     font-weight: 400;
-    margin-right: 24px;
+    // margin-right: 24px;
 }
 
-.create-quit ion-icon {
+.btn-quit ion-icon {
     position: relative;
     top: -2px;
     margin-right: 5px;
 }
 
-// .create-quit a {
-//     font-size: 2rem;
-// }
 .create-confirm:hover {
     color: white;
     background-color: $primary;
