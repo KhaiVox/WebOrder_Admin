@@ -10,7 +10,7 @@ function route(app) {
     app.use('/customer', customerRouter)
     app.use('/orders', ordersRouter)
     app.use('/foods', foodController)
-    app.use('/', siteRouter)
+    app.use('/home', siteRouter)
 }
 
 module.exports = route

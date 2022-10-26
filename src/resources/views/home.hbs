@@ -12,9 +12,120 @@
                     <label for='switch' class='switch'></label>
                 </span>
             </div>
-            <div class="oclock">
-                <div class="clock">
-                <div class="display">
+            <div class='o-clock'>
+                <div class='display'></div>
+            </div>
+        </div>
+        <div class='content'>
+            <div class='content-product'>
+                
+                {{! List Foods }}
+                <div class='form-detaill'>
+                    <div class='form-heading'>
+                        <ul class='row list-heading'>
+                            <li class='col-lg-1 list-item-heading'>STT</li>
+                            <li class='col-lg-1 list-item-heading'>Ảnh</li>
+                            <li class='col-lg-3 list-item-heading'>Tên món</li>
+                            <li class='col-lg-2 list-item-heading'>Số lượng (5)</li>
+                            <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá</li>
+                            <li class='col-lg-2 list-item-heading'>Thành tiền</li>
+                            <li class='col-lg-1 list-item-heading'>Tác vụ</li>
+                        </ul>
+                    </div>
+
+                    <div class='form-des__wrap'>
+                        <div class='form-des'>
+                            <ul class='row list-des'>
+                                <li class='col-lg-1 list-item-des'>1</li>
+                                <li class='col-lg-1 list-item-des'>
+                                    <img
+                                        class='product-img'
+                                        src='https://i.postimg.cc/pVQbLrcM/SD-KIWI-600x600-removebg-preview.png'
+                                        alt=''
+                                    />
+                                </li>
+                                <li class='col-lg-3 list-item-des'>Trà sữa</li>
+                                <li class='col-lg-2 list-item-des'>
+                                    <input
+                                        class='input-quantity'
+                                        type='number'
+                                        name='quantity'
+                                        value='3'
+                                        min='1'
+                                        max='5'
+                                    />
+                                </li>
+                                <li class='col-lg-2 list-item-des item-total'>100.000 đ</li>
+                                <li class='col-lg-2 list-item-des item-total'>100.000 đ</li>
+                                <li class='col-lg-1 list-item-des'>
+                                    <a href='#' data-id='{{_id}}'>
+                                        <span class='btn-delete'><ion-icon name='close-outline'></ion-icon></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='content-bill'>
+                <div class="product-help">
+                    <div class="nav nav-tabs">
+                        <a href="#home" class="nav-link active nav-bill-heading" data-bs-toggle="tab" aria-current="page">Thanh toán</a>
+                        <a href="#contact" class="nav-link nav-bill-heading" data-bs-toggle="tab">Khuyến mãi</a>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="home">
+                            <p>- Hãng sản xuất: Kotobukiya</p>
+                            <p>- Kích thước: 23.5cm</p>
+                            <p>- Tỉ lệ: 1/7</p>
+                            <p>- Chất liệu: PVC, ABS</p>
+                            <p>- Thời gian phát hành: Tháng 5 năm 2022</p>
+                        </div>
+                        <div class="tab-pane fade" id="contact">
+                            <h4>Lưu ý:</h4>
+                            <p>- Thời gian chúng tôi gọi điện lại xác nhận đơn hàng trong 24h sau khi quý khách gửi đơn</p>
+                            <p>- Giao hàng sau khi xác nhận đơn: <strong>TRONG NGÀY SHOP SẼ GÓI HÀNG VÀ GỬI</strong></p>
+                            <p>- Thời gian Giao hàng :</p>
+                            <p>+ Đối với Khách hàng ở Tp.HCM: trong 24h ( nếu quý khách cần giao ngay vui lòng liên hệ) </p>
+                            <p>+ Đối với Khách hàng ngoài Tp.HCM : 1-3 ngày đối với khu vực Thành phố và 2-5 ngày đối với khu vực Huyện, Xã</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='content-footer'>
+                <div class="footer-heading">
+                    <div class='search'>
+                        <label for=''>
+                            <input class='search-input' type='text' placeholder='Tìm kiếm theo tên sản phẩm' />
+                            <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
+                            <div class='line'></div>
+                            <span class='search-btn'>
+                                <ion-icon class='search-icon' name='search-outline'></ion-icon>
+                            </span>
+                        </label>
+                    </div>
+                    <div class='filter-category form-selected'>
+                        <div class='dropdown-center'>
+                            <button class='btn dropdown-toggle' data-bs-toggle='dropdown'>
+                                Lọc theo loại 
+                            </button>
+                            <ul class='dropdown-menu'>
+                                <li><a class='dropdown-item' href='/home/food'>Món ăn</a></li>
+                                <li><a class='dropdown-item' href='/home/drink'>Món nước</a></li>
+                                <li><a class='dropdown-item' href='/home/sidefood'>Ăn kèm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-list-product">
+                    {{#each products}}
+                        <div class="footer-item-product">
+                            <img class="footer-item-img" src={{img}} alt={{name}}>
+                            <h4 class="footer-item-name">{{name}}</h4>
+                            <h5 class="footer-item-price">{{price}}.000 đ</h5>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>

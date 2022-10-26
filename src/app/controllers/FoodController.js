@@ -173,6 +173,25 @@ class FoodController {
                 res.json({ message: 'Action is invalid!' })
         }
     }
+
+    // [POST] search
+    search(req, res, next) {
+        var name = req.body.name
+
+        Food.find({
+                name: name,
+            })
+            .then((data) => {
+                if (data) {
+                    res.json(data)
+                } else {
+                    res.json('Không có sản phẩm nào!')
+                }
+            })
+            .catch((err) => {
+                res.json('Đã xảy ra lỗi!')
+            })
+    }
 }
 
 module.exports = new FoodController()

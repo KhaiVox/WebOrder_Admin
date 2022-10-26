@@ -48,7 +48,6 @@ if (foodItemCheckbox.length == 0) {
 // đọc dữ liệu TYPE sản phẩm từ DB và hiển thị nội dung tương ứng
 const itemType = document.getElementsByClassName('item__type-food')
 for (let i = 0; i < itemType.length; i++) {
-    console.log(itemType[i].innerText)
     if (itemType[i].innerText == 'drink') {
         itemType[i].innerText = 'Món nước'
     } else if (itemType[i].innerText == 'food') {
@@ -59,3 +58,19 @@ for (let i = 0; i < itemType.length; i++) {
 }
 
 // confirm('Do you like freetuts.net')
+// Tìm kiếm sản phẩm
+function handleSearchFood() {
+    const textInput = document.querySelector('.search-input').value
+        // console.log(textInput)
+
+    $.ajax({
+        url: '/foods/search',
+        method: 'POST',
+        data: {
+            name: textInput,
+        },
+    }).then((data) => {
+        res.json(data)
+            // window.location.href = '/foods'
+    })
+}

@@ -25,6 +25,7 @@ router.get('/trash', foodController.trash)
 
 // lọc sản phẩm theo loại
 router.get('/:slug', foodController.filter)
+router.post('/search', foodController.search)
 router.get('/', foodController.foods)
 
 module.exports = router
