@@ -142,7 +142,7 @@ class FoodController {
             .catch(next)
     }
 
-    // [POST] /courses/handle-form-actions
+    // [POST] /foods/handle-form-actions
     handleFormActions(req, res, next) {
         switch (req.body.action) {
             case 'softDelete':
@@ -156,7 +156,7 @@ class FoodController {
         }
     }
 
-    // [POST] /courses/handle-form-actions-trash
+    // [POST] /foods/handle-form-actions-trash
     handleFormActionsTrash(req, res, next) {
         switch (req.body.action) {
             case 'deleteAll':
@@ -174,19 +174,22 @@ class FoodController {
         }
     }
 
-    // [POST] search
+    // [GET] /foods/search
     search(req, res, next) {
-        var name = req.body.name
+        const textSearch = req.query.text
 
-        Food.find({
-                name: name,
-            })
-            .then((data) => {
-                if (data) {
-                    res.json(data)
-                } else {
-                    res.json('Không có sản phẩm nào!')
-                }
+        // Promise.all([
+        //         Food.ensureIndex({ name: 'text' }),
+        //         Food.find({ $text: { $search: textSearch } }),
+        //         Food.countDocumentsDeleted(),
+        //     ])
+        Promise.all([Food.find({ name: textSearch }), Food.countDocumentsDeleted()])
+            .then(([foods, deletedCount]) => {
+                res.render('foods', {
+                    index: index,
+                    foods: mutipleMongooseToObject(foods),
+                    deletedCount,
+                })
             })
             .catch((err) => {
                 res.json('Đã xảy ra lỗi!')

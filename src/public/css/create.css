@@ -70,11 +70,11 @@
   top: -2px;
   margin-right: 5px; }
 
-.create-confirm:hover {
+.btn-confirm:hover {
   color: white;
   background-color: #1c6758; }
 
-.create-confirm {
+.btn-confirm {
   height: 38px;
   width: 200px;
   float: right;

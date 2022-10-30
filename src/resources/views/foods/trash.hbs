@@ -7,6 +7,10 @@
             <a class="form-header-title" href='/foods'>
                 Món Ăn Đã Xóa
             </a>
+            <a class="btn btn-quit" href="/foods">
+                <span><ion-icon name="arrow-undo-outline"></ion-icon></span> 
+                Danh sách món ăn
+            </a>
         </div>
 
         <form action='/foods/handle-form-actions-trash' method='POST'>
@@ -21,10 +25,6 @@
                     </select>
                     <button type='submit' hidden class='btn btn-danger btn-action-check'>Thực hiện</button>
                 </div>
-                <a class="btn btn-quit" href="/foods">
-                    <span><ion-icon name="arrow-undo-outline"></ion-icon></span> 
-                    Danh sách món ăn
-                </a>
             </div>
 
             {{! List Foods }}

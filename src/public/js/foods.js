@@ -59,18 +59,18 @@ for (let i = 0; i < itemType.length; i++) {
 
 // confirm('Do you like freetuts.net')
 // Tìm kiếm sản phẩm
-function handleSearchFood() {
-    const textInput = document.querySelector('.search-input').value
-        // console.log(textInput)
+// function handleSearchFood() {
+//     const textInput = document.querySelector('.search-input').value
+//         // console.log(textInput)
 
-    $.ajax({
-        url: '/foods/search',
-        method: 'POST',
-        data: {
-            name: textInput,
-        },
-    }).then((data) => {
-        res.json(data)
-            // window.location.href = '/foods'
-    })
-}
+//     $.ajax({
+//         url: '/foods/search',
+//         method: 'POST',
+//         data: {
+//             name: textInput,
+//         },
+//     }).then((data) => {
+//         res.json(data)
+//             // window.location.href = '/foods'
+//     })
+// }

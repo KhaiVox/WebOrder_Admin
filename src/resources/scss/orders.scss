@@ -110,14 +110,15 @@
 
 .btn-show-detail,
 .btn-add-order {
+    min-width: 138px;
     color: $white;
     background-color: $primary;
 }
 
 .btn-show-detail {
-    margin-right: 21px;
     color: $primary;
     background-color: $white;
+    border: none;
     &:hover {
         color: $dark-primary;
     }

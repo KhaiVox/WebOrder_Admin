@@ -18,7 +18,6 @@
         </div>
         <div class='content'>
             <div class='content-product'>
-                
                 {{! List Foods }}
                 <div class='form-detaill'>
                     <div class='form-heading'>
@@ -68,32 +67,77 @@
                 </div>
             </div>
             <div class='content-bill'>
-                <div class="product-help">
-                    <div class="nav nav-tabs">
-                        <a href="#home" class="nav-link active nav-bill-heading" data-bs-toggle="tab" aria-current="page">Thanh toán</a>
-                        <a href="#contact" class="nav-link nav-bill-heading" data-bs-toggle="tab">Khuyến mãi</a>
+                <div class='gradient-border'>
+                    <div class='nav nav-tabs'>
+                        <a
+                            href='#payment'
+                            class='nav-link active nav-bill-heading'
+                            data-bs-toggle='tab'
+                            aria-current='page'
+                        >Thanh toán</a>
+                        <a href='#voucher' class='nav-link nav-bill-heading' data-bs-toggle='tab'>Khuyến mãi</a>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="home">
-                            <p>- Hãng sản xuất: Kotobukiya</p>
-                            <p>- Kích thước: 23.5cm</p>
-                            <p>- Tỉ lệ: 1/7</p>
-                            <p>- Chất liệu: PVC, ABS</p>
-                            <p>- Thời gian phát hành: Tháng 5 năm 2022</p>
+                    <div class='tab-content'>
+                        <div class='tab-pane fade show active' id='payment'>
+                            <div class='pill-wrap'>
+                                <div class='pill-title-item'>
+                                    <h4 class='pill-total'>Tổng tiền:</h4>
+                                    <h4 class='pill-des-total'>125,600 đ</h4>
+                                </div>
+                                <div class='pill-title-item'>
+                                    <h4 class='pill-charge'>Khách hàng phải trả:</h4>
+                                    <h4 class='pill-des-charge'>115,000 đ</h4>
+                                </div>
+                                <div class='pill-title-item'>
+                                    <h4 class='pill-total'>Nhập tiền khách đưa:</h4>
+                                    <input type='text' class='pill-des-input' />
+                                </div>
+                                <div class='pill-title-item'>
+                                    <h4 class='pill-total'>Tiền thừa:</h4>
+                                    <h4 class='pill-des-total'>85,000 đ</h4>
+                                </div>
+                                <div class='btn btn-confirm btn-pay'>Thanh toán (F1)</div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="contact">
-                            <h4>Lưu ý:</h4>
-                            <p>- Thời gian chúng tôi gọi điện lại xác nhận đơn hàng trong 24h sau khi quý khách gửi đơn</p>
-                            <p>- Giao hàng sau khi xác nhận đơn: <strong>TRONG NGÀY SHOP SẼ GÓI HÀNG VÀ GỬI</strong></p>
-                            <p>- Thời gian Giao hàng :</p>
-                            <p>+ Đối với Khách hàng ở Tp.HCM: trong 24h ( nếu quý khách cần giao ngay vui lòng liên hệ) </p>
-                            <p>+ Đối với Khách hàng ngoài Tp.HCM : 1-3 ngày đối với khu vực Thành phố và 2-5 ngày đối với khu vực Huyện, Xã</p>
+                        <div class='tab-pane fade' id='voucher'>
+                            <div class='voucher-wrap'>
+                                <div class='list-vourcher'>
+                                    {{#each vouchers}}
+                                        <div class='item-voucher'>
+                                            <img
+                                                class='voucher-img'
+                                                src='https://i.postimg.cc/ydnkQv1M/vourcher-img.png'
+                                                alt=''
+                                            />
+                                            <div class='voucher-des'>
+                                                <h3 class='voucher-title'>
+                                                    <span>Giảm {{name}}%</span> 
+                                                    <span><a class="btn-delete-voucher" href='#' data-id='{{_id}}'>
+                                                            <span class='btn-delete '><ion-icon
+                                                                    name='close-outline'
+                                                                ></ion-icon></span>
+                                                        </a>
+                                                    </span>
+                                                </h3>
+                                                <div class='voucher-title-des'>Giảm
+                                                    {{discount}}k đơn tối thiểu
+                                                    {{minprice}}k</div>
+                                                {{! <div class="voucher-des-expire">Có hiệu lực trong vòng 1 ngày</div> }}
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                                <a href='/home/vouchers/create' class='btn btn-add-order btn-add-voucher'>
+                                    <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
+                                    Thêm voucher
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class='content-footer'>
-                <div class="footer-heading">
+                <div class='footer-heading'>
                     <div class='search'>
                         <label for=''>
                             <input class='search-input' type='text' placeholder='Tìm kiếm theo tên sản phẩm' />
@@ -107,7 +151,7 @@
                     <div class='filter-category form-selected'>
                         <div class='dropdown-center'>
                             <button class='btn dropdown-toggle' data-bs-toggle='dropdown'>
-                                Lọc theo loại 
+                                Lọc theo loại
                             </button>
                             <ul class='dropdown-menu'>
                                 <li><a class='dropdown-item' href='/home/food'>Món ăn</a></li>
@@ -117,12 +161,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-list-product">
+                <div class='footer-list-product'>
                     {{#each products}}
-                        <div class="footer-item-product">
-                            <img class="footer-item-img" src={{img}} alt={{name}}>
-                            <h4 class="footer-item-name">{{name}}</h4>
-                            <h5 class="footer-item-price">{{price}}.000 đ</h5>
+                        <div class='footer-item-product'>
+                            <img class='footer-item-img' src={{img}} alt={{name}} />
+                            <h4 class='footer-item-name'>{{name}}</h4>
+                            <h5 class='footer-item-price'>{{price}}.000 đ</h5>
                         </div>
                     {{/each}}
                 </div>
@@ -131,3 +175,4 @@
     </div>
 </div>
 
+<form name='delete-voucher-action' method='POST'></form>

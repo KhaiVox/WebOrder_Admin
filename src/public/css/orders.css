@@ -88,13 +88,14 @@
 
 .btn-show-detail,
 .btn-add-order {
+  min-width: 138px;
   color: white;
   background-color: #1c6758; }
 
 .btn-show-detail {
-  margin-right: 21px;
   color: #1c6758;
-  background-color: white; }
+  background-color: white;
+  border: none; }
   .btn-show-detail:hover {
     color: #0e483d; }
 

@@ -23,9 +23,10 @@ router.post('/handle-form-actions-trash', foodController.handleFormActionsTrash)
 // render ra danh sách món ăn đã xóa
 router.get('/trash', foodController.trash)
 
+router.get('/search', foodController.search)
+router.get('/', foodController.foods)
+
 // lọc sản phẩm theo loại
 router.get('/:slug', foodController.filter)
-router.post('/search', foodController.search)
-router.get('/', foodController.foods)
 
 module.exports = router

@@ -8,16 +8,16 @@
         <div class='form-header'>
             <a class="form-header-title" href="/orders">Danh Sách Đơn Đặt</a>
             
-            <div class='form-btn'>
-                <div class='btn btn-show-detail' onclick='showDetail()'>
-                    Hiển thị đơn hàng cần xử lý
-                </div>
-                <div class='btn btn-add-order'>
-                    <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
-                    Tạo đơn
-                </div>
+            <div class='search'>
+                <label for=''>
+                    <input class='search-input' type='text' placeholder='Tìm kiếm theo tên, sđt khách hàng' />
+                    <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
+                    <div class='line'></div>
+                    <span class='search-btn'>
+                        <ion-icon class='search-icon' name='search-outline'></ion-icon>
+                    </span>
+                </label>
             </div>
-
         </div>
 
         {{! Order Overview }}
@@ -60,15 +60,14 @@
                     <option value=''>Hủy đơn</option>
                 </select>
             </div>
-            <div class='search'>
-                <label for=''>
-                    <input class='search-input' type='text' placeholder='Tìm kiếm theo tên, sđt khách hàng' />
-                    <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
-                    <div class='line'></div>
-                    <span class='search-btn'>
-                        <ion-icon class='search-icon' name='search-outline'></ion-icon>
-                    </span>
-                </label>
+            <div class='form-btn'>
+                <div class='btn btn-show-detail' onclick='showDetail()'>
+                    Hiển thị đơn hàng cần xử lý
+                </div>
+                <div class='btn btn-add-order'>
+                    <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
+                    Tạo đơn
+                </div>
             </div>
         </div>
 
