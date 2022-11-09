@@ -49,7 +49,7 @@ function handleLogin() {
             .then((data) => {
                 if (data.token) {
                     setCookie('token', data.token, 1)
-                    window.location.href = '/'
+                    window.location.href = '/home'
                 } else {
                     const text = document.querySelector('.text')
                     text.classList.remove('hidden')

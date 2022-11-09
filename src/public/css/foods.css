@@ -152,3 +152,8 @@
 
 .modal-body {
   font-size: 1.6rem; }
+
+.notify {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1.8rem; }

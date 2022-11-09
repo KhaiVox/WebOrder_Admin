@@ -25,44 +25,14 @@
                             <li class='col-lg-1 list-item-heading'>STT</li>
                             <li class='col-lg-1 list-item-heading'>Ảnh</li>
                             <li class='col-lg-3 list-item-heading'>Tên món</li>
-                            <li class='col-lg-2 list-item-heading'>Số lượng (5)</li>
+                            <li class='col-lg-2 list-item-heading'>Số lượng (<span class="quantity">0</span>)</li>
                             <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá</li>
                             <li class='col-lg-2 list-item-heading'>Thành tiền</li>
                             <li class='col-lg-1 list-item-heading'>Tác vụ</li>
                         </ul>
                     </div>
-
                     <div class='form-des__wrap'>
-                        <div class='form-des'>
-                            <ul class='row list-des'>
-                                <li class='col-lg-1 list-item-des'>1</li>
-                                <li class='col-lg-1 list-item-des'>
-                                    <img
-                                        class='product-img'
-                                        src='https://i.postimg.cc/pVQbLrcM/SD-KIWI-600x600-removebg-preview.png'
-                                        alt=''
-                                    />
-                                </li>
-                                <li class='col-lg-3 list-item-des'>Trà sữa</li>
-                                <li class='col-lg-2 list-item-des'>
-                                    <input
-                                        class='input-quantity'
-                                        type='number'
-                                        name='quantity'
-                                        value='3'
-                                        min='1'
-                                        max='5'
-                                    />
-                                </li>
-                                <li class='col-lg-2 list-item-des item-total'>100.000 đ</li>
-                                <li class='col-lg-2 list-item-des item-total'>100.000 đ</li>
-                                <li class='col-lg-1 list-item-des'>
-                                    <a href='#' data-id='{{_id}}'>
-                                        <span class='btn-delete'><ion-icon name='close-outline'></ion-icon></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -81,20 +51,17 @@
                         <div class='tab-pane fade show active' id='payment'>
                             <div class='pill-wrap'>
                                 <div class='pill-title-item'>
-                                    <h4 class='pill-total'>Tổng tiền:</h4>
-                                    <h4 class='pill-des-total'>125,600 đ</h4>
-                                </div>
-                                <div class='pill-title-item'>
-                                    <h4 class='pill-charge'>Khách hàng phải trả:</h4>
-                                    <h4 class='pill-des-charge'>115,000 đ</h4>
+                                    <h4 class='pill-charge'>Tổng tiền:</h4>
+                                    <h4 class='pill-des-charge number-total'>0</h4>
                                 </div>
                                 <div class='pill-title-item'>
                                     <h4 class='pill-total'>Nhập tiền khách đưa:</h4>
                                     <input type='text' class='pill-des-input' />
+                                    <div class="btn btn-update-price" onclick="handleCharge()"><ion-icon name="arrow-forward-outline"></ion-icon></div>
                                 </div>
                                 <div class='pill-title-item'>
                                     <h4 class='pill-total'>Tiền thừa:</h4>
-                                    <h4 class='pill-des-total'>85,000 đ</h4>
+                                    <h4 class='pill-des-total'>0 đ</h4>
                                 </div>
                                 <div class='btn btn-confirm btn-pay'>Thanh toán (F1)</div>
                             </div>
@@ -125,6 +92,10 @@
                                                 {{! <div class="voucher-des-expire">Có hiệu lực trong vòng 1 ngày</div> }}
                                             </div>
                                         </div>
+                                        {{else}}
+                                        <tr>
+                                            <div class="notify"> Chưa có voucher. <a href="/home/vouchers/create">Nhấn để thêm</a></div>
+                                        </tr>
                                     {{/each}}
                                 </div>
                                 <a href='/home/vouchers/create' class='btn btn-add-order btn-add-voucher'>
@@ -166,7 +137,9 @@
                         <div class='footer-item-product'>
                             <img class='footer-item-img' src={{img}} alt={{name}} />
                             <h4 class='footer-item-name'>{{name}}</h4>
-                            <h5 class='footer-item-price'>{{price}}.000 đ</h5>
+                            <div class="footer-item-price-wrap" style="display: flex;">
+                                <h5 class='footer-item-price'>{{price}}</h5><h5>.000 đ</h5>
+                            </div>
                         </div>
                     {{/each}}
                 </div>

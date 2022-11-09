@@ -38,13 +38,6 @@ btnDeleteFood.onclick = function() {
     deleteForm.submit()
 }
 
-// nếu chưa có món ăn nào sẽ in ra dòng này
-if (foodItemCheckbox.length == 0) {
-    $('#form-des').html('<div class="notify"> Chưa có sản phẩm nào. <a href="/foods/create">Nhấn để thêm</a></div>')
-    const pagination = document.querySelector('#paging')
-    pagination.classList.add('hidden')
-}
-
 // đọc dữ liệu TYPE sản phẩm từ DB và hiển thị nội dung tương ứng
 const itemType = document.getElementsByClassName('item__type-food')
 for (let i = 0; i < itemType.length; i++) {
