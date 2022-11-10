@@ -6,7 +6,7 @@
     <div class='form-wrap'>
         {{! Header }}
         <div class='form-header'>
-            <a class="form-header-title" href="/orders">Danh Sách Đơn Đặt</a>
+            <a class="form-header-title" href="/orders">Danh Sách Đơn Đặt ({{quantity}})</a>
             
             <div class='search'>
                 <label for=''>
@@ -64,10 +64,10 @@
                 <div class='btn btn-show-detail' onclick='showDetail()'>
                     Hiển thị đơn hàng cần xử lý
                 </div>
-                <div class='btn btn-add-order'>
+                <a href="/home" class='btn btn-add-order'>
                     <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
                     Tạo đơn
-                </div>
+                </a>
             </div>
         </div>
 
@@ -75,58 +75,40 @@
         <div class='form-detail'>
             <div class='form-heading'>
                 <ul class='row list-heading'>
-                    <li class='col-lg-1 list-item-heading'></li>
-                    <li class='col-lg-1 list-item-heading'>Mã đơn</li>
-                    <li class='col-lg-2 list-item-heading btn-sort'>Ngày tạo
+                    <li class='col-lg-1 list-item-heading'>STT</li>
+                    <li class='col-lg-4 list-item-heading btn-sort'>Ngày tạo
                         <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
                     </li>
-                    <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
-                    <li class='col-lg-2 list-item-heading'>SĐT</li>
-                    <li class='col-lg-2 list-item-heading'>Trạng thái đơn hàng</li>
+                    <li class='col-lg-2 list-item-heading'>Trạng thái</li>
                     <li class='col-lg-2 list-item-heading'>Tổng tiền</li>
+                    <li class='col-lg-2 list-item-heading'>Chi tiết</li>
                 </ul>
             </div>
-            <div class='form-des'>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>27/9/2022</li>
-                    <li class='col-lg-2 list-item-des'>Võ Khải</li>
-                    <li class='col-lg-2 list-item-des'>0975142687</li>
-                    <li class='col-lg-2 list-item-des'><div class='btn btn-status btn-status--blue'>Đã duyệt</div></li>
-                    <li class='col-lg-2 list-item-des'>120.000 đ</li>
-                </ul>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>27/9/2022</li>
-                    <li class='col-lg-2 list-item-des'>Võ Khải</li>
-                    <li class='col-lg-2 list-item-des'>0975142687</li>
-                    <li class='col-lg-2 list-item-des'><div class='btn btn-status btn-status--red'>Đang giao</div></li>
-                    <li class='col-lg-2 list-item-des'>120.000 đ</li>
-                </ul>
-                <ul class='row list-des'>
-                    <li class='col-lg-1 list-item-des'><input
-                            class='order-check'
-                            type='checkbox'
-                            name='courseIds[]'
-                        /></li>
-                    <li class='col-lg-1 list-item-des'>435</li>
-                    <li class='col-lg-2 list-item-des'>27/9/2022</li>
-                    <li class='col-lg-2 list-item-des'>Võ Khải</li>
-                    <li class='col-lg-2 list-item-des'>0975142687</li>
-                    <li class='col-lg-2 list-item-des'><div class='btn btn-status btn-status--green'>Đã giao</div></li>
-                    <li class='col-lg-2 list-item-des'>120.000 đ</li>
-                </ul>
-            </div>
+            <div class='form-des__wrap'>
+                    {{#each getOrder}}
+                        <div class='form-des'>
+                            <ul class='row list-des'>
+                                <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                                <li class='col-lg-4 list-item-des day_value'>{{createAt}}</li>
+                                {{!-- ten, sdt, diachi, chi tiet don hang, tim kiem khach hang --}}
+                                <li class='col-lg-2 list-item-des'><div class='btn-status btn-status--red'>Đã duyệt</div></li>
+                                <li class='col-lg-2 list-item-des'>
+                                    <div class="price-wrap">
+                                        <h4>{{total}}</h4>
+                                        <h4 class=" number-total">.000 đ</h4>
+                                    </div>
+                                </li>
+                                <li class='col-lg-2 list-item-des'>
+                                    <a class="btn-detail" href="/dsd">Nhấn để xem chi tiết</a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{else}}
+                        <tr>
+                            <div class="notify"> Chưa có đơn hàng nào. <a href="/home">Nhấn để tạo</a></div>
+                        </tr>
+                    {{/each}}
+                </div>
         </div>
     </div>
     {{! </div>  }}

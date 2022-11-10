@@ -11,7 +11,7 @@ $(document).ready(function() {
     })
 })
 
-// Delete Voucher Action
+// Xóa voucher
 document.addEventListener('DOMContentLoaded', function() {
     const deleteBtn = $('.btn-delete-voucher')
     const deleteForm = document.forms['delete-voucher-action']
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
-// Array Product
+// Danh sách sản phẩm
 let footerItems = document.querySelectorAll('.footer-item-product')
 let footerImages = document.querySelectorAll('.footer-item-img')
 let footerNames = document.querySelectorAll('.footer-item-name')
@@ -40,7 +40,7 @@ function handleDelete(buttonDlt) {
     buttonIndex = buttonDlt.getAttribute('data-id') - 1
     arr.splice(buttonIndex, 1)
 
-    // cập nhật lại mảng sau khi xóa
+    // cập nhật lại thông tin sau mỗi thay đổi
     handleAdd()
     changeTotal()
     changeQuantity()
@@ -73,9 +73,7 @@ function handleAdd() {
                                 onchange="updatePrice(this)"
                             />
                         </li>
-                        <li class='col-lg-2 list-item-des item-total item-price' data-id='${i + 1}'>${
-            arr[i].priceValue
-        }</li>
+                        <li class='col-lg-2 list-item-des item-total item-price' data-id='${i + 1}'>${arr[i].priceValue}</li>
                         <li class='col-lg-2 list-item-des item-total'>${arr[i].totalValue}</li>
                         <li class='col-lg-1 list-item-des'>
                             <span data-id='${
@@ -122,12 +120,13 @@ function updatePrice(input) {
     let total = parseInt(priceItem) * parseInt(value)
     arr[valueIndex].numberValue = value
     arr[valueIndex].totalValue = total
+
     handleAdd()
     changeTotal()
     changeQuantity()
 }
 
-
+// cập nhật số lượng của từng sản phẩm
 function changeTotal() {
     let count = 0
     var numberTotal = document.querySelector('.number-total')
@@ -137,6 +136,7 @@ function changeTotal() {
     numberTotal.innerText = count
 }
 
+// cập nhật tiền thừa
 function handleCharge() {
     let count = 0
     for (let i in arr) {
@@ -145,12 +145,14 @@ function handleCharge() {
     let numberRefund = document.querySelector('.pill-des-total')
     let numberInput = document.querySelector('.pill-des-input')
     let chargeValue = parseInt(numberInput.value)
-
-    numberRefund.innerText = chargeValue - count
+    if (chargeValue >= count) {
+        numberRefund.innerText = chargeValue - count
+    } else {
+        alert("Số tiền phải trả tối thiểu " + count + ".000 đ")
+    }
 }
 
-// var quantityList = document.querySelector('.quantity')
-
+// cập nhật số lượng tổng ở thanh list heading 
 function changeQuantity() {
     let countQtt = 0
     let quantity = document.querySelector('.quantity')
@@ -159,3 +161,35 @@ function changeQuantity() {
     }
     quantity.innerText = countQtt
 }
+//
+// function loadPage(type) {
+//     if (type == 1) {
+//         type = "food"
+//     }
+//     $.ajax({
+//         url: '/home/' + type,
+//         type: 'GET',
+//     }).then((result) => {
+//         // console.log($('#footer-list-product'));
+//         $('#footer-list-product').html('')
+//         for (let i = 0; i < result.products.length; i++) {
+//             const element = result.products[i]
+//             var item = `<h1>${element.name}</h1>`
+//                 // var item = `
+//                 //     <div class='footer-item-product'>
+//                 //         <img class='footer-item-img' src=<h1>${element.img} alt={{name}} />
+//                 //         <h4 class='footer-item-name'>${element.name}</h4>
+//                 //         <div class="footer-item-price-wrap" style="display: flex;">
+//                 //             <h5 class='footer-item-price'>${element.price}</h5><h5>.000 đ</h5>
+//                 //         </div>
+//                 //     </div>
+//                 //     `
+//             $('#footer-list-product').append(item)
+//             console.log(result.products[i]);
+//         }
+//     })
+// }
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     loadPage(1)
+// })

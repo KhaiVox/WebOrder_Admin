@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const newsController = require('../app/controllers/OrderController')
+const orderController = require('../app/controllers/OrderController')
 
-// router.get('/:slug', newsController.show)
-router.get('/', newsController.index)
+// router.get('/:slug', orderController.show)
+router.get('/', orderController.index)
 
 module.exports = router

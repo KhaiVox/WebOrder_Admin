@@ -28,7 +28,7 @@
                             <li class='col-lg-2 list-item-heading'>Số lượng (<span class="quantity">0</span>)</li>
                             <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá</li>
                             <li class='col-lg-2 list-item-heading'>Thành tiền</li>
-                            <li class='col-lg-1 list-item-heading'>Tác vụ</li>
+                            <li class='col-lg-1 list-item-heading'>Xóa</li>
                         </ul>
                     </div>
                     <div class='form-des__wrap'>
@@ -52,7 +52,10 @@
                             <div class='pill-wrap'>
                                 <div class='pill-title-item'>
                                     <h4 class='pill-charge'>Tổng tiền:</h4>
-                                    <h4 class='pill-des-charge number-total'>0</h4>
+                                    <div class="price-wrap">
+                                        <h4 class='pill-des-charge number-total'>0</h4>
+                                        <h4 class="pill-des-charge number-total">.000 đ</h4>
+                                    </div>
                                 </div>
                                 <div class='pill-title-item'>
                                     <h4 class='pill-total'>Nhập tiền khách đưa:</h4>
@@ -61,7 +64,10 @@
                                 </div>
                                 <div class='pill-title-item'>
                                     <h4 class='pill-total'>Tiền thừa:</h4>
-                                    <h4 class='pill-des-total'>0 đ</h4>
+                                    <div class="price-wrap">
+                                        <h4 class='pill-des-total'>0</h4>
+                                        <h4>.000 đ</h4>
+                                    </div>
                                 </div>
                                 <div class='btn btn-confirm btn-pay'>Thanh toán (F1)</div>
                             </div>
@@ -137,8 +143,9 @@
                         <div class='footer-item-product'>
                             <img class='footer-item-img' src={{img}} alt={{name}} />
                             <h4 class='footer-item-name'>{{name}}</h4>
-                            <div class="footer-item-price-wrap" style="display: flex;">
-                                <h5 class='footer-item-price'>{{price}}</h5><h5>.000 đ</h5>
+                            <div class="price-wrap">
+                                <h5 class='footer-item-price'>{{price}}</h5>
+                                <h5>.000 đ</h5>
                             </div>
                         </div>
                     {{/each}}

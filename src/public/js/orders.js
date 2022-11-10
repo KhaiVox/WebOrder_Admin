@@ -33,3 +33,8 @@ function hideDetail() {
     boardDetail.classList.add('hidden')
     btnShowDetail.classList.remove('hidden')
 }
+
+// Display Date
+const valueDay = document.querySelectorAll('.day_value')
+
+valueDay.forEach((item) => (item.innerText = item.innerText.slice(0, 24)))

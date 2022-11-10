@@ -247,8 +247,10 @@
   font-size: 1.6rem;
   font-weight: 600;
   width: 120px;
-  height: 31px;
+  height: 33px;
+  line-height: 32px;
   border-radius: 5px;
+  text-align: center;
   pointer-events: none; }
 
 .btn-status--green {
@@ -262,9 +264,13 @@
   background-color: #e21e1e1a; }
 
 .btn-status--blue {
-  color: #0a5b35;
-  border: 1px solid #0a5b35;
+  color: #08747b;
+  border: 1px solid #08747b;
   background-color: #0df08e1a; }
+
+.btn-detail {
+  font-size: 1.7rem;
+  font-weight: 600; }
 
 .product-img {
   width: 45px;
@@ -892,10 +898,13 @@
   pointer-events: none;
   font-size: 32px; }
 
+.price-wrap {
+  display: flex;
+  align-items: center; }
+
 .switch {
   --black: rgba(41, 41, 41, 0.908);
   position: relative;
-  cursor: pointer;
   width: 70px;
   height: 30px;
   margin-left: 12px;
@@ -903,18 +912,18 @@
   overflow: hidden;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   background-color: currentColor;
+  cursor: pointer;
   border-radius: 100rem;
   transition: background-color 0.25s linear; }
   .switch:after {
-    --black: rgba(41, 41, 41, 0.908);
     content: '';
     position: absolute;
+    top: 5px;
+    left: 5px;
     width: 20px;
     height: 20px;
     border-radius: 40px;
     background-color: white;
-    top: 5px;
-    left: 5px;
     transition: background-color 0.25s linear, transform 0.25s linear; }
 
 .switch-input {
@@ -928,7 +937,7 @@
   background-color: currentColor; }
 
 .o-clock {
-  background: white;
+  background: transparent;
   padding: 12px;
   padding-right: 0;
   text-shadow: 1px 1px 2px #1c6758; }
@@ -1199,7 +1208,7 @@
   border: none;
   outline: none;
   color: #1c6758;
-  background-color: white; }
+  background-color: transparent; }
   .slick-prev:hover,
   .slick-next:hover {
     transform: rotate(1.2); }
@@ -1311,6 +1320,7 @@ body::-webkit-scrollbar-thumb {
   padding: 7px;
   min-height: 450px;
   border-radius: 10px;
+  background-color: white;
   box-shadow: rgba(14, 30, 37, 0.02) 0px 2px 4px 0px, rgba(14, 30, 37, 0.2) 0px 2px 16px 0px; }
 
 .form-heading {
@@ -1336,6 +1346,9 @@ input[type='checkbox']:checked {
 
 .list-des {
   padding: 10px 22px; }
+  .list-des:hover {
+    cursor: pointer;
+    background-color: rgba(238, 238, 238, 0.4); }
 
 .list-item-heading {
   font-size: 1.7rem;
@@ -1350,10 +1363,6 @@ input[type='checkbox']:checked {
   position: relative;
   top: 2px;
   margin-left: 14px; }
-
-.list-des:hover {
-  cursor: pointer;
-  background-color: transparent; }
 
 .list-item-des {
   font-size: 1.6rem;

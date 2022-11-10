@@ -178,12 +178,7 @@ class FoodController {
     search(req, res, next) {
         const textSearch = req.query.text
 
-        // Promise.all([
-        //         Food.ensureIndex({ name: 'text' }),
-        //         Food.find({ $text: { $search: textSearch } }),
-        //         Food.countDocumentsDeleted(),
-        //     ])
-        Promise.all([Food.find({ name: textSearch }), Food.countDocumentsDeleted()])
+        Promise.all([Food.find({ name: { $regex: textSearch } }), Food.countDocumentsDeleted()])
             .then(([foods, deletedCount]) => {
                 res.render('foods', {
                     index: index,
