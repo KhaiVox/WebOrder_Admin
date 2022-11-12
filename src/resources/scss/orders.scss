@@ -5,7 +5,7 @@
     margin-bottom: 16px;
     font-size: 1.6rem;
     border-radius: 10px;
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .overview-header {
@@ -24,9 +24,10 @@
 
 .btn-hide-detail {
     font-size: 1.7rem;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    padding: 6px 12px 5px;
+    padding: 0 !important;
     color: $primary;
     background-color: $white;
     &:hover {
@@ -119,6 +120,7 @@
     color: $primary;
     background-color: $white;
     border: none;
+    font-weight: 500;
     &:hover {
         color: $dark-primary;
     }
@@ -157,7 +159,7 @@
 .btn-status--blue {
     color: #08747b;
     border: 1px solid #08747b;
-    background-color: #0df08e1a;
+    background-color: #0d5a5a1a;
 }
 
 .btn-detail {

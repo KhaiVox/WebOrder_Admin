@@ -1,0 +1,125 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    {{!-- <div class='create edit-food'>
+        <div class="create-left">
+            <div class='create-item'>
+                <img class="food-img" src={{food.img}} alt="">
+            </div>
+        </div>
+        <div class="create-right">
+            <div class='create-header'>Chi tiết đơn hàng</div>
+            <form method='POST' action='/foods/{{food._id}}?_method=PUT'>
+                <div class='create-item'>
+                    <div class='create-title'>Tên sản phẩm :</div>
+                    <input type='text' class='create-input' name='name' id='name' value='{{food.name}}' />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Loại :</div>
+                    <select id='type' name='type' class='create-input' required>
+                        <option class="input-selected">{{food.type}}</option>
+                        <option class="food" name='food'>Món ăn</option>
+                        <option class="drink" name='drink'>Món nước</option>
+                        <option class="sidefood" name='sidefood'>Ăn kèm</option>
+                    </select>
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Đơn giá :</div>
+                    <input type='text' class='create-input' name='price' id='price' value='{{food.price}}' />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Hình :</div>
+                    <input type='text' class='create-input' name='img' id='img' value='{{food.img}}' />
+                </div>
+                
+                <div class='create-button'>
+                    <button class='btn btn-confirm'>Lưu thông tin</button>
+                </div>
+            </form>
+        </div>
+    </div> --}}
+    <div class='payment'>
+        <div class='container'>
+            <div class='create-header'>Chi tiết đơn hàng</div>
+            <div class='payment-body'>
+                <div class='row'>
+                    <!-- Payment Product -->
+                    <div class='col-lg-6'>
+                        <div class='product-list-payment'>
+                            <div class='product-payment-item'>
+                                <div class='row'>
+                                    <div class='col-1 product-payment-wrap'>
+                                        <img
+                                            src='https://i.postimg.cc/JnZwJz1J/SD-BACHA-600x600-removebg-preview.png'
+                                            alt=''
+                                            class='product-payment-img'
+                                        />
+                                    </div>
+                                    <strong class='col-7 product-payment-name'>Jean Prouvé Antony</strong>
+                                    <strong class='col-1 product-payment-quantity hide-on-mobile'>2</strong>
+                                    <strong class='col-3 product-payment-price'>2,000,000 đ</strong>
+                                </div>
+                            </div>
+                            <div class='payment-total'>
+                                <div class='payment-total-title'>Tổng tiền: </div>
+                                <strong class='payment-total-number'>4,200,000 VND</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Payment Info -->
+                    <div class='col-lg-6'>
+                        <div class='payment-list-info'>
+                            <div class='payment-item row'>
+                                <p class='col-4'> Tên khách hàng </p>
+                                <strong class='col-8'>: {{getCustomer.fullname}}</strong>
+                            </div>
+                            <div class='payment-item row'>
+                                <p class='col-4'> Số điện thoại </p>
+                                <strong class='col-8'>: {{getCustomer.phone}}</strong>
+                            </div>
+                            <div class='payment-item row'>
+                                <p class='col-4'> Địa chỉ </p>
+                                <strong class='col-8'>: {{getCustomer.address}}</strong>
+                            </div>
+                            <div class='payment-item row'>
+                                <p class='col-4'> Ngày đặt </p>
+                                <strong class='col-8 day_value'>: {{getOrder.createAt}}</strong>
+                            </div>
+                            <div class='payment-method'>
+                                <div class='payment-title'>Phương thức thanh toán</div>
+                                <label class='form-control'>
+                                    <div class='payment-check'>
+                                        <input type='radio' name='radio' />
+                                        <span>Thanh toán khi nhận hàng</span>
+                                    </div>
+                                </label>
+                                <label class='form-control'>
+                                    <div class='payment-check'>
+                                        <input type='radio' name='radio' />
+                                        <span>Thanh toán qua tài khoản ngân hàng</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class='payment-button'>
+                            <a href='/orders'>
+                                <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
+                            </a>
+                            <div class="btn-wrap">
+                                <button class='btn payment-confirm'>Duyệt đơn</button>
+                                <button class='btn payment-confirm'>Hủy đơn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Display Date
+    const valueDay = document.querySelectorAll('.day_value')
+    valueDay.forEach((item) => (item.innerText = item.innerText.slice(0, 26)))
+</script>

@@ -23,7 +23,7 @@ foodItemCheckbox.forEach(
 // Delete Action
 var foodId
 var btnDeleteFood = document.getElementById('btn-delete-food')
-var deleteForm = document.forms['delete-food-form']
+var deleteFormFood = document.forms['delete-food-form']
 
 // lấy id của item được nhấn
 $('#delete-course-modal').on('show.bs.modal', function(event) {
@@ -34,8 +34,8 @@ $('#delete-course-modal').on('show.bs.modal', function(event) {
 // button delete ở form dialog
 btnDeleteFood.onclick = function() {
     // thêm action đường dẫn vào form delete vừa tạo
-    deleteForm.action = '/foods/' + foodId + '?_method=DELETE'
-    deleteForm.submit()
+    deleteFormFood.action = '/foods/' + foodId + '?_method=DELETE'
+    deleteFormFood.submit()
 }
 
 // đọc dữ liệu TYPE sản phẩm từ DB và hiển thị nội dung tương ứng
@@ -49,21 +49,3 @@ for (let i = 0; i < itemType.length; i++) {
         itemType[i].innerText = 'Ăn kèm'
     }
 }
-
-// confirm('Do you like freetuts.net')
-// Tìm kiếm sản phẩm
-// function handleSearchFood() {
-//     const textInput = document.querySelector('.search-input').value
-//         // console.log(textInput)
-
-//     $.ajax({
-//         url: '/foods/search',
-//         method: 'POST',
-//         data: {
-//             name: textInput,
-//         },
-//     }).then((data) => {
-//         res.json(data)
-//             // window.location.href = '/foods'
-//     })
-// }

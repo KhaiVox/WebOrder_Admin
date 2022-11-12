@@ -29,23 +29,19 @@
             <ul class='overview-body'>
                 <li class='overview-item'>
                     <div class='overview-title'>Tổng đơn hàng</div>
-                    <div class='overview-des'>(20)</div>
+                    <div class='overview-des'>({{quantity}})</div>
                 </li>
                 <li class='overview-item'>
                     <div class='overview-title'>Chờ duyệt</div>
-                    <div class='overview-des'>(10)</div>
+                    <div class='overview-des overview-des--false'>(10)</div>
                 </li>
                 <li class='overview-item'>
                     <div class='overview-title'>Đã duyệt</div>
-                    <div class='overview-des'>(16)</div>
+                    <div class='overview-des overview-des--true'>(16)</div>
                 </li>
                 <li class='overview-item'>
                     <div class='overview-title'>Đang giao hàng</div>
-                    <div class='overview-des'>(16)</div>
-                </li>
-                <li class='overview-item'>
-                    <div class='overview-title'>Đã giao hàng</div>
-                    <div class='overview-des'>(16)</div>
+                    <div class='overview-des'>(...)</div>
                 </li>
             </ul>
         </div>
@@ -76,30 +72,32 @@
             <div class='form-heading'>
                 <ul class='row list-heading'>
                     <li class='col-lg-1 list-item-heading'>STT</li>
-                    <li class='col-lg-4 list-item-heading btn-sort'>Ngày tạo
+                    <li class='col-lg-3 list-item-heading btn-sort'>Ngày tạo
                         <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
                     </li>
-                    <li class='col-lg-2 list-item-heading'>Trạng thái</li>
+                    <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
                     <li class='col-lg-2 list-item-heading'>Tổng tiền</li>
+                    <li class='col-lg-2 list-item-heading'>Trạng thái</li>
                     <li class='col-lg-2 list-item-heading'>Chi tiết</li>
                 </ul>
             </div>
             <div class='form-des__wrap'>
-                    {{#each getOrder}}
+                    {{#each getOrders}}
                         <div class='form-des'>
                             <ul class='row list-des'>
                                 <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
-                                <li class='col-lg-4 list-item-des day_value'>{{createAt}}</li>
+                                <li class='col-lg-3 list-item-des day_value'>{{createAt}}</li>
                                 {{!-- ten, sdt, diachi, chi tiet don hang, tim kiem khach hang --}}
-                                <li class='col-lg-2 list-item-des'><div class='btn-status btn-status--red'>Đã duyệt</div></li>
+                                <li class='col-lg-2 list-item-des'>Khải</li>
                                 <li class='col-lg-2 list-item-des'>
                                     <div class="price-wrap">
                                         <h4>{{total}}</h4>
                                         <h4 class=" number-total">.000 đ</h4>
                                     </div>
                                 </li>
+                                <li class='col-lg-2 list-item-des'><div class='btn-status'>{{state}}</div></li>
                                 <li class='col-lg-2 list-item-des'>
-                                    <a class="btn-detail" href="/dsd">Nhấn để xem chi tiết</a>
+                                    <a class="btn-detail" href="/orders/{{_id}}/detail">Nhấn để xem</a>
                                 </li>
                             </ul>
                         </div>

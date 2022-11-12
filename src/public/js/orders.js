@@ -1,24 +1,3 @@
-// Check All
-// var courseItemCheckbox = document.querySelectorAll('input[name="courseIds[]"]')
-// var selectAllOption = document.querySelector('.form-select-option')
-// var notifyChecked = document.querySelector('.notify-checked')
-
-// courseItemCheckbox.forEach(
-//     (item) =>
-//     (item.onchange = function() {
-//         var isChecked = document.querySelectorAll('input[name="courseIds[]"]:checked').length
-
-//         if (isChecked > 0) {
-//             selectAllOption.removeAttribute('hidden')
-//             notifyChecked.innerHTML = `Bạn đã chọn <span>${isChecked}</span> mục`
-//         } else {
-//             selectAllOption.setAttribute('hidden', 'hidden')
-//             notifyChecked.innerHTML = ''
-//         }
-//         console.log(isChecked)
-//     }),
-// )
-
 // Button show/hide detail
 var boardDetail = document.querySelector('.order-overview')
 var btnShowDetail = document.querySelector('.btn-show-detail')
@@ -36,5 +15,27 @@ function hideDetail() {
 
 // Display Date
 const valueDay = document.querySelectorAll('.day_value')
-
 valueDay.forEach((item) => (item.innerText = item.innerText.slice(0, 24)))
+
+// Display Status Order
+let valueCountStateFalse = 0
+let valueCountStateTrue = 0
+const valueState = document.querySelectorAll('.btn-status')
+for (let i of valueState) {
+    if (i.innerText == 'true') {
+        valueCountStateTrue++
+        i.innerText = 'Đã duyệt'
+        i.classList.add('btn-status--green')
+    } else {
+        valueCountStateFalse++
+        i.innerText = 'Chưa duyệt'
+        i.classList.add('btn-status--red')
+    }
+}
+
+// Update total state
+const countStateFalse = document.querySelector('.overview-des--false')
+const countStateTrue = document.querySelector('.overview-des--true')
+
+countStateTrue.innerText = `(${valueCountStateTrue})`
+countStateFalse.innerText = `(${valueCountStateFalse})`

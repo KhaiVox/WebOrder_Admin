@@ -8,23 +8,42 @@ var index = 2
 class OrderController {
     // [GET] /orders
     async index(req, res, next) {
-        const getOrder = await Order.find({})
+        const getOrders = await Order.find({})
         const getCartID = await (await Order.find({})).map((item) => item.id_Account)
-        const getCustomer = await Customer.find({ _id: getCartID })
+        const getCustomers = await Customer.find({ _id: getCartID })
         const quantity = await Order.countDocuments()
-            // res.json(getCustomer)
+            // res.json(getCustomers)
             // res.render('orders', { index: index })
             // Promise.all([Order.countDocuments(), Order.find()])
             //     .then(([quantity, orders]) => {
-        res.render('orders', {
-                quantity,
-                index: index,
-                getOrder: mutipleMongooseToObject(getOrder),
-                getCustomer: mutipleMongooseToObject(getCustomer),
-                quantity,
-            })
             //     })
             //     .catch(next)
+        res.render('orders', {
+            index: index,
+            getOrders: mutipleMongooseToObject(getOrders),
+            getCustomers: mutipleMongooseToObject(getCustomers),
+            quantity,
+        })
+    }
+
+    // [GET] /orders/:id/detail
+    async detail(req, res, next) {
+        const getOrder = await Order.findOne({ _id: req.params.id })
+        const getCustomer = await Customer.findOne({ _id: getOrder.id_Account })
+        const getProduct = await (await Order.findOne({ _id: req.params.id })).detail_Cart
+        const getProductId = await getOrder.detail_Cart.map((item) => item.id_Food)
+
+        // res.json(getProduct[0].quantity)
+        // res.json(getProductId)
+        // for (let i in getProduct) {
+        //     console.log(getProduct[i])
+        // }
+        res.render('orders/detail', {
+            index: index,
+            getOrder: mongooseToObject(getOrder),
+            getCustomer: mongooseToObject(getCustomer),
+            getProduct: mongooseToObject(getProduct),
+        })
     }
 }
 

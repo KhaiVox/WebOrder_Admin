@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+// thư viện xóa mềm
+const mongooseDelete = require('mongoose-delete')
+
 mongoose.connect('mongodb+srv://ngocphuc:ngocphuc@cluster0.jm3jwgm.mongodb.net/DevFood', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,6 +19,8 @@ const Customer = new Schema({
 }, {
     collection: 'account_users',
 }, )
+
+Customer.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' })
 
 const CustomerModel = mongoose.model('Customer', Customer)
 module.exports = CustomerModel

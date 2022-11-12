@@ -2,33 +2,30 @@
     {{> sidebar }}
 </div>
 <div class='container-right'>
-    {{! <div data-aos='zoom-in-left'>   }}
     <div class='form-wrap'>
         {{! Header }}
         <div class='form-header'>
-            <a class="form-header-title" href="/customer">Danh Sách Khách Hàng</a>
+            <a class='form-header-title' href='/customer'>Danh Sách Khách Hàng ({{quantity}})</a>
         </div>
 
         {{! Form Option }}
         <div class='form-action'>
             <div class='form-selected'>
-                <h4 class='notify-checked'></h4>
-                <select hidden class='form-select-option'>
-                    <option value=''>Chọn thao tác</option>
-                    <option value=''>Xóa khách hàng</option>
-                    <option value=''>Cập nhật thông tin</option>
-                </select>
+                <a class='btn btn-show-detail' href="/customer/trash">Danh sách khách hàng đã chặn</a>
             </div>
-            <div class='search'>
-                <label for=''>
-                    <input class='search-input' type='text' placeholder='Tìm kiếm theo tên, sđt khách hàng' />
-                    <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
-                    <div class='line'></div>
-                    <span class='search-btn'>
-                        <ion-icon class='search-icon' name='search-outline'></ion-icon>
-                    </span>
-                </label>
-            </div>
+            
+            <form action='/customer/search' method='GET'>
+                <div class='search'>
+                    <label for=''>
+                        <input class='search-input' type='text' name="text" placeholder='Tìm kiếm theo tên, sđt khách hàng' />
+                        <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
+                        <div class='line'></div>
+                        <button type="submit" class='search-btn'>
+                            <ion-icon class='search-icon' name='search-outline'></ion-icon>
+                        </button>
+                    </label>
+                </div>
+            </form>
         </div>
 
         {{! List Order }}
@@ -43,30 +40,58 @@
                     <li class='col-lg-2 list-item-heading btn-sort'>Tổng chi tiêu
                         <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
                     </li>
-                    <li class='col-lg-1 list-item-heading'>Sửa</li>
+                    <li class='col-lg-1 list-item-heading'>Chặn</li>
                 </ul>
             </div>
 
-            <div class="form-des__wrap">
-                {{#each customer}}
-                <div class='form-des'>
-                    <ul class='row list-des'>
-                        <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
-                        <li class='col-lg-2 list-item-des' style="text-transform: capitalize;">{{fullname}}</li>
-                        <li class='col-lg-2 list-item-des'>{{phone}}</li>
-                        <li class='col-lg-3 list-item-des'>{{address}}</li>
-                        <li class='col-lg-1 list-item-des'>15</li>
-                        <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
-                        <li class='col-lg-1 list-item-des'>
-                            <a href="/foods/{{_id}}/edit">
-                                <span class='btn-delete btn-edit'><ion-icon name="create-outline"></ion-icon></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div class='form-des__wrap'>
+                {{#each customers}}
+                    <div class='form-des'>
+                        <ul class='row list-des'>
+                            <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                            <li class='col-lg-2 list-item-des' style='text-transform: capitalize;'>{{fullname}}</li>
+                            <li class='col-lg-2 list-item-des'>{{phone}}</li>
+                            <li class='col-lg-3 list-item-des'>{{address}}</li>
+                            <li class='col-lg-1 list-item-des'>15</li>
+                            <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
+                            <li class='col-lg-1 list-item-des'>
+                                <a
+                                    href='#'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#delete-customer-modal'
+                                    data-id='{{_id}}'
+                                >
+                                    <span class='btn-delete btn-edit'><ion-icon
+                                            name='remove-circle-outline'
+                                        ></ion-icon></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 {{/each}}
             </div>
         </div>
     </div>
-    {{! </div>  }}
 </div>
+
+<!-- Modal Confirm Delete -->
+<div class='modal fade' id='delete-customer-modal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Chặn khách hàng</h5>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                Bạn có chắc muốn chặn khách hàng này ?
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-outline' data-bs-dismiss='modal'>Hủy</button>
+                <button id='btn-delete-customer' type='button' class='btn btn-danger'>Chặn</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name='delete-customer-form' method='POST'></form>
+

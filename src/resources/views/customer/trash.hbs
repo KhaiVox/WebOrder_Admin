@@ -1,0 +1,78 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='form-wrap'>
+        <div class='form-header'>
+            <a class="form-header-title" href='/customer'>
+                Khách Hàng Đã Chặn ({{deletedCount}})
+            </a>
+            <a class="btn btn-quit" href="/customer">
+                <span><ion-icon name="arrow-undo-outline"></ion-icon></span> 
+                Danh sách khách hàng
+            </a>
+        </div>
+
+        <form action='/customer/handle-form-actions-trash' method='POST'>
+            <div class='list-info'>
+                <div class='form-heading'>
+                    <ul class='row list-heading'>
+                        <li class='col-lg-1 list-item-heading'>STT</li>
+                        <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
+                        <li class='col-lg-2 list-item-heading'>SĐT</li>
+                        <li class='col-lg-3 list-item-heading'>Địa chỉ</li>
+                        <li class='col-lg-1 list-item-heading'>Tổng đơn</li>
+                        <li class='col-lg-2 list-item-heading btn-sort'>Tổng chi tiêu</li>
+                        <li class='col-lg-1 list-item-heading'>Bỏ chặn</li>
+                    </ul>
+                </div>
+
+                <div class="form-des__wrap list-food__trash">
+                    {{#each customers}}
+                        <div class='form-des'>
+                            <ul class='row list-des'>
+                                <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
+                                <li class='col-lg-2 list-item-des' style='text-transform: capitalize;'>{{fullname}}</li>
+                                <li class='col-lg-2 list-item-des'>{{phone}}</li>
+                                <li class='col-lg-3 list-item-des'>{{address}}</li>
+                                <li class='col-lg-1 list-item-des'>15</li>
+                                <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
+                                <li class='col-lg-1 list-item-des'>
+                                    <a href="" class="btn-restore" data-id="{{_id}}">
+                                        <span class='btn-delete btn-edit'><ion-icon name="refresh-outline"></ion-icon></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {{else}}
+                    <tr>
+                        <div class="notify"> Chưa có khách hàng nào. <a href="/customer">Danh sách khách hàng</a></div>
+                    </tr>
+                    {{/each}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<form name='restore-food-form' method='POST'></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Restore Action
+        var restoreBtn = $('.btn-restore')
+        var restoreForm = document.forms['restore-food-form']
+        
+        restoreBtn.click(function (e) {
+            e.preventDefault();
+            
+            var customerId = $(this).data('id');
+            restoreForm.action = '/customer/' + customerId + '/restore?_method=PATCH';
+            restoreForm.submit();
+        })
+    })
+</script>
+
+
+
+
