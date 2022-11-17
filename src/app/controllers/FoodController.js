@@ -4,9 +4,6 @@ const Food = require('../models/food')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
-// giới hạn số lượng item đc hiển thị trong 1 trang
-const PAGE_SIZE = 5
-
 var index = 1
 
 class FoodController {
@@ -22,45 +19,11 @@ class FoodController {
                 })
             })
             .catch(next)
-            // var page = req.query.page
-            // if (page) {
-            //     page = parseInt(page)
-
-        //     if (page < 1) {
-        //         page = 1
-        //     }
-        //     // bỏ qua bao nhiêu phần tử để đến trang mong muốn
-        //     var skip = (page - 1) * PAGE_SIZE
-
-        //     Promise.all([Food.countDocuments(), Food.find().skip(skip).limit(PAGE_SIZE), Food.countDocumentsDeleted()])
-        //         .then(([pages, foods, deletedCount]) => {
-        //             res.render('foods', {
-        //                 pages,
-        //                 index: index,
-        //                 foods: mutipleMongooseToObject(foods),
-        //                 deletedCount,
-        //             })
-        //         })
-
-        //     .catch((err) => {
-        //         res.json('Lỗi render')
-        //     })
-        // } else {
-        //     Promise.all([Food.countDocuments(), Food.find().limit(PAGE_SIZE), Food.countDocumentsDeleted()])
-        //         .then(([pages, foods, deletedCount]) => {
-        //             res.render('foods', {
-        //                 pages,
-        //                 index: index,
-        //                 foods: mutipleMongooseToObject(foods),
-        //                 deletedCount,
-        //             })
-        //         })
-        //         .catch(next)
-        // }
     }
 
     // [GET] /foods/filter
     filter(req, res, next) {
+        // có thể tạo biến if để lấy giá trị req.params.slug = tiếng việt
         Promise.all([
             Food.find({ type: req.params.slug }).countDocuments(),
             Food.find({ type: req.params.slug }),

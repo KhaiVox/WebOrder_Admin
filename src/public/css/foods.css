@@ -1,9 +1,9 @@
 .product-img {
   width: 45px;
   height: 45px;
+  object-fit: cover;
   position: relative;
-  left: -5px;
-  object-fit: cover; }
+  left: -10px; }
 
 .list-info {
   width: 100%;
@@ -47,69 +47,6 @@
 .dropdown-menu {
   width: 100%;
   font-size: 1.6rem; }
-
-#paging {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 52px; }
-
-.paginationjs {
-  font-size: 2rem;
-  display: flex;
-  align-items: center; }
-
-.paginationjs-pages {
-  background-color: #1c6758;
-  min-width: 260px;
-  height: 46px;
-  border-radius: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.paginationjs-pages ul {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-around;
-  color: #222222; }
-
-.paginationjs-pages a {
-  padding: 10px;
-  color: white; }
-
-.paginationjs-page {
-  cursor: pointer; }
-
-.paginationjs-page.active {
-  color: #1c6758;
-  background-color: white;
-  border-radius: 50px; }
-
-.paginationjs-prev.disabled a,
-.paginationjs-next.disabled a {
-  cursor: not-allowed; }
-
-.paginationjs-go-input input {
-  height: 45px;
-  width: 80px;
-  border-radius: 10px;
-  margin-left: 24px;
-  outline: none;
-  padding-left: 12px;
-  border: 1px solid #bcbcbc; }
-
-.paginationjs-go-button input {
-  height: 45px;
-  width: 60px;
-  border-radius: 10px;
-  margin-left: 12px;
-  outline: none;
-  border: none;
-  color: white;
-  background-color: #d2490e; }
 
 .trash {
   display: flex;

@@ -20,7 +20,7 @@ const Customer = new Schema({
     collection: 'account_users',
 }, )
 
-Customer.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' })
+Customer.plugin(mongooseDelete, { overrideMethods: 'all' })
 
 const CustomerModel = mongoose.model('Customer', Customer)
 module.exports = CustomerModel

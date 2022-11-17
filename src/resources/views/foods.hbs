@@ -123,7 +123,6 @@
             <span class='icon-trash__number'>{{deletedCount}}</span>
         </a>
     </div>
-    {{! <div id="paging" class="none"></div> }}
 </div>
 
 <!-- Modal Confirm Delete -->
@@ -147,43 +146,3 @@
 
 <form name='delete-food-form' method='POST'></form>
 
-{{!-- <script>
-var pages = {{pages}}
-document.addEventListener('DOMContentLoaded', function() {
-    var arrPage = []
-    for(let i = 1; i <= pages; i++) {
-        arrPage.push(i)
-    }
-    $('#paging').pagination({
-        dataSource: arrPage,
-        totalNumberLocator: function(res) {
-            return res.total
-        },
-        pageSize: 5,
-        showGoInput: true,
-        showGoButton: true,
-        // lấy ra vị trí page được active
-        afterPageOnClick: function(e, pageNumber) {
-            loadPage(pageNumber)
-        },
-        afterPreviousOnClick: function(e, pageNumber) {
-            loadPage(pageNumber)
-        },
-        afterNextOnClick: function(e, pageNumber) {
-            loadPage(pageNumber)
-        },
-        // nhập số trang trong ô input và nhấn Enter
-        afterGoInputOnEnter: function(e, pageNumber) {
-            loadPage(pageNumber)
-        },
-        // click button Go
-        afterGoButtonOnClick: function(e, pageNumber) {
-            loadPage(pageNumber)
-        },
-    })
-})
-function loadPage(page) {
-    window.location.href='/foods?page=' + page
-}
-
-</script> --}}

@@ -1,3 +1,8 @@
+// Data table
+$(document).ready(function() {
+    $('#example').DataTable()
+})
+
 // Button show/hide detail
 var boardDetail = document.querySelector('.order-overview')
 var btnShowDetail = document.querySelector('.btn-show-detail')
@@ -20,22 +25,33 @@ valueDay.forEach((item) => (item.innerText = item.innerText.slice(0, 24)))
 // Display Status Order
 let valueCountStateFalse = 0
 let valueCountStateTrue = 0
+let valueCountBackup = 0
+let valueCountTransfer = 0
 const valueState = document.querySelectorAll('.btn-status')
+
 for (let i of valueState) {
-    if (i.innerText == 'true') {
-        valueCountStateTrue++
-        i.innerText = 'Đã duyệt'
-        i.classList.add('btn-status--green')
-    } else {
+    if (i.innerText == 'Chưa duyệt') {
         valueCountStateFalse++
-        i.innerText = 'Chưa duyệt'
         i.classList.add('btn-status--red')
+    } else if (i.innerText == 'Đã duyệt') {
+        valueCountStateTrue++
+        i.classList.add('btn-status--blue')
+    } else if (i.innerText == 'Đang chuẩn bị') {
+        valueCountBackup++
+        i.classList.add('btn-status--blue')
+    } else if (i.innerText == 'Đang giao') {
+        valueCountTransfer++
+        i.classList.add('btn-status--green')
     }
 }
 
 // Update total state
 const countStateFalse = document.querySelector('.overview-des--false')
 const countStateTrue = document.querySelector('.overview-des--true')
+const countStateBackup = document.querySelector('.overview-des--backup')
+const countStateTransfer = document.querySelector('.overview-des--transfer')
 
 countStateTrue.innerText = `(${valueCountStateTrue})`
 countStateFalse.innerText = `(${valueCountStateFalse})`
+countStateBackup.innerText = `(${valueCountBackup})`
+countStateTransfer.innerText = `(${valueCountTransfer})`

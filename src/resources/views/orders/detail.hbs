@@ -2,43 +2,6 @@
     {{> sidebar }}
 </div>
 <div class='container-right'>
-    {{!-- <div class='create edit-food'>
-        <div class="create-left">
-            <div class='create-item'>
-                <img class="food-img" src={{food.img}} alt="">
-            </div>
-        </div>
-        <div class="create-right">
-            <div class='create-header'>Chi tiết đơn hàng</div>
-            <form method='POST' action='/foods/{{food._id}}?_method=PUT'>
-                <div class='create-item'>
-                    <div class='create-title'>Tên sản phẩm :</div>
-                    <input type='text' class='create-input' name='name' id='name' value='{{food.name}}' />
-                </div>
-                <div class='create-item'>
-                    <div class='create-title'>Loại :</div>
-                    <select id='type' name='type' class='create-input' required>
-                        <option class="input-selected">{{food.type}}</option>
-                        <option class="food" name='food'>Món ăn</option>
-                        <option class="drink" name='drink'>Món nước</option>
-                        <option class="sidefood" name='sidefood'>Ăn kèm</option>
-                    </select>
-                </div>
-                <div class='create-item'>
-                    <div class='create-title'>Đơn giá :</div>
-                    <input type='text' class='create-input' name='price' id='price' value='{{food.price}}' />
-                </div>
-                <div class='create-item'>
-                    <div class='create-title'>Hình :</div>
-                    <input type='text' class='create-input' name='img' id='img' value='{{food.img}}' />
-                </div>
-                
-                <div class='create-button'>
-                    <button class='btn btn-confirm'>Lưu thông tin</button>
-                </div>
-            </form>
-        </div>
-    </div> --}}
     <div class='payment'>
         <div class='container'>
             <div class='create-header'>Chi tiết đơn hàng</div>
@@ -49,21 +12,27 @@
                         <div class='product-list-payment'>
                             <div class='product-payment-item'>
                                 <div class='row'>
-                                    <div class='col-1 product-payment-wrap'>
-                                        <img
-                                            src='https://i.postimg.cc/JnZwJz1J/SD-BACHA-600x600-removebg-preview.png'
-                                            alt=''
-                                            class='product-payment-img'
-                                        />
-                                    </div>
-                                    <strong class='col-7 product-payment-name'>Jean Prouvé Antony</strong>
-                                    <strong class='col-1 product-payment-quantity hide-on-mobile'>2</strong>
-                                    <strong class='col-3 product-payment-price'>2,000,000 đ</strong>
-                                </div>
+                                    {{#each getFood}}
+                                        <div class='col-1 product-payment-wrap'>
+                                            <img
+                                                src={{img}}
+                                                alt=''
+                                                class='product-payment-img'
+                                            />
+                                        </div>
+                                        <strong class='col-7 product-payment-name'>{{name}}</strong>
+                                        <strong class='col-1 product-payment-quantity'>3</strong>
+                                        <strong class='col-3 product-payment-price'>255.000 đ</strong>
+                                    {{/each}}
+                                    {{!-- {{#each getDesFood}}
+                                        <strong class='col-1 product-payment-quantity'>{{quantity}}</strong>
+                                        <strong class='col-3 product-payment-price'>{{price}}.000 đ</strong>
+                                    {{/each}}--}}
+                                </div> 
                             </div>
                             <div class='payment-total'>
                                 <div class='payment-total-title'>Tổng tiền: </div>
-                                <strong class='payment-total-number'>4,200,000 VND</strong>
+                                <strong class='payment-total-number'>{{getCart.total}}.000 đ</strong>
                             </div>
                         </div>
                     </div>
@@ -84,20 +53,21 @@
                             </div>
                             <div class='payment-item row'>
                                 <p class='col-4'> Ngày đặt </p>
-                                <strong class='col-8 day_value'>: {{getOrder.createAt}}</strong>
+                                <strong class='col-8 day_value'>: {{getCart.createAt}}</strong>
                             </div>
                             <div class='payment-method'>
                                 <div class='payment-title'>Phương thức thanh toán</div>
-                                <label class='form-control'>
+                                <div hidden class="value-type-payment">{{getOrder.payment_Method}}</div>
+                                <label class='form-select-payment'>
                                     <div class='payment-check'>
-                                        <input type='radio' name='radio' />
+                                        <input disabled type='radio' class="payment-type--cash" name='radio' />
                                         <span>Thanh toán khi nhận hàng</span>
                                     </div>
                                 </label>
-                                <label class='form-control'>
+                                <label class='form-select-payment'>
                                     <div class='payment-check'>
-                                        <input type='radio' name='radio' />
-                                        <span>Thanh toán qua tài khoản ngân hàng</span>
+                                        <input disabled type='radio' class="payment-type--momo" name='radio' />
+                                        <span>Thanh toán qua ví Momo</span>
                                     </div>
                                 </label>
                             </div>
@@ -106,10 +76,15 @@
                             <a href='/orders'>
                                 <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
                             </a>
-                            <div class="btn-wrap">
-                                <button class='btn payment-confirm'>Duyệt đơn</button>
-                                <button class='btn payment-confirm'>Hủy đơn</button>
-                            </div>
+                            <form method='POST' action='/orders/{{getOrder._id}}?_method=PUT'>
+                                <div class="btn-wrap">
+                                    {{!-- Value Hidden --}}
+                                    <input hidden name='confirm_Order' id='confirm_Order' value='Đã duyệt' />
+                                    <input hidden name='order_Status' id='order_Status' value='Đã duyệt' />
+                                    <button type="submit"  class='btn btn-payment payment-confirm'>{{getOrder.confirm_Order}}</button>
+                                    <button class='btn btn-payment payment-cancel'>Hủy đơn</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -122,4 +97,43 @@
     // Display Date
     const valueDay = document.querySelectorAll('.day_value')
     valueDay.forEach((item) => (item.innerText = item.innerText.slice(0, 26)))
+
+    // Type payment checked
+    const radioCash = document.querySelector('.payment-type--cash')
+    const radioMomo = document.querySelector('.payment-type--momo')
+    const valueTypePayment = document.querySelector('.value-type-payment').innerText
+
+    if(valueTypePayment == 'Momo') {
+        radioMomo.setAttribute("checked", "checked")
+    } else {
+        radioCash.setAttribute("checked", "checked")
+    }
+
+    // Display Button Status
+    const buttonStatus = document.querySelector('.payment-confirm')
+    const valueConfirmOrder = document.getElementById('confirm_Order')
+    const valueOrderStatus = document.getElementById('order_Status')
+
+    if(buttonStatus.innerText == "Chưa duyệt") {
+        buttonStatus.innerText = "Duyệt đơn"
+    }
+    else if(buttonStatus.innerText == "Đã duyệt") {
+        buttonStatus.innerText = "Đang chuẩn bị"
+        valueConfirmOrder.value = "Đang chuẩn bị"
+        valueOrderStatus.value = "Đang chuẩn bị"
+    }
+    else if(buttonStatus.innerText == "Đang chuẩn bị") {
+        buttonStatus.innerText = "Đã có món"
+        valueConfirmOrder.value = "Đang giao"
+        valueOrderStatus.value = "Đang giao"
+    }
+    else if(buttonStatus.innerText == "Đã có món") {
+        alert("Món ăn đã hoàn tất")
+        buttonStatus.innerText = "Đang giao"
+        valueConfirmOrder.value = "Đang giao"
+        valueOrderStatus.value = "Đang giao"
+    }
+    else if(buttonStatus.innerText == "Đang giao") {
+        buttonStatus.setAttribute("disabled", "disabled")
+    }
 </script>

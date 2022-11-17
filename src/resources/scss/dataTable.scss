@@ -1,0 +1,48 @@
+@import 'variables';
+// Description
+.dataTables_info {
+    display: none !important;
+    font-size: 1.7rem;
+}
+
+#example_info {
+    display: none;
+}
+
+.dataTables_length {
+    display: none;
+}
+
+.dataTables_filter {
+    font-size: 1.7rem;
+}
+
+// Search
+.form-control {
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 30px;
+    font-size: 1.6rem;
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #bcbcbc;
+    caret-color: #06354c;
+}
+
+.pagination {
+    position: absolute;
+    left: 42%;
+    bottom: -60px;
+    a {
+        font-size: 1.6rem;
+        font-weight: 500;
+        padding: 5px 12px;
+    }
+}
+
+// Column Row
+table.dataTable td,
+table.dataTable th {
+    padding: 8px 24px;
+}

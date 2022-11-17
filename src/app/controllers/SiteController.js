@@ -39,7 +39,6 @@ class SiteController {
 
     // [POST] /vouchers/store
     store(req, res, next) {
-        // res.json(req.body)
         const voucher = new Voucher(req.body)
 
         voucher

@@ -31,14 +31,14 @@
 .overview-body {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%; }
 
 .overview-item {
   padding: 10px 12px 8px;
   border-right: 1px solid #bcbcbc;
   text-align: center;
-  width: calc(100% / 5); }
+  width: calc(100% / 4); }
   .overview-item:last-child {
     border: none; }
 
@@ -106,12 +106,18 @@
   color: white;
   background-color: #a90707; }
 
+.form-detail--order {
+  height: 525px !important;
+  position: relative;
+  margin-bottom: 80px;
+  padding: 0 !important; }
+
 .btn-status {
   font-size: 1.6rem;
   font-weight: 600;
   width: 120px;
-  height: 33px;
-  line-height: 32px;
+  height: 30px;
+  line-height: 27px;
   border-radius: 5px;
   text-align: center;
   pointer-events: none; }
@@ -119,17 +125,17 @@
 .btn-status--green {
   color: #045406;
   border: 1px solid #045406;
-  background-color: #72ff0730; }
+  background-color: #8afc3440; }
 
 .btn-status--red {
-  color: #a40a0a;
-  border: 1px solid #a40a0a;
-  background-color: #e21e1e1a; }
+  color: #ff1700;
+  border: 1px solid #ff1700;
+  background-color: #ffa0a026; }
 
 .btn-status--blue {
-  color: #08747b;
-  border: 1px solid #08747b;
-  background-color: #0d5a5a1a; }
+  color: #152d35;
+  border: 1px solid #152d35;
+  background-color: #08629812; }
 
 .btn-detail {
   font-size: 1.7rem;

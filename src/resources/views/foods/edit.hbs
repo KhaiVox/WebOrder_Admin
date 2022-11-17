@@ -19,9 +19,9 @@
                     <div class='create-title'>Loại :</div>
                     <select id='type' name='type' class='create-input' required>
                         <option class="input-selected">{{food.type}}</option>
-                        <option class="food" name='food'>Món ăn</option>
-                        <option class="drink" name='drink'>Món nước</option>
-                        <option class="sidefood" name='sidefood'>Ăn kèm</option>
+                        <option class="food" name='food'>food</option>
+                        <option class="drink" name='drink'>drink</option>
+                        <option class="sidefood" name='sidefood'>sidefood</option>
                     </select>
                 </div>
                 <div class='create-item'>
@@ -43,22 +43,3 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    // Select item edit
-    let valueSelected = document.querySelector(".input-selected").value
-    let nameFood = document.querySelector(".food")
-    let nameDrink = document.querySelector(".drink")
-    let nameSideFood = document.querySelector(".sidefood")
-
-    if(valueSelected == "Món ăn") {
-        nameFood.classList.add('hidden')
-    }
-    else if(valueSelected == "Món nước") {
-        nameDrink.classList.add('hidden')
-    }
-    else if(valueSelected == "Ăn kèm") {
-        nameSideFood.classList.add('hidden')
-    }
-</script>

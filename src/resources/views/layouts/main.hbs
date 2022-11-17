@@ -24,6 +24,12 @@
         <script nomodule src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
         {{! Link Font Awesome }}
         <script src='https://kit.fontawesome.com/64d58efce2.js' crossorigin='anonymous'></script>
+        {{! Link Data Table CSS }}
+        <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css'
+        />
+        <link rel='stylesheet' href='https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css' />
         {{! Link CSS }}
         <link
             rel='stylesheet'
@@ -39,7 +45,6 @@
         {{! Link Fade }}
         <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet' />
         <script src='https://unpkg.com/aos@2.3.1/dist/aos.js'></script>
-
     </head>
     <body>
         <div class='app'>
@@ -49,8 +54,10 @@
         </div>
 
         <!-- Link jQuery -->
-        <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
-        {{! Lick Slick Slide}}
+        {{! <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script> }}
+        <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+
+        {{! Link Slick Slide}}
         <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
         <script type='text/javascript' src='https://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
         <script
@@ -66,7 +73,6 @@
         <script src='/js/foods.js'></script>
         <script src='/js/customer.js'></script>
         <script src='/js/home.js'></script>
-        <script src='/js/pagination.js'></script>
         <script
             src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js'
             integrity='sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk'
@@ -77,5 +83,8 @@
             integrity='sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy'
             crossorigin='anonymous'
         ></script>
+        {{! Data Table }}
+        <script src='https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js'></script>
+        <script src='https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js'></script>
     </body>
 </html>

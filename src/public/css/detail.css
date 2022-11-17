@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .payment {
-  margin-top: 32px; }
+  margin-top: 24px; }
 
 .payment-header {
   text-align: center; }
@@ -26,7 +26,7 @@
   border-radius: 3px;
   position: relative;
   top: -15px;
-  left: -12px; }
+  left: 15px; }
 
 .product-payment-wrap strong {
   font-size: 1.6rem;
@@ -43,9 +43,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #585858;
   margin-top: 36px;
-  padding-top: 24px; }
+  padding: 20px;
+  border-top: 2px solid black; }
 
 .payment-total-title {
   font-size: 1.6rem;
@@ -58,7 +58,7 @@
 /* Payment Info */
 .payment-list-info {
   padding-left: 60px;
-  border-left: 2px solid #585858; }
+  border-left: 2px solid black; }
 
 .payment-item {
   font-size: 1.6rem;
@@ -80,12 +80,12 @@
   font-weight: 600;
   margin-bottom: 8px; }
 
-.form-control {
+.form-select-payment {
   width: 80%;
-  border: none;
-  cursor: pointer;
   height: 36px;
-  padding: 0; }
+  padding: 0;
+  border: none;
+  user-select: none; }
 
 .payment-check {
   display: block; }
@@ -105,7 +105,7 @@
   user-select: none; }
 
 .payment-button {
-  margin-top: 52px;
+  margin-top: 135px;
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -117,12 +117,12 @@
   .payment-quit:hover {
     color: #1c6758; }
 
-.payment-confirm {
+.btn-payment {
   font-weight: 500;
   height: 38px;
   color: white;
   margin-left: 12px;
   background-color: #1c6758; }
-  .payment-confirm:hover {
+  .btn-payment:hover {
     color: white;
     background-color: #1c6758; }

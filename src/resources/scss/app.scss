@@ -8,6 +8,7 @@
 @import 'create';
 @import 'home';
 @import 'detail';
+@import 'dataTable';
 * {
     margin: 0;
     padding: 0;
@@ -160,22 +161,28 @@ input[type='checkbox']:checked {
 }
 
 .list-heading {
-    padding: 15px;
+    padding: 12px;
 }
 
 .list-des {
-    padding: 10px 22px;
-    &:hover {
+    padding: 5px 22px;
+    F.list-heading &:hover {
         cursor: pointer;
         background-color: $hover;
     }
 }
 
 .list-item-heading {
+    display: flex;
     font-size: 1.7rem;
     font-weight: 700;
     color: $primary;
-    display: flex;
+}
+
+.list-item-heading--table {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary;
 }
 
 .order-check {

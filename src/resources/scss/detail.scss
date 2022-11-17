@@ -1,6 +1,6 @@
 @import 'variables';
 .payment {
-    margin-top: 32px;
+    margin-top: 24px;
 }
 
 .payment-header {
@@ -34,7 +34,7 @@
     border-radius: 3px;
     position: relative;
     top: -15px;
-    left: -12px;
+    left: 15px;
 }
 
 .product-payment-wrap strong {
@@ -54,9 +54,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid rgb(88, 88, 88);
     margin-top: 36px;
-    padding-top: 24px;
+    padding: 20px;
+    border-top: 2px solid black;
 }
 
 .payment-total-title {
@@ -74,7 +74,7 @@
 
 .payment-list-info {
     padding-left: 60px;
-    border-left: 2px solid rgb(88, 88, 88);
+    border-left: 2px solid black;
 }
 
 .payment-item {
@@ -102,12 +102,12 @@
     margin-bottom: 8px;
 }
 
-.form-control {
+.form-select-payment {
     width: 80%;
-    border: none;
-    cursor: pointer;
     height: 36px;
     padding: 0;
+    border: none;
+    user-select: none;
 }
 
 .payment-check {
@@ -131,7 +131,7 @@
 }
 
 .payment-button {
-    margin-top: 52px;
+    margin-top: 135px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,7 +146,7 @@
     }
 }
 
-.payment-confirm {
+.btn-payment {
     font-weight: 500;
     height: 38px;
     color: white;
