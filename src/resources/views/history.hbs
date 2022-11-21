@@ -5,80 +5,45 @@
     <div class='form-wrap'>
         <div class='form-header'>
             <a class='form-header-title' href='/foods'>
-                Lịch sử Đơn Đặt ({{quantity}})
+                Lịch Sử Đơn Đặt ({{total}})
             </a>
         </div>
 
-        <form action='/foods/handle-form-actions' method='POST'>
-            <div class='form-action'>
-                <div class='form-selected'>
-                    <h4 class='notify-checked'></h4>
-                    <select hidden required class='form-select-option' name='action'>
-                        <option value=''>Chọn thao tác</option>
-                        <option value='softDelete'>Xóa</option>
-                    </select>
-                    <button type='submit' hidden class='btn btn-danger btn-action-check'>Thực hiện</button>
-                </div>
-            </div>
-
-            <div class='form-detail'>
-                <div class='form-heading'>
-                    <ul class='row list-heading'>
-                        <li class='col-lg-1 list-item-heading'></li>
-                        <li class='col-lg-1 list-item-heading'>STT</li>
-                        <li class='col-lg-1 list-item-heading'>Ảnh</li>
-                        <li class='col-lg-4 list-item-heading'>Tên món</li>
-                        <li class='col-lg-1 list-item-heading'>Loại</li>
-                        <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá
-                            <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
-                        </li>
-                        <li class='col-lg-2 list-item-heading'>Tác vụ</li>
-                    </ul>
-                </div>
-
-                <div class='form-des__wrap'>
-                    {{#each foods}}
-                        <div class='form-des'>
-                            <ul class='row list-des'>
-                                <li class='col-lg-1 list-item-des'><input
-                                        class='order-check'
-                                        type='checkbox'
-                                        name='food'
-                                        value='{{_id}}'
-                                    /></li>
-                                <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
-                                <li class='col-lg-1 list-item-des'>
-                                    <img class='product-img' src={{img}} alt={{name}} />
-                                </li>
-                                <li class='col-lg-4 list-item-des'>{{name}}</li>
-                                <li class='col-lg-1 list-item-des item__type-food'>{{type}}</li>
-                                <li class='col-lg-2 list-item-des item-total'>{{price}}.000 đ</li>
-                                <li class='col-lg-2 list-item-des'>
-                                    <div class='btn-wrap'>
-                                        <a
-                                            href='#'
-                                            data-bs-toggle='modal'
-                                            data-bs-target='#delete-course-modal'
-                                            data-id='{{_id}}'
-                                        >
-                                            <span class='btn-delete'><ion-icon name='close-outline'></ion-icon></span>
-                                        </a>
-                                        <a href='/foods/{{_id}}/edit'>
-                                            <span class='btn-delete btn-edit'><ion-icon
-                                                name='create-outline'
-                                            ></ion-icon></span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+        <div class='form-detail form-detail--order'>
+            <table id='example' class='table ' style='width:100%'>
+                <thead>
+                    <tr>
+                        <th class="list-item-heading--table">STT</th>
+                        <th class="list-item-heading--table">Thời gian đặt</th>
+                        <th class="list-item-heading--table">Tổng tiền</th>
+                        <th class="list-item-heading--table">Phương thức TT</th>
+                        <th class="list-item-heading--table">Trạng thái</th>
+                        <th class="list-item-heading--table">Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each getPayment}}
+                        <tr>
+                            <td class="list-item-des">{{sum @index 1}}</td>
+                            <td class="list-item-des day_value">{{createdAt}}</td>
+                            <td class="list-item-des">
+                                <div class="price-wrap">
+                                    <h4>{{total}}</h4>
+                                    <h4 class=" number-total">.000 đ</h4>
+                                </div>
+                            </td>
+                            <td class="list-item-des">{{payment_Method}}</td>
+                            <td class="list-item-des"><div class='btn-status'>{{confirm_Order}}</div></td>
+                            <td class="list-item-des"><a class="btn-detail" href="/history/{{_id}}/detail">Nhấn để xem</a></td>
+                        </tr>
                         {{else}}
                         <tr>
-                            <div class="notify">Lịch sử đơn hàng trống.</div>
+                            <div class="notify"> Chưa có đơn hàng nào. <a href="/home">Nhấn để tạo</a></div>
                         </tr>
                     {{/each}}
-                </div>
-        </form>
+                </tbody>
+            </table>
+        </div>
     </div>
     </div> 
 </div>

@@ -117,10 +117,11 @@
 }
 
 .btn-show-detail {
+    font-weight: 500;
+    border: none;
+    margin-left: -10px;
     color: $primary;
     background-color: $white;
-    border: none;
-    font-weight: 500;
     &:hover {
         color: $dark-primary;
     }
@@ -172,4 +173,8 @@
 .btn-detail {
     font-size: 1.7rem;
     font-weight: 600;
+}
+
+.btn-cancel {
+    background-color: $red !important;
 }

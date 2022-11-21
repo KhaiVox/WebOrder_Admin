@@ -34,3 +34,6 @@
 table.dataTable td,
 table.dataTable th {
   padding: 8px 24px; }
+
+.table.dataTable > tbody > tr:hover {
+  background-color: rgba(238, 238, 238, 0.4); }

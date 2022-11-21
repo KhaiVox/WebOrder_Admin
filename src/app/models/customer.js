@@ -16,6 +16,8 @@ const Customer = new Schema({
     phone: { type: String },
     email: { type: String },
     avatar: { type: String },
+    point: { type: Number },
+    quantity: { type: Number },
 }, {
     collection: 'account_users',
 }, )

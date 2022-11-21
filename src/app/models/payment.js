@@ -13,6 +13,7 @@ const Payment = new Schema({
     receive_Method: { type: Array },
     confirm_Order: { type: String },
     order_Status: { type: String },
+    // point: { type: Boolean },
     createAt: { type: Date },
 }, {
     collection: 'payments',

@@ -94,10 +94,11 @@
   background-color: #1c6758; }
 
 .btn-show-detail {
-  color: #1c6758;
-  background-color: white;
+  font-weight: 500;
   border: none;
-  font-weight: 500; }
+  margin-left: -10px;
+  color: #1c6758;
+  background-color: white; }
   .btn-show-detail:hover {
     color: #0e483d; }
 
@@ -140,3 +141,6 @@
 .btn-detail {
   font-size: 1.7rem;
   font-weight: 600; }
+
+.btn-cancel {
+  background-color: #a90707 !important; }

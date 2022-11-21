@@ -107,7 +107,7 @@ body::-webkit-scrollbar-thumb {
 .form-wrap {
     position: relative;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
 }
 
 .form-header {
@@ -120,7 +120,8 @@ body::-webkit-scrollbar-thumb {
 .form-header-title {
     font-size: 3rem;
     font-weight: 500;
-    font-family: 'Tourney', cursive;
+    text-transform: capitalize;
+    font-family: 'Mitr', sans-serif;
     color: $primary;
     text-shadow: 1px 1px 2px #1c675830;
     &:hover {

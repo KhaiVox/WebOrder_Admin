@@ -42,16 +42,20 @@ for (let i of valueState) {
     } else if (i.innerText == 'Đang giao') {
         valueCountTransfer++
         i.classList.add('btn-status--green')
+    } else if (i.innerText == 'Hoàn tất') {
+        i.classList.add('btn-status--green')
+    } else if (i.innerText == 'Đã hủy') {
+        i.classList.add('btn-status--red')
     }
 }
 
 // Update total state
-const countStateFalse = document.querySelector('.overview-des--false')
-const countStateTrue = document.querySelector('.overview-des--true')
-const countStateBackup = document.querySelector('.overview-des--backup')
-const countStateTransfer = document.querySelector('.overview-des--transfer')
+// const countStateFalse = document.querySelector('.overview-des--false')
+// const countStateTrue = document.querySelector('.overview-des--true')
+// const countStateBackup = document.querySelector('.overview-des--backup')
+// const countStateTransfer = document.querySelector('.overview-des--transfer')
 
-countStateTrue.innerText = `(${valueCountStateTrue})`
-countStateFalse.innerText = `(${valueCountStateFalse})`
-countStateBackup.innerText = `(${valueCountBackup})`
-countStateTransfer.innerText = `(${valueCountTransfer})`
+// countStateTrue.innerText = `(${valueCountStateTrue})`
+// countStateFalse.innerText = `(${valueCountStateFalse})`
+// countStateBackup.innerText = `(${valueCountBackup})`
+// countStateTransfer.innerText = `(${valueCountTransfer})`

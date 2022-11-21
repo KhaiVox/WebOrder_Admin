@@ -4,7 +4,7 @@
 <div class='container-right'>
     <div class='payment'>
         <div class='container'>
-            <div class='create-header'>Chi tiết đơn hàng</div>
+            <div class='create-header'>Chi tiết đơn hủy</div>
             <div class='payment-body'>
                 <div class='row'>
                     <!-- Payment Product -->
@@ -76,21 +76,15 @@
                             </div>
                         </div>
                         <div class='payment-button'>
-                            <a href='/orders'>
+                            <a href='/history'>
                                 <button class='btn btn-quit payment-quit'>↩ Quay lại</button>
                             </a>
                             <div class="btn-wrap">
-                                <form method='POST' action='/orders/{{getOrder._id}}?_method=PUT'>
-                                    {{!-- Value Hidden --}}
-                                    <input hidden name='state' id='state' value='true' />
-                                    <input hidden name='confirm_Order' id='confirm_Order' value='Đã duyệt' />
-                                    <input hidden name='order_Status' id='order_Status' value='Đã duyệt' />
-                                    <button type="submit" class='btn btn-payment payment-confirm'>{{getOrder.order_Status}}</button>
-                                </form>
-                                <form method='POST' action='/orders/{{getOrder._id}}/cancel?_method=PUT'>
-                                    <input hidden name='confirm_Order' id='confirm_Order--cancel' value='Đã hủy' />
-                                    <input hidden name='order_Status' id='order_Status--cancel' value='Đã hủy' />
-                                    <button type="submit" class='btn btn-cancel btn-payment payment-cancel'>Hủy đơn</button>
+                                <button type="submit" class='btn btn-payment payment-confirm'>{{getOrder.order_Status}}</button>
+                                <form method='POST' action='/history/{{getOrder._id}}/cancel?_method=PUT'>
+                                    <input hidden name='confirm_Order' id='confirm_Order--cancel' value='Đã duyệt' />
+                                    <input hidden name='order_Status' id='order_Status--cancel' value='Đã duyệt' />
+                                    <button type="submit" class='btn btn-cancel btn-payment payment-cancel'>Đặt lại</button>
                                 </form>
                             </div>
                         </div>
@@ -137,7 +131,7 @@
         buttonStatus.innerText = "Đang giao"
         valueOrderStatus.value = "Đang giao"
     }
-    else if(buttonStatus.innerText == "Đang giao" || buttonStatus.innerText == "Đã hủy") {
+    else if(buttonStatus.innerText == "Đang giao" || buttonStatus.innerText == "Đã hủy" || buttonStatus.innerText == "Hoàn tất") {
         buttonStatus.setAttribute("disabled", "disabled")
     }
 </script>

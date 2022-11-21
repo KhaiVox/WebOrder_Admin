@@ -26,24 +26,34 @@
             </div>
             <ul class='overview-body'>
                 <li class='overview-item'>
-                    <div class='overview-title'>Tổng đơn hàng</div>
-                    <div class='overview-des'>({{quantity}})</div>
+                    <a href="/orders">
+                        <div class='overview-title'>Tổng đơn hàng</div>
+                        <div class='overview-des'>({{quantity}})</div>
+                    </a>
                 </li>
                 <li class='overview-item'>
-                    <div class='overview-title'>Chờ duyệt</div>
-                    <div class='overview-des overview-des--false'>(...)</div>
+                    <a href="/orders/await">
+                        <div class='overview-title'>Chưa duyệt</div>
+                        <div class='overview-des overview-des--false'>({{countAwait}})</div>
+                    </a>
                 </li>
                 <li class='overview-item'>
-                    <div class='overview-title'>Đã duyệt</div>
-                    <div class='overview-des overview-des--true'>(...)</div>
+                    <a href="/orders/done">
+                        <div class='overview-title'>Đã duyệt</div>
+                        <div class='overview-des overview-des--true'>({{countDone}})</div>
+                    </a>
                 </li>
                 <li class='overview-item'>
-                    <div class='overview-title'>Đang chuẩn bị</div>
-                    <div class='overview-des overview-des--backup'>(...)</div>
+                    <a href="/orders/ready">
+                        <div class='overview-title'>Đang chuẩn bị</div>
+                        <div class='overview-des overview-des--backup'>({{countReady}})</div>
+                    </a>
                 </li>
                 <li class='overview-item'>
-                    <div class='overview-title'>Đang giao hàng</div>
-                    <div class='overview-des overview-des--transfer'>(...)</div>
+                    <a href="/orders/delivery">
+                        <div class='overview-title'>Đang giao hàng</div>
+                        <div class='overview-des overview-des--transfer'>({{countDelivery}})</div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -71,12 +81,8 @@
                                     <h4 class=" number-total">.000 đ</h4>
                                 </div>
                             </td>
-                            <td class="list-item-des"><div class='btn-status'>{{confirm_Order}}</div></td>
+                            <td class="list-item-des"><div class='btn-status'>{{order_Status}}</div></td>
                             <td class="list-item-des"><a class="btn-detail" href="/orders/{{_id}}/detail">Nhấn để xem</a></td>
-                        </tr>
-                        {{else}}
-                        <tr>
-                            <div class="notify"> Chưa có đơn hàng nào. <a href="/home">Nhấn để tạo</a></div>
                         </tr>
                     {{/each}}
                 </tbody>

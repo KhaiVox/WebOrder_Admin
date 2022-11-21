@@ -6,6 +6,7 @@ class UserController {
     login(req, res, next) {
         res.render('login')
     }
+    z
 
     // [GET] /register
     register(req, res, next) {

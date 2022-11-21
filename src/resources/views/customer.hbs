@@ -6,55 +6,42 @@
         {{! Header }}
         <div class='form-header'>
             <a class='form-header-title' href='/customer'>Danh Sách Khách Hàng ({{quantity}})</a>
-        </div>
 
-        {{! Form Option }}
-        <div class='form-action'>
             <div class='form-selected'>
                 <a class='btn btn-show-detail' href="/customer/trash">Danh sách khách hàng đã chặn</a>
             </div>
-            
-            <form action='/customer/search' method='GET'>
-                <div class='search'>
-                    <label for=''>
-                        <input class='search-input' type='text' name="text" placeholder='Tìm kiếm theo tên, sđt khách hàng' />
-                        <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
-                        <div class='line'></div>
-                        <button type="submit" class='search-btn'>
-                            <ion-icon class='search-icon' name='search-outline'></ion-icon>
-                        </button>
-                    </label>
-                </div>
-            </form>
         </div>
 
-        {{! List Order }}
-        <div class='form-detail'>
-            <div class='form-heading'>
-                <ul class='row list-heading'>
-                    <li class='col-lg-1 list-item-heading'>STT</li>
-                    <li class='col-lg-2 list-item-heading'>Tên khách hàng</li>
-                    <li class='col-lg-2 list-item-heading'>SĐT</li>
-                    <li class='col-lg-3 list-item-heading'>Địa chỉ</li>
-                    <li class='col-lg-1 list-item-heading'>Tổng đơn</li>
-                    <li class='col-lg-2 list-item-heading btn-sort'>Tổng điểm
-                        <span class='nav-icon-sort'><ion-icon name='swap-vertical-outline'></ion-icon></span>
-                    </li>
-                    <li class='col-lg-1 list-item-heading'>Chặn</li>
-                </ul>
-            </div>
-
-            <div class='form-des__wrap'>
-                {{#each customers}}
-                    <div class='form-des'>
-                        <ul class='row list-des'>
-                            <li class='col-lg-1 list-item-des'>{{sum @index 1}}</li>
-                            <li class='col-lg-2 list-item-des' style='text-transform: capitalize;'>{{fullname}}</li>
-                            <li class='col-lg-2 list-item-des'>{{phone}}</li>
-                            <li class='col-lg-3 list-item-des'>{{address}}</li>
-                            <li class='col-lg-1 list-item-des'>15</li>
-                            <li class='col-lg-2 list-item-des'>2.500.000 đ</li>
-                            <li class='col-lg-1 list-item-des'>
+        {{! List Customer }}
+        <div class='form-detail form-detail--order'>
+            <table id='example' class='table ' style='width:100%'>
+                <thead>
+                    <tr>
+                        <th class="list-item-heading--table">STT</th>
+                        <th class="list-item-heading--table">Tên khách hàng</th>
+                        <th class="list-item-heading--table">SĐT</th>
+                        <th class="list-item-heading--table">Địa chỉ</th>
+                        <th class="list-item-heading--table">Tổng đơn</th>
+                        <th class="list-item-heading--table">Điểm tích lũy</th>
+                        <th class="list-item-heading--table">Chặn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each getCustomer}}
+                        <tr>
+                            <td class="list-item-des">{{sum @index 1}}</td>
+                            <td class="list-item-des" style='text-transform: capitalize;'>{{fullname}}</td>
+                            <td class="list-item-des">{{phone}}</td>
+                            <td class="list-item-des">{{address}}</td>
+                            <td class="list-item-des" style='padding-left: 48px;'>{{quantity}}</td>
+                            
+                            <td class="list-item-des">
+                                <div class="price-wrap">
+                                    <h4>{{point}}</h4>
+                                    <h4 style="margin-left: 5px;" class="number-total">point</h4>
+                                </div>
+                            </td>
+                            <td class="list-item-des">
                                 <a
                                     href='#'
                                     data-bs-toggle='modal'
@@ -65,11 +52,15 @@
                                             name='remove-circle-outline'
                                         ></ion-icon></span>
                                 </a>
-                            </li>
-                        </ul>
-                    </div>
-                {{/each}}
-            </div>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <div class="notify"> Chưa có khách hàng nào.</div>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
