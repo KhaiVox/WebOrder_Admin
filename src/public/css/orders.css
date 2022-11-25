@@ -121,7 +121,7 @@
   line-height: 27px;
   border-radius: 5px;
   text-align: center;
-  pointer-events: none; }
+  user-select: none; }
 
 .btn-status--green {
   color: #045406;

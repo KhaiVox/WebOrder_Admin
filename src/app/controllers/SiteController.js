@@ -1,5 +1,8 @@
 const Food = require('../models/food')
 const Voucher = require('../models/voucher')
+
+// const Payment = require('../models/payment')
+const History = require('../models/history')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
@@ -51,6 +54,37 @@ class SiteController {
     delete(req, res, next) {
         Voucher.deleteOne({ _id: req.params.id })
             .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    // [POST] /home/solve
+    solve(req, res, next) {
+        let img = req.body.img
+        let name = req.body.name
+        let quantity = req.body.quantity
+        let price = req.body.price
+        let total = req.body.total
+        let paymentTotal = req.body.paymentTotal
+
+        // tạo mảng object với mỗi object là 1 tên sản phẩm
+        let productArray = []
+        for (let i = 0; i < name.length; i++) {
+            productArray.push({ name: name[i] })
+        }
+
+        // lặp qua từng object và thêm những trường còn lại
+        productArray.forEach((ele, index) => {
+            ele['img'] = img[index]
+            ele['quantity'] = quantity[index]
+            ele['price'] = price[index]
+            ele['total'] = total[index]
+        })
+
+        History.create({
+                total: paymentTotal,
+                detail_Product: productArray,
+            })
+            .then(() => res.redirect('/home'))
             .catch(next)
     }
 }

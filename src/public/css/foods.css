@@ -30,7 +30,8 @@
   font-size: 2.6rem;
   margin-right: 18px;
   margin-top: -3px;
-  font-size: 2.6rem; }
+  font-size: 2.6rem;
+  cursor: pointer; }
   .btn-delete:hover {
     color: #a90707;
     transform: scale(1.1); }

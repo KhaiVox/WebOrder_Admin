@@ -34,7 +34,6 @@ let footerNames = document.querySelectorAll('.footer-item-name')
 let footerPrices = document.querySelectorAll('.footer-item-price')
 let listDetails = document.querySelector('.form-des__wrap')
 let arr = []
-let newArray = []
 
 function handleDelete(buttonDlt) {
     buttonIndex = buttonDlt.getAttribute('data-id') - 1
@@ -59,8 +58,22 @@ function handleAdd() {
                                 src= ${arr[i].imgValue}
                                 alt=''
                             />
+                            <input
+                                class='input-value'
+                                type='text'
+                                name='img'
+                                hidden
+                                value='${arr[i].imgValue}'
+                            />
                         </li>
-                        <li class='col-lg-3 list-item-des'>${arr[i].nameValue}</li>
+                        <li class='col-lg-3 list-item-des'>
+                            <input
+                                class='input-value'
+                                type='text'
+                                name='name'
+                                value='${arr[i].nameValue}'
+                            />
+                        </li>
                         <li class='col-lg-2 list-item-des'>
                             <input
                                 class='input-quantity'
@@ -73,8 +86,22 @@ function handleAdd() {
                                 onchange="updatePrice(this)"
                             />
                         </li>
-                        <li class='col-lg-2 list-item-des item-total item-price' data-id='${i + 1}'>${arr[i].priceValue}</li>
-                        <li class='col-lg-2 list-item-des item-total'>${arr[i].totalValue}</li>
+                        <li class='col-lg-2 list-item-des item-total' data-id='${i + 1}'>
+                            <input
+                                class='input-value item-price'
+                                type='text'
+                                name='price'
+                                value='${arr[i].priceValue}'
+                            />
+                        </li>
+                        <li class='col-lg-2 list-item-des item-total'>
+                            <input
+                                class='input-value'
+                                type='text'
+                                name='total'
+                                value='${arr[i].totalValue}'
+                            />
+                        </li>
                         <li class='col-lg-1 list-item-des'>
                             <span data-id='${
                                 i + 1
@@ -98,14 +125,6 @@ for (let i = 0; i < footerItems.length; i++) {
         let totalValue = footerPrices[i].innerText
 
         arr.push({ imgValue, nameValue, priceValue, numberValue, totalValue })
-            // arr.forEach((item) => {
-            //     if (newArray.find((ele) => ele.name == item.name)) {
-            //         console.log('da co')
-            //     } else {
-            //         newArray.push(item)
-            //         console.log('chua co')
-            //     }
-            // })
 
         handleAdd()
         changeTotal()
@@ -116,7 +135,7 @@ for (let i = 0; i < footerItems.length; i++) {
 function updatePrice(input) {
     let value = input.value
     let valueIndex = input.getAttribute('data-id') - 1
-    let priceItem = document.getElementsByClassName('item-price')[valueIndex].innerText
+    let priceItem = document.getElementsByClassName('item-price')[valueIndex].value
     let total = parseInt(priceItem) * parseInt(value)
     arr[valueIndex].numberValue = value
     arr[valueIndex].totalValue = total
@@ -126,14 +145,14 @@ function updatePrice(input) {
     changeQuantity()
 }
 
-// cập nhật số lượng của từng sản phẩm
+// cập nhật tổng tiền
 function changeTotal() {
     let count = 0
     var numberTotal = document.querySelector('.number-total')
     for (let i in arr) {
         count += parseInt(arr[i].totalValue)
     }
-    numberTotal.innerText = count
+    numberTotal.value = count
 }
 
 // cập nhật tiền thừa
@@ -148,11 +167,11 @@ function handleCharge() {
     if (chargeValue >= count) {
         numberRefund.innerText = chargeValue - count
     } else {
-        alert("Số tiền phải trả tối thiểu " + count + ".000 đ")
+        alert('Số tiền phải trả tối thiểu ' + count + '.000 đ')
     }
 }
 
-// cập nhật số lượng tổng ở thanh list heading 
+// cập nhật số lượng tổng ở thanh list heading
 function changeQuantity() {
     let countQtt = 0
     let quantity = document.querySelector('.quantity')
@@ -161,35 +180,6 @@ function changeQuantity() {
     }
     quantity.innerText = countQtt
 }
-//
-// function loadPage(type) {
-//     if (type == 1) {
-//         type = "food"
-//     }
-//     $.ajax({
-//         url: '/home/' + type,
-//         type: 'GET',
-//     }).then((result) => {
-//         // console.log($('#footer-list-product'));
-//         $('#footer-list-product').html('')
-//         for (let i = 0; i < result.products.length; i++) {
-//             const element = result.products[i]
-//             var item = `<h1>${element.name}</h1>`
-//                 // var item = `
-//                 //     <div class='footer-item-product'>
-//                 //         <img class='footer-item-img' src=<h1>${element.img} alt={{name}} />
-//                 //         <h4 class='footer-item-name'>${element.name}</h4>
-//                 //         <div class="footer-item-price-wrap" style="display: flex;">
-//                 //             <h5 class='footer-item-price'>${element.price}</h5><h5>.000 đ</h5>
-//                 //         </div>
-//                 //     </div>
-//                 //     `
-//             $('#footer-list-product').append(item)
-//             console.log(result.products[i]);
-//         }
-//     })
-// }
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     loadPage(1)
-// })
+// thanh toán
+const valueTotal = document.querySelector('.pill-total-input')

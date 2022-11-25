@@ -4,7 +4,7 @@ const Order = require('../models/order')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 
-var index = 5
+var index = 4
 
 class CustomerController {
     // [GET] /customer

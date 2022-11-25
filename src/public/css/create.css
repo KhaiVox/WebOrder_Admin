@@ -1,7 +1,18 @@
 .create {
   width: 500px;
   padding: 32px 50px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  display: flex; }
+
+.create-left img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+  top: 18px; }
+
+.create-right {
+  margin-left: 120px; }
 
 .edit-food {
   display: flex;

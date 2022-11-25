@@ -3,11 +3,11 @@ const router = express.Router()
 
 const foodController = require('../app/controllers/FoodController')
 
-// hiển thị view create và tạo mới khóa học
+// hiển thị view create và tạo mới món ăn
 router.get('/create', foodController.create)
 router.post('/store', foodController.store)
 
-// nhận URL của khóa học và chỉnh sửa vs phương thức [PUT]
+// nhận URL của món ăn và chỉnh sửa vs phương thức [PUT]
 router.get('/:id/edit', foodController.edit)
 router.put('/:id', foodController.update)
 router.patch('/:id/restore', foodController.restore)

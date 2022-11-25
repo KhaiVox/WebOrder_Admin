@@ -11,14 +11,21 @@ class HistoryController {
     // [GET] /history
     async index(req, res, next) {
         const getPayment = await Payment.find({ $or: [{ order_Status: 'Hoàn tất' }, { order_Status: 'Đã hủy' }] })
-        const quantity = await Payment.countDocuments({ order_Status: 'Hoàn tất' })
+        const quantitySuccess = await Payment.countDocuments({ order_Status: 'Hoàn tất' })
         const quantityCancel = await Payment.countDocuments({ order_Status: 'Đã hủy' })
-        const total = quantity + quantityCancel
+        const quantity = quantitySuccess + quantityCancel
+        const getPaymentSuccess = await Payment.find({ order_Status: 'Hoàn tất' })
+        let totalRevenue = 0
+
+        getPaymentSuccess.map((item) => {
+            totalRevenue += item.total
+        })
 
         res.render('history', {
             index: index,
-            total,
+            quantity,
             getPayment: mutipleMongooseToObject(getPayment),
+            totalRevenue,
         })
     }
 

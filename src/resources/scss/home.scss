@@ -133,6 +133,12 @@
     }
 }
 
+.input-value {
+    border: none;
+    pointer-events: none;
+    background-color: transparent;
+}
+
 .input-quantity {
     width: 65%;
     padding-left: 8px;
@@ -166,13 +172,34 @@
     padding: 8px 0;
 }
 
+.pill-total {
+    margin: 0;
+}
+
+.pill-total-input,
 .pill-des-input {
     outline: none;
     border: 1px solid $border;
     padding: 4px 5px;
-    width: 120px;
     font-size: 1.5rem;
     border-radius: 3px;
+}
+
+.pill-total-input {
+    width: 70px;
+    font-size: 1.7rem;
+    text-align: right;
+    padding: 0 2px;
+    margin-top: 7px;
+    border: none;
+    font-weight: 700;
+    color: $primary;
+    pointer-events: none;
+    user-select: none;
+}
+
+.pill-des-input {
+    width: 120px;
 }
 
 .pill-charge,
@@ -184,6 +211,7 @@
 
 .pill-des-charge {
     color: $primary;
+    user-select: none;
 }
 
 .btn-update-price {
@@ -236,7 +264,7 @@
 }
 
 .voucher-img {
-    width: 85px;
+    width: 70px;
     border-right: 1px dashed $border;
 }
 
@@ -248,6 +276,8 @@
 .voucher-title {
     font-size: 1.6rem;
     font-weight: 700;
+    margin: 0;
+    padding: 0;
     color: $primary;
     display: flex;
     align-items: center;

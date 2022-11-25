@@ -4,6 +4,7 @@ const router = express.Router()
 const siteController = require('../app/controllers/SiteController')
 
 router.get('/', siteController.index)
+router.post('/solve', siteController.solve)
 
 // hiển thị view create và tạo mới khóa học
 router.get('/vouchers/create', siteController.create)
