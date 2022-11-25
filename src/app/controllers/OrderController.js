@@ -4,7 +4,6 @@ const Food = require('../models/food')
 const Payment = require('../models/payment')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
-    // const { restore } = require('./FoodController')
 
 var index = 2
 

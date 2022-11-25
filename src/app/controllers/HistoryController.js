@@ -2,18 +2,18 @@ const Order = require('../models/order')
 const Customer = require('../models/customer')
 const Food = require('../models/food')
 const Payment = require('../models/payment')
+const History = require('../models/history')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')
+const { response } = require('express')
 
 var index = 3
 
 class HistoryController {
     // [GET] /history
     async index(req, res, next) {
+        // Order Online
         const getPayment = await Payment.find({ $or: [{ order_Status: 'Hoàn tất' }, { order_Status: 'Đã hủy' }] })
-        const quantitySuccess = await Payment.countDocuments({ order_Status: 'Hoàn tất' })
-        const quantityCancel = await Payment.countDocuments({ order_Status: 'Đã hủy' })
-        const quantity = quantitySuccess + quantityCancel
         const getPaymentSuccess = await Payment.find({ order_Status: 'Hoàn tất' })
         let totalRevenue = 0
 
@@ -21,11 +21,24 @@ class HistoryController {
             totalRevenue += item.total
         })
 
+        // Order Purchase
+        const getHistory = await History.find({})
+        let totalRevenuePurchase = 0
+        let getDetailProduct = getHistory[0].detail_Product
+
+        getHistory.map((item) => {
+            totalRevenuePurchase += item.total
+        })
+
+        // res.json(getHistory[0].detail_Product)
+
         res.render('history', {
             index: index,
-            quantity,
             getPayment: mutipleMongooseToObject(getPayment),
             totalRevenue,
+            getHistory: mutipleMongooseToObject(getHistory),
+            totalRevenuePurchase,
+            getDetailProduct,
         })
     }
 
@@ -55,11 +68,18 @@ class HistoryController {
         })
     }
 
-    // [PUT] /orders/:id
+    // [PUT] /history/:id
     cancel(req, res, next) {
         Payment.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/orders'))
             .catch(next)
+    }
+
+    // [GET] /history/detailPurchase
+    async detailPurchase(req, res, next) {
+        // nếu lấy đc id thì tìm ngay trong History
+        const getHistory = await History.find({})
+        res.json(getHistory)
     }
 }
 

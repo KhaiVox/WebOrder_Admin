@@ -1,7 +1,6 @@
 const Food = require('../models/food')
 const Voucher = require('../models/voucher')
 
-// const Payment = require('../models/payment')
 const History = require('../models/history')
 const { mongooseToObject } = require('../../util/mongoose')
 const { mutipleMongooseToObject } = require('../../util/mongoose')

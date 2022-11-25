@@ -1,6 +1,10 @@
 // Data table
 $(document).ready(function() {
-    $('#example').DataTable()
+    $('#table-public').DataTable()
+})
+
+$(document).ready(function() {
+    $('#table-history').DataTable()
 })
 
 // Button show/hide detail
@@ -48,14 +52,3 @@ for (let i of valueState) {
         i.classList.add('btn-status--red')
     }
 }
-
-// Update total state
-// const countStateFalse = document.querySelector('.overview-des--false')
-// const countStateTrue = document.querySelector('.overview-des--true')
-// const countStateBackup = document.querySelector('.overview-des--backup')
-// const countStateTransfer = document.querySelector('.overview-des--transfer')
-
-// countStateTrue.innerText = `(${valueCountStateTrue})`
-// countStateFalse.innerText = `(${valueCountStateFalse})`
-// countStateBackup.innerText = `(${valueCountBackup})`
-// countStateTransfer.innerText = `(${valueCountTransfer})`

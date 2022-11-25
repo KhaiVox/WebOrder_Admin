@@ -3,6 +3,7 @@ const router = express.Router()
 
 const historyController = require('../app/controllers/HistoryController')
 
+router.get('/detailPurchase', historyController.detailPurchase)
 router.get('/:id/detail', historyController.detail)
 router.put('/:id/cancel', historyController.cancel)
 

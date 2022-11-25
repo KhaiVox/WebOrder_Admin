@@ -165,7 +165,8 @@
     padding: 12px;
 }
 
-.pill-title-item {
+.pill-title-item,
+.pill-title-item--purchase {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -187,10 +188,10 @@
 
 .pill-total-input {
     width: 70px;
-    font-size: 1.7rem;
+    font-size: 2rem;
     text-align: right;
     padding: 0 2px;
-    margin-top: 7px;
+    margin-top: 8px;
     border: none;
     font-weight: 700;
     color: $primary;
@@ -206,10 +207,12 @@
 .pill-des-charge {
     margin-top: 12px;
     font-size: 1.7rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .pill-des-charge {
+    font-size: 2rem;
+    font-weight: 700;
     color: $primary;
     user-select: none;
 }
