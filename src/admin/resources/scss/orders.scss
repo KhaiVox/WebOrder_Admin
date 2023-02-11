@@ -1,0 +1,180 @@
+@import 'variables';
+//Order Overview
+.order-overview {
+    padding: 10px 0 0 0;
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.overview-header {
+    padding: 0 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $border;
+}
+
+.overview-header-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.btn-hide-detail {
+    font-size: 1.7rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    padding: 0 !important;
+    color: $primary;
+    background-color: $white;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+.overview-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.overview-item {
+    padding: 10px 12px 8px;
+    border-right: 1px solid $border;
+    text-align: center;
+    width: calc(100% / 4);
+    // ẩn border-right của cột cuối cùng
+    &:last-child {
+        border: none;
+    }
+}
+
+.overview-title {
+    color: rgb(132, 132, 132);
+}
+
+.overview-des {
+    color: $primary;
+    font-weight: 700;
+}
+
+// Form Option
+.form-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+}
+
+.form-selected {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.notify-checked {
+    margin-right: 12px;
+    pointer-events: none;
+    font-size: 1.6rem;
+    span {
+        color: $primary;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}
+
+.form-select-option {
+    padding: 7px 6px;
+    outline: none;
+    cursor: pointer;
+    border-radius: $br5;
+    border-color: $border;
+}
+
+.form-btn {
+    display: flex;
+}
+
+.btn-icon-add {
+    font-size: 2.2rem;
+    margin: -2px 6px 0 -10px;
+}
+
+.btn-add-order:hover {
+    color: $white;
+    background-color: $dark-primary;
+}
+
+.btn-show-detail,
+.btn-add-order {
+    min-width: 138px;
+    color: $white;
+    background-color: $primary;
+}
+
+.btn-show-detail {
+    font-weight: 500;
+    border: none;
+    margin-left: -10px;
+    color: $primary;
+    background-color: $white;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+.btn-action-check {
+    margin-left: 12px;
+    color: white;
+    background-color: $red;
+}
+
+// List Order
+.form-detail--order {
+    min-height: 500px !important;
+    position: relative;
+    margin-bottom: 80px;
+    padding: 0 !important;
+}
+
+.btn-status {
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 120px;
+    height: 25px;
+    line-height: 23px;
+    border-radius: 5px;
+    text-align: center;
+    user-select: none;
+}
+
+.btn-status--green {
+    color: #045406;
+    border: 1px solid #045406;
+    background-color: #8afc3440;
+}
+
+.btn-status--red {
+    color: #ff1700;
+    border: 1px solid #ff1700;
+    background-color: #ffa0a026;
+}
+
+.btn-status--blue {
+    color: #152d35;
+    border: 1px solid #152d35;
+    background-color: #08629812;
+}
+
+.btn-detail {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.btn-cancel {
+    background-color: $red !important;
+}

@@ -1,0 +1,40 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='create'>
+        <div class="create-left">
+            <img class="des-img" src="https://cdn-icons-png.flaticon.com/512/3595/3595888.png" alt="">
+        </div>
+        <div class="create-right">
+            <div class='create-header'>Thêm voucher</div>
+            <form method='POST' action='/home/vouchers/store'>
+                <div class='create-item'>
+                    <div class='create-title'>Phần trăm :</div>
+                    <input type='text' class='create-input' name='name' id='name' value='' required />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Giảm tối đa :</div>
+                    <input type='text' class='create-input' name='discount' id='discount' value='' required />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Đơn tối thiểu :</div>
+                    <input type='text' class='create-input' name='minprice' id='minprice' value='' required />
+                </div>
+                <div class='create-item'>
+                    <input type='text' hidden class='create-input' name='special' id='special' value='false' required />
+                </div>
+                <div class='create-item'>
+                    <input type='text' hidden class='create-input' name='point' id='point' value='0' required />
+                </div>
+
+                <div class='create-button'>
+                    <button type='submit' class='btn btn-confirm'>Thêm mới</button>
+                </div>
+            </form>
+            <a href='/home'>
+                <button class='btn btn-quit'>↩ Quay lại</button>
+            </a>
+        </div>
+    </div>
+</div>

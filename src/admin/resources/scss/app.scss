@@ -1,0 +1,334 @@
+@import 'variables';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 16px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+input:focus {
+    border-radius: 1px solid red;
+}
+
+/* Thanh Scroll */
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $primary;
+}
+
+// Public
+.hidden {
+    display: none !important;
+}
+
+.active-mode {
+    background-color: $dark;
+}
+
+// Button
+.btn {
+    transition: 0.2s;
+    cursor: pointer;
+    padding: 6px 12px 5px;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    border-radius: $br5;
+    outline: none;
+}
+
+.btn-sort {
+    cursor: pointer;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+// Content
+.container-wrap {
+    display: flex;
+    width: 100%;
+}
+
+.container-right {
+    padding: 0 28px;
+    position: relative;
+    left: 300px;
+    width: 80%;
+    height: 100vh;
+    transition: 0.8s;
+}
+
+.container-right.set-width {
+    left: 72px;
+    width: 95%;
+}
+
+// Form Public
+.form-wrap {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.form-header-title {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: 'Mitr', sans-serif;
+    color: $primary;
+    text-shadow: 1px 1px 2px #1c675830;
+    &:hover {
+        color: $dark-primary;
+    }
+}
+
+.form-detail {
+    width: 100%;
+    padding: 7px;
+    min-height: 450px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.02) 0px 2px 4px 0px, rgba(14, 30, 37, 0.2) 0px 2px 16px 0px;
+}
+
+.form-heading {
+    width: 100%;
+}
+
+// List Order
+input[type='checkbox']:checked {
+    accent-color: $primary;
+}
+
+.nav-icon-sort {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.list-heading,
+.list-des {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $border;
+}
+
+.list-heading {
+    padding: 12px;
+}
+
+.list-des {
+    padding: 5px 22px;
+    F.list-heading &:hover {
+        cursor: pointer;
+        background-color: $hover;
+    }
+}
+
+.list-item-heading {
+    display: flex;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary;
+}
+
+.list-item-heading--table {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary;
+}
+
+.order-check {
+    cursor: pointer;
+    font-size: 2rem;
+    zoom: 1.2;
+    position: relative;
+    top: 2px;
+    margin-left: 14px;
+}
+
+.list-item-des {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+// Form Search
+.search {
+    position: relative;
+    min-width: 360px;
+    display: flex;
+    align-items: center;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    height: 40px;
+    padding: 5px 90px 4px 15px;
+    outline: none;
+    border-radius: $br5;
+    border: 1px solid rgb(188, 188, 188);
+    font-size: 1.6rem;
+    // nháy đỏ
+    caret-color: rgb(6, 53, 76);
+}
+
+// khi nhập chữ vào thì icon search sẽ sáng lên
+.search-input:not(:placeholder-shown) ~ .search-btn {
+    color: rgba(1, 6, 32, 0.75);
+}
+
+.search-input:not(:placeholder-shown) ~ .search-delete {
+    display: block;
+}
+
+.search-delete {
+    position: absolute;
+    top: 1px;
+    right: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(122, 122, 122);
+    font-size: 1.7rem;
+    display: none;
+}
+
+.line {
+    position: absolute;
+    top: 9px;
+    right: 50px;
+    width: 1px;
+    height: 26px;
+    margin: -2px 0;
+    background: rgba(22, 24, 35, 0.12);
+}
+
+.search-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    padding: 7px 12px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a7a7a;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        background-color: $hover;
+    }
+    // click vào button sẽ đổi màu background
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.search-icon {
+    font-size: 2.4rem;
+}
+
+/* Modal */
+
+.my-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 1000;
+    display: none;
+}
+
+.my-modal:target {
+    display: flex;
+}
+
+.my-modal .active {
+    display: block;
+}
+
+.overlay-close {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.my-modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.my-modal__body {
+    z-index: 1;
+    margin: auto;
+    border-radius: 3px;
+    animation: growth linear 0.3s;
+    background-color: var(--white-color);
+}
+
+@import 'sidebar';
+@import 'orders';
+@import 'foods';
+@import 'customer';
+@import 'login';
+@import 'register';
+@import 'create';
+@import 'home';
+@import 'detail';
+@import 'history';
+@import 'dataTable';

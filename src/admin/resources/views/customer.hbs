@@ -1,0 +1,87 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='form-wrap'>
+        {{! Header }}
+        <div class='form-header'>
+            <a class='form-header-title' href='/customer'>Danh Sách Khách Hàng ({{quantity}})</a>
+
+            <div class='form-selected'>
+                <a class='btn btn-show-detail' href="/customer/trash">Danh sách khách hàng đã chặn</a>
+            </div>
+        </div>
+
+        {{! List Customer }}
+        <div class='form-detail form-detail--order'>
+            <table id='table-public' class='table ' style='width:100%'>
+                <thead>
+                    <tr>
+                        <th class="list-item-heading--table">STT</th>
+                        <th class="list-item-heading--table">Tên khách hàng</th>
+                        <th class="list-item-heading--table">SĐT</th>
+                        <th class="list-item-heading--table">Địa chỉ</th>
+                        <th class="list-item-heading--table">Số đơn</th>
+                        <th class="list-item-heading--table">Điểm</th>
+                        <th class="list-item-heading--table">Chặn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each getCustomer}}
+                        <tr>
+                            <td class="list-item-des">{{sum @index 1}}</td>
+                            <td class="list-item-des" style='text-transform: capitalize;'>{{fullname}}</td>
+                            <td class="list-item-des">{{phone}}</td>
+                            <td class="list-item-des">{{address}}</td>
+                            <td class="list-item-des" style='padding-left: 48px;'>{{quantity}}</td>
+                            
+                            <td class="list-item-des">
+                                <div class="price-wrap" style='margin-left: 12px;'>
+                                    <h4>{{point}}</h4>
+                                </div>
+                            </td>
+                            <td class="list-item-des">
+                                <a
+                                    href='#'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#delete-customer-modal'
+                                    data-id='{{_id}}'
+                                >
+                                    <span class='btn-delete btn-edit'><ion-icon
+                                            name='remove-circle-outline'
+                                        ></ion-icon></span>
+                                </a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <div class="notify"> Chưa có khách hàng nào.</div>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Confirm Delete -->
+<div class='modal fade' id='delete-customer-modal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Chặn khách hàng</h5>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                Bạn có chắc muốn chặn khách hàng này ?
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-outline' data-bs-dismiss='modal'>Hủy</button>
+                <button id='btn-delete-customer' type='button' class='btn btn-danger'>Chặn</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name='delete-customer-form' method='POST'></form>
+

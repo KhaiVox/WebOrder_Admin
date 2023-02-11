@@ -1,0 +1,191 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='form-wrap'>
+        <div class='form-header'>
+            <a class='form-header-title' href='/foods'>
+                Lịch Sử Đơn Đặt
+            </a>
+
+        </div>
+
+        {{! Form Navigation }}
+        <div class='form-action--history'>
+            <div class='nav nav-tabs'>
+                <a href='#online' class='nav-link active nav-bill-heading' data-bs-toggle='tab'>Online</a>
+                <a
+                    href='#purchase'
+                    class='nav-link nav-bill-heading'
+                    data-bs-toggle='tab'
+                    aria-current='page'
+                >Thanh toán tại quầy</a>
+            </div>
+            <div class='tab-content'>
+                <div class='tab-pane fade show active' id='online'>
+                    <div class='form-detail form-detail--order'>
+                        <table id='table-public' class='table table-public--history' style='width:100%'>
+                            <thead>
+                                <tr>
+                                    <th class="list-item-heading--table">STT</th>
+                                    <th class="list-item-heading--table">Thời gian đặt</th>
+                                    <th class="list-item-heading--table">Tổng tiền</th>
+                                    <th class="list-item-heading--table">Phương thức TT</th>
+                                    <th class="list-item-heading--table">Trạng thái</th>
+                                    <th class="list-item-heading--table">Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each getPayment}}
+                                    <tr>
+                                        <td class="list-item-des">{{sum @index 1}}</td>
+                                        <td class="list-item-des day_value">{{createdAt}}</td>
+                                        <td class="list-item-des">
+                                            <div class="price-wrap">
+                                                <h4>{{total}}</h4>
+                                                <h4 class=" number-total">.000 đ</h4>
+                                            </div>
+                                        </td>
+                                        <td class="list-item-des">{{payment_Method}}</td>
+                                        <td class="list-item-des"><div class='btn-status'>{{order_Status}}</div></td>
+                                        <td class="list-item-des"><a class="btn-detail" href="/history/{{_id}}/detail">Nhấn để xem</a></td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <div class="notify"> Chưa có đơn hàng nào. <a href="/home">Nhấn để thêm</a></div>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='pill-title-item--purchase'>
+                        <h4 class='pill-charge'>Tổng doanh thu:</h4>
+                        <div class="price-wrap" style="margin-left: 24px;">
+                            <h4 class='pill-des-charge number-total'>{{totalRevenue}}</h4>
+                            <h4 class="pill-des-charge number-total">.000 đ</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='tab-pane fade' id='purchase'>
+                    <div class='form-detail form-detail--order'>
+                        <table id='table-history' class='table table-public--history' style='width:100%'>
+                            <thead>
+                                <tr>
+                                    <th class="list-item-heading--table">STT</th>
+                                    <th class="list-item-heading--table">Thời gian đặt</th>
+                                    <th class="list-item-heading--table">Tổng tiền</th>
+                                    <th class="list-item-heading--table">Phương thức TT</th>
+                                    <th class="list-item-heading--table">Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each getHistory}}
+                                    <tr>
+                                        <td class="list-item-des">{{sum @index 1}}</td>
+                                        <td class="list-item-des day_value">{{createAt}}</td>
+                                        <td class="list-item-des">
+                                            <div class="price-wrap">
+                                                <h4>{{total}}</h4>
+                                                <h4 class=" number-total">.000 đ</h4>
+                                            </div>
+                                        </td>
+                                        <td class="list-item-des">Tiền mặt</td>
+                                        <td class="list-item-des">
+                                            <a
+                                                href='#'
+                                                data-bs-toggle='modal'
+                                                data-bs-target='#delete-course-modal'
+                                                data-id='{{_id}}'
+                                                src="{{@index}}"
+                                                onclick="loadDetail(this)"
+                                            >
+                                            Nhấn để xem
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <div class="notify"> Chưa có đơn hàng nào. <a href="/home">Nhấn để thêm</a></div>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='pill-title-item--purchase'>
+                        <h4 class='pill-charge'>Tổng doanh thu:</h4>
+                        <div class="price-wrap" style="margin-left: 24px;">
+                            <h4 class='pill-des-charge number-total number-total-value'>{{totalRevenuePurchase}}</h4>
+                            <h4 class="pill-des-charge number-total">.000 đ</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- Modal Detail Order -->
+<div class='modal fade' id='delete-course-modal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLabel'>Chi tiết đơn hàng</h5>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body' id="content-detail">
+                {{!-- AJAX --}}
+            </div>
+            <div class='modal-footer modal-footer--modal'>
+                {{!-- AJAX --}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // trên 1 triệu sẽ thêm 1 dấu chấm
+    let valueTotal = document.querySelector('.number-total-value')
+    var type_value = parseInt(valueTotal.innerHTML);
+    type_value = type_value.toLocaleString('vi', { currency : 'VND'});
+    valueTotal.innerHTML = type_value
+
+    function loadDetail(index) {
+        let valueIdex = index.getAttribute("src")
+        
+        $.ajax({
+            url: `/history/detailPurchase`,
+            type: 'GET',
+        })
+        .then((data) => {
+            let arrProductTotal = data[valueIdex]
+            let arrProduct = data[valueIdex].detail_Product
+            $('#content-detail').html('')
+            for(let i of arrProduct) {
+                let item = `
+                    <div class='row' style="display: flex; align-items: center;">
+                        <div class="col-2">
+                            <img style="width: 45px;" src=${i.img} alt="">
+                        </div>
+                        <div class="col-5">${i.name}</div>
+                        <div class="col-2">${i.price}.000</div>
+                        <div class="col-1">x ${i.quantity}</div>
+                        <div class="col-2">${i.total}.000</div>
+                    </div>
+                `
+                $('#content-detail').append(item)
+            }
+            $('.modal-footer').html('')
+            let contentFooterModal = `
+                <div class='pill-title-item'>
+                    <h4 class='pill-charge'>Tổng tiền:</h4>
+                    <div class="price-wrap" style="margin-left: 12px;">
+                        <h4 class='pill-des-charge'>${arrProductTotal.total}</h4>
+                        <h4 class='pill-des-charge'>.000 đ</h4>
+                    </div>
+                </div>
+                <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Đóng</button>
+            `
+            $('.modal-footer').append(contentFooterModal)
+        })
+    }
+</script>

@@ -32,8 +32,8 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 
 // Static file
-app.use(express.static(path.join(__dirname, 'public')))
-const AccountModel = require('./app/models/account')
+app.use(express.static(path.join(__dirname, 'admin/public')))
+const AccountModel = require('./admin/app/models/account')
 
 // Template engine
 app.engine(
@@ -45,11 +45,12 @@ app.engine(
         },
     }),
 )
-app.set('views', path.join(__dirname, 'resources', 'views'))
+
+app.set('views', path.join(__dirname, 'admin', 'resources', 'views'))
 app.set('view engine', 'hbs')
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+    console.log(`App listening on port http://localhost:${port}/home`)
 })
 
 // POST register
@@ -58,8 +59,8 @@ app.post('/user/register', (req, res, next) => {
     var password = req.body.password
 
     AccountModel.findOne({
-            username: username,
-        })
+        username: username,
+    })
         .then((data) => {
             if (data) {
                 res.json('User này đã tồn tại!')
@@ -83,12 +84,13 @@ app.post('/user/login', (req, res, next) => {
     var password = req.body.password
 
     AccountModel.findOne({
-            username: username,
-            password: password,
-        })
+        username: username,
+        password: password,
+    })
         .then((data) => {
             if (data) {
-                var token = jwt.sign({
+                var token = jwt.sign(
+                    {
                         _id: data._id,
                         admin: true,
                     },
@@ -127,7 +129,7 @@ app.get(
 )
 
 // Log out
-app.get('/deleteCookie', function(req, res, next) {
+app.get('/deleteCookie', function (req, res, next) {
     let cookie = req.cookies
     for (var prop in cookie) {
         if (!cookie.hasOwnProperty(prop)) {
@@ -138,16 +140,6 @@ app.get('/deleteCookie', function(req, res, next) {
     res.redirect('/user/login')
 })
 
-//
-var checkManager = (req, res, next) => {
-    var role = req.data.role
-    if (role >= 2) {
-        next()
-    } else {
-        res.json('NOT PERMISSON')
-    }
-}
-
 // Nhận các route sau đó sử dụng (luôn để dưới cùng)
-const route = require('./routes')
+const route = require('./admin/routes')
 route(app)

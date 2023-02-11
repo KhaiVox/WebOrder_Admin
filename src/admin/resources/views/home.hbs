@@ -1,0 +1,161 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='main'>
+        <div class='topbar'>
+            <div class='mode'>
+                <span class='nav-title'>
+                    <span class='mode-icon mode-icon-light'><ion-icon name='sunny'></ion-icon></span>
+                    <span class='mode-icon mode-icon-dark hidden'><ion-icon name='moon'></ion-icon></span>
+                    <input type='checkbox' id='switch' class='switch-input' onclick='handleChangeMode()' />
+                    <label for='switch' class='switch'></label>
+                </span>
+            </div>
+            <div class='o-clock'>
+                <div class='display'></div>
+            </div>
+        </div>
+        <form class='form-action-payment' method='POST' action='/home/solve'>
+            <div class='content'>
+                    <div class='content-product'>
+                        {{! List Foods }}
+                        <div class='form-detaill'>
+                            <div class='form-heading'>
+                                <ul class='row list-heading'>
+                                    <li class='col-lg-1 list-item-heading'>STT</li>
+                                    <li class='col-lg-1 list-item-heading'>Ảnh</li>
+                                    <li class='col-lg-3 list-item-heading'>Tên món</li>
+                                    <li class='col-lg-2 list-item-heading'>Số lượng (<span class="quantity">0</span>)</li>
+                                    <li class='col-lg-2 list-item-heading btn-sort'>Đơn giá</li>
+                                    <li class='col-lg-2 list-item-heading'>Thành tiền</li>
+                                    <li class='col-lg-1 list-item-heading'>Xóa</li>
+                                </ul>
+                            </div>
+                            <div class='form-des__wrap'>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class='content-bill'>
+                        <div class='gradient-border'>
+                            <div class='nav nav-tabs'>
+                                <a
+                                    href='#payment'
+                                    class='nav-link active nav-bill-heading'
+                                    data-bs-toggle='tab'
+                                    aria-current='page'
+                                >Thanh toán</a>
+                                <a href='#voucher' class='nav-link nav-bill-heading' data-bs-toggle='tab'>Khuyến mãi</a>
+                            </div>
+                            <div class='tab-content'>
+                                <div class='tab-pane fade show active' id='payment'>
+                                    <div class='pill-wrap'>
+                                        <div class='pill-title-item'>
+                                            <h4 class='pill-charge'>Tổng tiền:</h4>
+                                            <div class="price-wrap">
+                                                <input class='pill-total-input number-total' name='paymentTotal'/>
+                                                <h4 class="pill-des-charge number-total">.000 đ</h4>
+                                            </div>
+                                        </div>
+                                        <div class='pill-title-item'>
+                                            <h4 class='pill-total'>Nhập tiền khách đưa:</h4>
+                                            <input type='number' class='pill-des-input' />
+                                            <div class="btn btn-update-price" onclick="handleCharge()"><ion-icon name="arrow-forward-outline"></ion-icon></div>
+                                        </div>
+                                        <div class='pill-title-item'>
+                                            <h4 class='pill-total'>Tiền thừa:</h4>
+                                            <div class="price-wrap">
+                                                <h4 class='pill-des-total'>0</h4>
+                                                <h4>.000 đ</h4>
+                                            </div>
+                                        </div>
+                                        <button type="submit" disabled class='btn btn-confirm btn-pay' onclick="handlePayment()">Thanh toán</button>
+                                    </div>
+                                </div>
+
+                                <div class='tab-pane fade' id='voucher'>
+                                    <div class='voucher-wrap'>
+                                        <div class='list-vourcher'>
+                                            {{#each vouchers}}
+                                                <div class='item-voucher'>
+                                                    <img
+                                                        class='voucher-img'
+                                                        src='https://i.postimg.cc/ydnkQv1M/vourcher-img.png'
+                                                        alt=''
+                                                    />
+                                                    <div class='voucher-des'>
+                                                        <h3 class='voucher-title'>
+                                                            <span>Voucher {{name}}%</span> 
+                                                            <span><a class="btn-delete-voucher" href='#' data-id='{{_id}}'>
+                                                                    <span class='btn-delete '><ion-icon
+                                                                            name='close-outline'
+                                                                        ></ion-icon></span>
+                                                                </a>
+                                                            </span>
+                                                        </h3>
+                                                        <div class='voucher-title-des'>Giảm
+                                                            {{discount}}k đơn tối thiểu
+                                                            {{minprice}}k</div>
+                                                    </div>
+                                                </div>
+                                                {{else}}
+                                                <tr>
+                                                    <div class="notify"> Chưa có voucher. <a href="/home/vouchers/create">Nhấn để thêm</a></div>
+                                                </tr>
+                                            {{/each}}
+                                        </div>
+                                        <a href='/home/vouchers/create' class='btn btn-add-order btn-add-voucher'>
+                                            <span class='btn-icon-add'><ion-icon name='add-outline'></ion-icon></span>
+                                            Thêm voucher
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class='content-footer'>
+                    <div class='footer-heading'>
+                        <div class='search'>
+                            <label for=''>
+                                <input class='search-input' type='text' placeholder='Tìm kiếm theo tên sản phẩm' />
+                                <span class='search-delete'><ion-icon name='close-circle-outline'></ion-icon></span>
+                                <div class='line'></div>
+                                <span class='search-btn'>
+                                    <ion-icon class='search-icon' name='search-outline'></ion-icon>
+                                </span>
+                            </label>
+                        </div>
+                        <div class='filter-category form-selected'>
+                            <div class='dropdown-center'>
+                                <button class='btn dropdown-toggle' data-bs-toggle='dropdown'>
+                                    Lọc theo loại
+                                </button>
+                                <ul class='dropdown-menu'>
+                                    <li><a class='dropdown-item' href='/home/food'>Món ăn</a></li>
+                                    <li><a class='dropdown-item' href='/home/drink'>Món nước</a></li>
+                                    <li><a class='dropdown-item' href='/home/sidefood'>Ăn kèm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='footer-list-product'>
+                        {{#each products}}
+                            <div class='footer-item-product'>
+                                <img class='footer-item-img' src={{img}} alt={{name}} />
+                                <h4 class='footer-item-name'>{{name}}</h4>
+                                <div class="price-wrap">
+                                    <h5 class='footer-item-price'>{{price}}</h5>
+                                    <h5>.000 đ</h5>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<form name='delete-voucher-action' method='POST'></form>
+

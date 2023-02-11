@@ -1,0 +1,43 @@
+<div class='container-left'>
+    {{> sidebar }}
+</div>
+<div class='container-right'>
+    <div class='create'>
+        <div class="create-left">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/burger-5863026-4897345.png" alt="">
+        </div>
+        <div class="create-right">
+            <div class='create-header'>Thêm món ăn</div>
+            <form method='POST' action='/foods/store'>
+                <div class='create-item'>
+                    <div class='create-title'>Tên sản phẩm :</div>
+                    <input type='text' class='create-input' name='name' id='name' value='' required />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Loại :</div>
+                    <select id='type' name='type' class='create-input' required>
+                        <option value=''>-- Chọn loại --</option>
+                        <option name='food'>food</option>
+                        <option name='drink'>drink</option>
+                        <option name='sidefood'>sidefood</option>
+                    </select>
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Đơn giá :</div>
+                    <input type='text' class='create-input' name='price' id='price' value='' required />
+                </div>
+                <div class='create-item'>
+                    <div class='create-title'>Hình :</div>
+                    <input type='text' class='create-input' name='img' id='img' value='' required />
+                    {{!-- <input type='file' class='create-input' name='img' id='img' value='' required /> --}}
+                </div>
+                <div class='create-button'>
+                    <button type='submit' class='btn btn-confirm'>Thêm mới</button>
+                </div>
+            </form>
+            <a href='/foods'>
+                <button class='btn btn-quit'>↩ Quay lại</button>
+            </a>
+        </div>
+    </div>
+</div>
