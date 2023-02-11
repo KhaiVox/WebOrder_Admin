@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const historyController = require('../app/controllers/HistoryController')
+const historyController = require('../../admin/app/controllers/HistoryController')
 
 router.get('/detailPurchase', historyController.detailPurchase)
 router.get('/:id/detail', historyController.detail)

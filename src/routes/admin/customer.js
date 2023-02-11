@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const customerController = require('../app/controllers/CustomerController')
+const customerController = require('../../admin/app/controllers/CustomerController')
 
 router.delete('/:id', customerController.softDelete)
 router.get('/trash', customerController.trash)

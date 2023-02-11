@@ -32,7 +32,10 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 
 // Static file
-app.use(express.static(path.join(__dirname, 'admin/public')))
+// app.use(express.static(path.join(__dirname, 'admin/public')))
+app.use(express.static(path.join(__dirname, 'user/public')))
+
+// Models
 const AccountModel = require('./admin/app/models/account')
 
 // Template engine
@@ -46,7 +49,8 @@ app.engine(
     }),
 )
 
-app.set('views', path.join(__dirname, 'admin', 'resources', 'views'))
+// app.set('views', path.join(__dirname, 'admin', 'resources', 'views'))
+app.set('views', path.join(__dirname, 'user', 'resources', 'views'))
 app.set('view engine', 'hbs')
 
 app.listen(port, () => {
@@ -141,5 +145,5 @@ app.get('/deleteCookie', function (req, res, next) {
 })
 
 // Nhận các route sau đó sử dụng (luôn để dưới cùng)
-const route = require('./admin/routes')
+const route = require('./routes')
 route(app)

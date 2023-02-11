@@ -1,7 +1,7 @@
 const AccountModel = require('../models/account')
 var jwt = require('jsonwebtoken')
 
-class UserController {
+class AuthController {
     // [GET] /login
     login(req, res, next) {
         res.render('login')
@@ -45,4 +45,4 @@ class UserController {
     // }
 }
 
-module.exports = new UserController()
+module.exports = new AuthController()

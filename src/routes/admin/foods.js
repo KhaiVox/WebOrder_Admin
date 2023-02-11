@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const foodController = require('../app/controllers/FoodController')
+const foodController = require('../../admin/app/controllers/FoodController')
 
 // hiển thị view create và tạo mới món ăn
 router.get('/create', foodController.create)
